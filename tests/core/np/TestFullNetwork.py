@@ -48,14 +48,14 @@ class FullNetworkWithSigmoid(unittest.TestCase):
 
         def optimizer_function(_w, grad):
             return _w - 0.001 * grad
-        self.run_model(model, optimizer_function, 15000)
+        self.run_model(model, optimizer_function, 1500)
 
     def test_parabola(self):
         model = models.Parabola()
 
         def optimizer_function(_w, grad):
             return _w - 0.001 * grad
-        self.run_model(model, optimizer_function, 15000)
+        self.run_model(model, optimizer_function, 1500)
 
     def run_model(self, model, optimizer_func, steps):
         var_map, start_nodes, l2_node = models.make__two_layer_model()
