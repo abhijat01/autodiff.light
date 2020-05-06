@@ -1,10 +1,9 @@
 # About 
 
-I started writing  code for explaining fundamentals of back propagation
-on a compute graph. The idea is to use  computational primitives e.g., additions and 
-multiplication, to build the graph and then use it for back propagation. It leads to a 
-verbose code setting up the network but everything also becomes very explicit, hence 
-easy to understand. 
+Code for explaining fundamentals of back propagation on a compute graph. The idea is 
+to use  computational primitives e.g., additions and multiplication, to build the graph 
+and then use it for back propagation. It results in rather verbose code while setting up 
+the network but everything also becomes very explicit, hence easy to understand. 
 
 # Code 
 ## Main code 
