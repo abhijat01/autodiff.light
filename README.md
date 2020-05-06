@@ -1,3 +1,22 @@
+# About 
+
+I started writing some basic code to use for explaining fundamentals of back propagation
+on a compute graph. The idea is to use the computational primitives e.g., additions and 
+multiplication, to build the graph. It leads to a verbose code setting up the network but 
+everything also becomes very explicit hence easy to understand. 
+
+# Code 
+## Main code 
+Main code is in core and core.np packages. core.np package contains code that works with 
+matrices, core package has code for simple functions. 
+
+## tests
+Tests are in "tests" directory. 
+
+## Jupyter 
+I have also committed some juputer notebooks that I am using to run equivalent pytorch 
+computations to compare the results. These are in "jupyter" folder. 
+
 # Prerequisites 
 
 ## Code 
