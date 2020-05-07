@@ -1,7 +1,8 @@
 import math
 from numpy.ma import var
 
-from . import log_debug as debug, log_info as info
+from . import log
+
 
 compute_node_list = []
 

@@ -18,7 +18,7 @@ class BasicNetworkNoActivation(unittest.TestCase):
 
         var_map = {'w': w, 'x': x, 'y_a': y_act, 'b': b}
 
-        wx_node = node.LinearTransform(w_node, x_node)
+        wx_node = node.MatrixMultiplication(w_node, x_node)
         sum_node = node.MatrixAddition(wx_node, b_node)
         l2_node = node.L2DistanceSquaredNorm(sum_node, ya_node)
         w_node.forward(var_map, None, self)
@@ -66,7 +66,7 @@ class BasicNetworkNoActivation(unittest.TestCase):
 
         var_map = {'w': w, 'x': x, 'y_a': y_act, 'b': b}
 
-        wx_node = node.LinearTransform(w_node, x_node)
+        wx_node = node.MatrixMultiplication(w_node, x_node)
         sum_node = node.MatrixAddition(wx_node, b_node)
         l2_node = node.L2DistanceSquaredNorm(sum_node, ya_node)
 
@@ -136,7 +136,7 @@ class BasicNetworkNoActivation(unittest.TestCase):
         y_act = np.array([[1, 2]]).T
         var_map = {'w': w, 'x': x, 'y_a': y_act, 'b': b}
 
-        wx_node = node.LinearTransform(w_node, x_node)
+        wx_node = node.MatrixMultiplication(w_node, x_node)
         sum_node = node.MatrixAddition(wx_node, b_node)
         l2_node = node.L2DistanceSquaredNorm(sum_node, ya_node)
         optimizer = node.OptimizerIterator(start_nodes, l2_node)

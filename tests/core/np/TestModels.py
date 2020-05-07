@@ -1,16 +1,15 @@
-import unittest
 import numpy as np
 import core.np.Nodes as node
 import math
 import random
 import matplotlib.pyplot as plt
 
-r"""
-Designed to be used only with TestFullNetwork class.. variable names etc. are 
-used in debugging in the testing code 
-"""
 
 def make__two_layer_model():
+    r"""
+    Designed to be used only with TestFullNetwork class.. variable names etc. are
+    used in debugging in the testing code
+    """
     w_node = node.VarNode('w', True)
     x_node = node.VarNode('x')
     ya_node = node.VarNode('y_a')
@@ -27,15 +26,31 @@ def make__two_layer_model():
     b2 = np.array([[.02, .3]]).T
     var_map = {'w': w, 'x': x, 'y_a': y_act, 'b': b, 'w2': w2, 'b2': b2}
 
-    wx_node = node.LinearTransform(w_node, x_node, "wx")
+    wx_node = node.MatrixMultiplication(w_node, x_node, "wx")
     sum_node = node.MatrixAddition(wx_node, b_node, "wx+b")
     sigmoid_node = node.SigmoidNode(sum_node, "sig")
 
-    wx2_node = node.LinearTransform(w2_node, sigmoid_node, "wx2")
+    wx2_node = node.MatrixMultiplication(w2_node, sigmoid_node, "wx2")
     sum2_node = node.MatrixAddition(wx2_node, b2_node, "wx2+b2")
 
     l2_node = node.L2DistanceSquaredNorm(sum2_node, ya_node, "l2")
     return var_map, start_nodes, l2_node
+
+
+class LinearModel:
+    def __init__(self, w, b):
+        self.w = w
+        self.b = b
+        self.input_dim = self.w.shape[1]
+
+    def data(self, epochs, batch_size=1):
+        np.random.seed(100)
+        epoch_count = 0
+        while epoch_count < epochs:
+            epoch_count += 1
+            x = np.random.rand(self.input_dim, batch_size)
+            y = self.w @ x + self.b
+            yield x, y
 
 
 class Transform1:
@@ -55,7 +70,7 @@ class Transform1:
             x1 = random.uniform(-1, 1)
             x2 = random.uniform(-1, 1)
             train = np.array([x1, x2]).reshape((2, 1))
-            target = np.array([self.x(x1,x2), self.y(x1,x2)]).reshape((2, 1))
+            target = np.array([self.x(x1, x2), self.y(x1, x2)]).reshape((2, 1))
             yield train, target
 
 
@@ -80,12 +95,13 @@ class Parabola:
         plt.ylabel('some numbers')
         plt.show()
 
-    def data(self, count):
+    def data(self, count, batch_size=1):
         np.random.seed(100)
         total = 0
         while total < count:
-            idx = np.random.choice(len(self.theta))
-            x = self.learning_data[:, idx].reshape((2, 1))
-            y = self.ground_truth[:, idx].reshape((2, 1))
+            idx = np.random.randint(len(self.theta), size=batch_size)
+            # idx = np.random.choice(len(self.theta))
+            x = self.learning_data[:, idx]  # .reshape((2, 1))
+            y = self.ground_truth[:, idx]  # .reshape((2, 1))
             total += 1
             yield x, y

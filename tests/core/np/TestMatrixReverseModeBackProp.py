@@ -62,7 +62,7 @@ class BinaryOpBackProp(unittest.TestCase):
         x_grad_expected = np.multiply(w, local_grad).sum(axis=0).T
         x_grad_expected = np.reshape(x_grad_expected, (len(x_grad_expected), 1))
 
-        mult_node = node.LinearTransform(w_node, x_node, name="wx")
+        mult_node = node.MatrixMultiplication(w_node, x_node, name="wx")
         var_map = {'x': x, 'w': w}
         x_node.forward(var_map, None, self)
         self.assertIsNone(mult_node.value(var_map))

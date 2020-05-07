@@ -4,6 +4,7 @@ import core.np.Nodes as node
 import math
 import matplotlib.pyplot as plt
 import tests.core.np.TestModels as models
+from core import debug, info
 
 
 class FullNetworkWithSigmoid(unittest.TestCase):
@@ -19,7 +20,7 @@ class FullNetworkWithSigmoid(unittest.TestCase):
         b = np.array([[-2, -3]]).T
         y_act = np.array([[.5, .7]]).T
         var_map = {'w': w, 'x': x, 'y_a': y_act, 'b': b}
-        wx_node = node.LinearTransform(w_node, x_node)
+        wx_node = node.MatrixMultiplication(w_node, x_node)
         sum_node = node.MatrixAddition(wx_node, b_node)
         sigmoid_node = node.SigmoidNode(sum_node)
         l2_node = node.L2DistanceSquaredNorm(sigmoid_node, ya_node)
@@ -45,19 +46,22 @@ class FullNetworkWithSigmoid(unittest.TestCase):
 
     def test_transform1(self):
         model = models.Transform1()
-
+        # change this to 10,000 when running real test
+        iter_count = 1500
         def optimizer_function(_w, grad):
             return _w - 0.001 * grad
-        self.run_model(model, optimizer_function, 1500)
+        self.run_model(model, optimizer_function, iter_count)
 
     def test_parabola(self):
         model = models.Parabola()
+        # Change this to 20,000 when running real test
+        iter_count = 15000
 
         def optimizer_function(_w, grad):
             return _w - 0.001 * grad
-        self.run_model(model, optimizer_function, 1500)
+        self.run_model(model, optimizer_function, iter_count)
 
-    def run_model(self, model, optimizer_func, steps):
+    def run_model(self, model, optimizer_func, epochs):
         var_map, start_nodes, l2_node = models.make__two_layer_model()
         optimizer = node.OptimizerIterator(start_nodes, l2_node, optimizer_func)
         node.OptimizerIterator.set_log_to_info()
@@ -66,7 +70,7 @@ class FullNetworkWithSigmoid(unittest.TestCase):
         sum_losses = 0
         av = []
         x_axis = []
-        for (x, y) in model.data(steps):
+        for (x, y) in model.data(epochs, 2):
             # print("count:{}".format(count))
             var_map['x'] = x
             var_map['y_a'] = y
@@ -86,15 +90,16 @@ class FullNetworkWithSigmoid(unittest.TestCase):
         average_l100 = sum(last_100) / len(last_100)
         av.append([count, average_l100])
 
-        print(var_map['w'])
-        print("-------------")
-        print(var_map['b'])
-        print("---- w2 ----- ")
-        print(var_map['w2'])
-        print("----- b2 ----")
-        print(var_map['b2'])
+        info("Now printing w and b ..W:")
+        info(var_map['w'])
+        info("-------------b:")
+        info(var_map['b'])
+        info("---- print w2 and b2...  W2:")
+        info(var_map['w2'])
+        info("----- b2 ----")
+        info(var_map['b2'])
 
-        print("[{}] Current loss:{} Average loss so far:{}".format(count, loss, average_l100))
+        info("[{}] Current loss:{} Average loss so far:{}".format(count, loss, average_l100))
         plt.scatter(x_axis, losses)
         av_np = np.array(av)
         plt.plot(av_np[:,0], av_np[:,1], 'r')

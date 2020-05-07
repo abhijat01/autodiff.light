@@ -1,7 +1,7 @@
 import numpy as np
 
-from .. import log_debug as debug, log_info as info
-from .. import log_level_debug as set_debug, log_level_info as set_info
+from .. import debug
+from .. import log_at_debug, log_at_info
 
 compute_node_list = []
 
@@ -98,9 +98,9 @@ class MComputeNode:
                                                                                       grad_shape,
                                                                                       _value.shape
                                                                                       ))
-        debug(tab+"Downstream grad received:")
+        debug(tab + "Downstream grad received:")
         debug(downstream_grad)
-        debug(tab+"Value:")
+        debug(tab + "Value:")
         debug(_value)
 
         should_continue = self._process_backprop(downstream_grad, downstream_node, var_map)
@@ -176,14 +176,19 @@ class BinaryMatrixOp(MComputeNode):
         self.fwd_count += 1
         if not self.can_go_fwd():
             return
-        self._do_compute(var_map)
+        self.node_value = self._do_compute(var_map)
         self._forward_downstream(self.node_value, var_map)
 
     def _do_compute(self, var_map):
+        r"""
+        implementations must return the computed value
+        :param var_map:
+        :return:
+        """
         raise Exception("Not implemented. Subclass responsibility")
 
 
-class MatrixMult(BinaryMatrixOp):
+class MatrixMultiplication(BinaryMatrixOp):
     r"""
     Linear transform from R^n space to R^m
     Represents Wx
@@ -196,32 +201,86 @@ class MatrixMult(BinaryMatrixOp):
         a_matrix = self.a_node.value(var_map)
         b_matrix = self.b_node.value(var_map)
         # info("a_matrix shape:{}, b_matrix_shape:{}".format(a_matrix.shape, b_matrix.shape))
-        self.node_value = a_matrix @ b_matrix
-
-
-class LinearTransform(MatrixMult):
-    r"""
-    Designed to represent Wx where W is M x N and X is N X 1 . W represents the linear
-    transform
-    """
-
-    def __init__(self, w_node, x_node, name=None):
-        MatrixMult.__init__(self, w_node, x_node, name)
+        return a_matrix @ b_matrix
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         w = self.a_node.value(var_map)
-        w_shape = w.shape
-        x_ones = np.ones((w_shape[0], 1))
-        # info("_grad_shape:{}".format(self._grad_value.shape))
-        local_grad = self._grad_value.reshape((w_shape[0], 1))
-        x_ones_with_grad = np.multiply(x_ones, local_grad)
+        x = self.b_node.value(var_map)
+        w_grad = self._grad_value @ x.T
+        x_grad = w.T @ self._grad_value
+        self.a_node.backward(w_grad, self, var_map, tab + " ")
+        self.b_node.backward(x_grad, self, var_map, tab + " ")
 
-        grad_to_w = x_ones_with_grad @ self.b_node.value(var_map).T
-        grad_to_x = np.multiply(w, local_grad).sum(axis=0).T
-        grad_to_x = np.reshape(grad_to_x, (len(grad_to_x), 1))
 
-        self.a_node.backward(grad_to_w, self, var_map, tab + " ")
-        self.b_node.backward(grad_to_x, self, var_map, tab + " ")
+class DenseLayer(MComputeNode):
+    r"""
+    A direct implementation of dense layer without the full compute graph
+    Designed to represent Wx +b  where W is output_dim x N and X is N X 1
+    and b is output_dim x 1
+    """
+
+    def __init__(self, input_node, output_dim, initial_w=None, initial_b=None, name=None):
+        r"""
+
+        :param input_node: source of "x" also used to determine "N" of the weight matrix
+        :param output_dim: dimensionality of the output vector
+        :param initial_w: for custom initialization, testing, persistence etc.
+        :param initial_b: for custom initialization, testing, persistence etc.
+        :param name: easy to track name. This is appended by an ID to make sure names are unique
+        """
+        MComputeNode.__init__(self, name, is_trainable=True)
+        self._add_upstream_nodes([input_node])
+        self.input_node = input_node
+        self.output_dim = output_dim
+        self.w = initial_w
+        self.b = initial_b
+        self.w_grad = None
+        self.b_grad = None
+        self.weights_initialized = self.w and self.b
+
+    def init_weights(self, input_dim):
+        r"""
+
+        :param var_map:
+        :param input_dim:  number of rows in the input - dimensionality of the input
+        vector
+        :return:
+        """
+        self.w = np.random.rand(self.output_dim, input_dim)
+        self.b = np.random.rand(self.output_dim).reshape((self.output_dim, 1))
+        self.weights_initialized = True
+
+    def forward(self, var_map, upstream_value, upstream_node):
+        x = self.input_node.value(var_map)
+        if not self.weights_initialized:
+            self.init_weights(x.shape[0])
+        self.node_value = self.w @ x + self.b
+        self._forward_downstream(self.node_value, var_map)
+
+    def get_component_grads(self):
+        r"""
+
+        :return: a dictionary  with 'w' containing the w gradient and 'b' containing b gradient
+        """
+        return {'w': self.w_grad, 'b': self.b_grad}
+
+    def get_w(self):
+        return self.w
+
+    def get_b(self):
+        return self.b
+
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+        x = self.input_node.value(var_map)
+        incoming_grad = self.grad_value()
+        self.b_grad = np.average(incoming_grad, axis=1).reshape((self.output_dim, 1))
+        self.w_grad = incoming_grad @ x.T
+        input_grad = self.w.T @ incoming_grad
+        self.input_node.backward(input_grad, self, var_map, tab + " ")
+
+    def _optimizer_step(self, optimizer, var_map):
+        self.w = optimizer(self.w, self.w_grad)
+        self.b = optimizer(self.b, self.b_grad)
 
 
 class MatrixAddition(BinaryMatrixOp):
@@ -232,7 +291,7 @@ class MatrixAddition(BinaryMatrixOp):
     def _do_compute(self, var_map):
         a_matrix = self.a_node.value(var_map)
         b_matrix = self.b_node.value(var_map)
-        self.node_value = a_matrix + b_matrix
+        return a_matrix + b_matrix
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         a_node = self.a_node
@@ -253,7 +312,7 @@ class MatrixSubtraction(BinaryMatrixOp):
     def _do_compute(self, var_map):
         a_matrix = self.a_node.value(var_map)
         b_matrix = self.b_node.value(var_map)
-        self.node_value = a_matrix - b_matrix
+        return a_matrix - b_matrix
 
 
 class VarNode(MComputeNode):
@@ -291,6 +350,7 @@ class SigmoidNode(MComputeNode):
         grad_downstream = sig_grad * self.grad_value()
         self.node.backward(grad_downstream, self, var_map, tab + " ")
 
+
 class L2DistanceSquaredNorm(BinaryMatrixOp):
     r"""
     y_pre and y_actual should both be N x 1 matrices but there are no
@@ -306,7 +366,7 @@ class L2DistanceSquaredNorm(BinaryMatrixOp):
         y_pred = y_pred.reshape((-1,))
         y_act = y_act.reshape((-1,))
         y_del = y_pred - y_act
-        self.node_value = np.sum(np.square(y_del))
+        return np.sum(np.square(y_del)) / y_del.size
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         y_pred = self.a_node.value(var_map)
@@ -348,11 +408,11 @@ class OptimizerIterator:
 
     @staticmethod
     def set_log_to_info():
-        set_info()
+        log_at_info()
 
     @staticmethod
     def set_log_to_debug():
-        set_debug()
+        log_at_debug()
 
     def simple_name(self):
         return OptimizerIterator.__name__
