@@ -24,6 +24,17 @@ For the code, you primarily need numpy but I have also used networkx and pyvis f
 visualization which I should probably remove
 
 ### Installing prerequisites 
+#### pip 
+    
+I have manually changed the contents and removed most of the items listed when using 
+pip freeze. Create a new conda or basic virtual environment, activate it  and then run the 
+following command from within the environment 
+
+    pip install -r pip-requirements.txt 
+    
+#### Conda 
+Using conda does not yet work 
+
 Using conda - this has been created using 
 
     conda list --export > conda-requirements.txt 
@@ -31,15 +42,6 @@ Using conda - this has been created using
 You can create a new conda environment using the command 
 
     conda create --name <envname> --file conda-requirements.txt
-    
-Using pip - this has been created using 
-   
-    pip freeze >  pip-requirements.txt 
-    
-You should create a new conda or basic virtual environment and then run the 
-following command:
-
-    pip install -r pip-requirements.txt 
     
 ## Jupyter notebooks 
 

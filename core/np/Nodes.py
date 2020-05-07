@@ -99,9 +99,9 @@ class MComputeNode:
                                                                                       _value.shape
                                                                                       ))
         debug(tab + "Downstream grad received:")
-        debug(downstream_grad)
+        debug(repr(downstream_grad))
         debug(tab + "Value:")
-        debug(_value)
+        debug(repr(_value))
 
         should_continue = self._process_backprop(downstream_grad, downstream_node, var_map)
         if not should_continue:
@@ -294,10 +294,10 @@ class MatrixAddition(BinaryMatrixOp):
         return a_matrix + b_matrix
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
-        a_node = self.a_node
-        b_node = self.b_node
-        a_eyes = np.ones_like(a_node.value(var_map))
-        b_eyes = np.ones_like(b_node.value(var_map))
+        a = self.a_node.value(var_map)
+        b = self.b_node.value(var_map)
+        a_eyes = np.ones_like(a)
+        b_eyes = np.ones_like(b)
         grad_2_a = np.multiply(a_eyes, downstream_grad)
         grad_2_b = np.multiply(b_eyes, downstream_grad)
         self.a_node.backward(grad_2_a, self, var_map, tab + " ")
@@ -313,6 +313,16 @@ class MatrixSubtraction(BinaryMatrixOp):
         a_matrix = self.a_node.value(var_map)
         b_matrix = self.b_node.value(var_map)
         return a_matrix - b_matrix
+
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+        a = self.a_node.value(var_map)
+        b = self.b_node.value(var_map)
+        a_eyes = np.ones_like(a)
+        b_eyes = np.ones_like(b)
+        grad_2_a = np.multiply(a_eyes, downstream_grad)
+        grad_2_b = np.multiply(b_eyes, downstream_grad)
+        self.a_node.backward(grad_2_a, self, var_map, tab + " ")
+        self.b_node.backward(-grad_2_b, self, var_map, tab + " ")
 
 
 class VarNode(MComputeNode):
