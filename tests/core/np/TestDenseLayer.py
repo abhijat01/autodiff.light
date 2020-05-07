@@ -48,12 +48,12 @@ class DenseLayerStandAlone(unittest.TestCase):
         optimizer = node.OptimizerIterator([x_node, y_node], l2_node, optimizer_function)
         log_at_info()
         epoch = 0
-        for x, y in model.data(40000, 400):
+        for x, y in model.data(40000, 64):
             var_map = {'x': x, 'y': y}
             loss = optimizer.step(var_map, 1.0)
             if epoch % 1000 == 0:
                 debug("[{}] Loss:{}".format(epoch, loss))
-                if epoch % 10000 == 0:
+                if epoch % 1000 == 0:
                     info("[{}] Loss:{}".format(epoch, loss))
             epoch += 1
 

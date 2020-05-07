@@ -45,4 +45,8 @@ following command:
 
 Jupyter notebooks require pytorch. Any recent version should work. 
 
+## Running pyunit on command prompt 
+
+    python -m  unittest  tests.core.np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization
+
 
