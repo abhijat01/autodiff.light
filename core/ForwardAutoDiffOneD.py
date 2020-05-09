@@ -1,4 +1,5 @@
 import math
+from . import debug
 
 
 class Func:
@@ -16,6 +17,10 @@ class Func:
 
     def symbolic_value(self, var_name="x"):
         raise Exception("Not implemented")
+
+    def derivative(self):
+        raise Exception("Not implemented. This should return another "
+                        "Func type representing the derivative of this function.")
 
     def dim(self):
         return 1
@@ -54,7 +59,6 @@ class Negative(Func):
 
     def symbolic_deriv(self, var_name='x'):
         r"""
-        TODO: Symbolic derivative should be a function!
         :param var_name:
         :return:
         """
@@ -174,9 +178,9 @@ class SimpleComposite(Func):
 
     def symbolic_value(self, var_name="x"):
         gx_string = self.g.symbolic_value(var_name)
-        # print("gx_string:{}".format(gx_string))
+        debug("gx_string:{}".format(gx_string))
         fx_string = self.f.symbolic_value(gx_string)
-        # print("fx_string:{}".format(fx_string))
+        debug("fx_string:{}".format(fx_string))
         return fx_string
 
     def symbolic_deriv(self, var_name='x'):

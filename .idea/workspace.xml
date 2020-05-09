@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0fc7163f-473c-4b51-a488-7b8602a4d407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Convolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Convolution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Nodes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TestConvolutionStandalone.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TestConvolutionStandalone.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ForwardAutoDiffOneD.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/ForwardAutoDiffOneD.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ReverseModeAutoDiff.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/ReverseModeAutoDiff.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jupyter/core.np/conv_symbolic_math.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/conv_symbolic_math.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -36,6 +35,27 @@
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/ForwardAutoDiffOneD.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2125">
+              <caret line="22" column="82" lean-forward="true" selection-start-line="22" selection-start-column="82" selection-end-line="22" selection-end-column="82" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/ReverseModeAutoDiff.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -70,7 +90,6 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tests/core/np/TestBasicBatchProcess.py" />
-        <option value="$PROJECT_DIR$/core/ReverseModeAutoDiff.py" />
         <option value="$PROJECT_DIR$/core/log.py" />
         <option value="$PROJECT_DIR$/core/__init__.py" />
         <option value="$PROJECT_DIR$/tests/core/np/TestFullNetwork.py" />
@@ -85,12 +104,14 @@
         <option value="$PROJECT_DIR$/core/np/Nodes.py" />
         <option value="$PROJECT_DIR$/core/np/Convolution.py" />
         <option value="$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py" />
+        <option value="$PROJECT_DIR$/core/ForwardAutoDiffOneD.py" />
+        <option value="$PROJECT_DIR$/core/ReverseModeAutoDiff.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="316" />
-    <option name="y" value="32" />
+    <option name="x" value="430" />
+    <option name="y" value="35" />
     <option name="width" value="1650" />
     <option name="height" value="1036" />
   </component>
@@ -106,6 +127,11 @@
             <path>
               <item name="autodiff.light" type="b2602c69:ProjectViewProjectNode" />
               <item name="autodiff.light" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="autodiff.light" type="b2602c69:ProjectViewProjectNode" />
+              <item name="autodiff.light" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -246,7 +272,7 @@
       <updated>1588794516666</updated>
       <workItem from="1588794522889" duration="22224000" />
       <workItem from="1588874727937" duration="237000" />
-      <workItem from="1588876480954" duration="35394000" />
+      <workItem from="1588876480954" duration="36854000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit ..">
       <created>1588794612152</created>
@@ -325,13 +351,17 @@
       <option name="project" value="LOCAL" />
       <updated>1588988516316</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Convolution working now in testing&#10;&#10;Testing convolution with pytorch, updated  unit test.">
+      <created>1589064820663</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1589064820663</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 17h 16m 39s.xml">
-      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 17h 18m 09s.xml">
       <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
@@ -359,19 +389,22 @@
     <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 18h 50m 41s.xml">
       <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 18h 52m 31s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57902000" />
+    <option name="totallyTimeSpent" value="59362000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="316" y="32" width="1650" height="1036" extended-state="0" />
+    <frame x="430" y="35" width="1650" height="1036" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4992272" visible="true" weight="0.18616351" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4992272" visible="true" weight="0.18616351" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32853982" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3761062" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3761062" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.19358407" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -399,7 +432,8 @@
     <MESSAGE value="Dense layer working now. Added code, pyunit core, and notebook with pytorch testing code." />
     <MESSAGE value="Adding documentation" />
     <MESSAGE value="Convolution almost working. Forward works and is exactly in agreement with pytorch. &#10;&#10;Backprop gradients are off. I wonder if thats because I am summing up gradient contributions to the kernel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Convolution almost working. Forward works and is exactly in agreement with pytorch. &#10;&#10;Backprop gradients are off. I wonder if thats because I am summing up gradient contributions to the kernel" />
+    <MESSAGE value="Convolution working now in testing&#10;&#10;Testing convolution with pytorch, updated  unit test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Convolution working now in testing&#10;&#10;Testing convolution with pytorch, updated  unit test." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -448,25 +482,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/ReverseModeAutoDiff.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/log.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
           <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/ForwardAutoDiffOneD.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/core/np/NetworkViz.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -649,6 +670,23 @@
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/ForwardAutoDiffOneD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2125">
+          <caret line="22" column="82" lean-forward="true" selection-start-line="22" selection-start-column="82" selection-end-line="22" selection-end-column="82" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/ReverseModeAutoDiff.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
