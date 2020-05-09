@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fc7163f-473c-4b51-a488-7b8602a4d407" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/data/mnist.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.data/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/np/Convolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Convolution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/py_api.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/py_api.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pip-requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pip-requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/np/Nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Nodes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TestConvolutionStandalone.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TestConvolutionStandalone.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/np/Convolution.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="117" selection-start-line="117" selection-end-line="117" />
+            <state relative-caret-position="357">
+              <caret line="114" column="26" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -34,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="47" column="66" lean-forward="true" selection-start-line="47" selection-start-column="66" selection-end-line="47" selection-end-column="66" />
+            <state relative-caret-position="187">
+              <caret line="92" column="92" selection-start-line="92" selection-start-column="92" selection-end-line="92" selection-end-column="92" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -46,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/np/Nodes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="400" column="8" selection-start-line="400" selection-start-column="8" selection-end-line="400" selection-end-column="8" />
+            <state relative-caret-position="257">
+              <caret line="383" column="18" selection-start-line="383" selection-start-column="18" selection-end-line="383" selection-end-column="18" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -80,21 +77,21 @@
         <option value="$PROJECT_DIR$/tests/core/np/__init__.py" />
         <option value="$PROJECT_DIR$/tests/core/np/TestModels.py" />
         <option value="$PROJECT_DIR$/tests/core/np/TestDenseLayer.py" />
-        <option value="$PROJECT_DIR$/core/np/Nodes.py" />
         <option value="$PROJECT_DIR$/core/np/conv_nodes.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/pip-requirements.txt" />
         <option value="$PROJECT_DIR$/core/data/mnist.py" />
         <option value="$PROJECT_DIR$/test.data/.gitignore" />
+        <option value="$PROJECT_DIR$/core/np/Nodes.py" />
         <option value="$PROJECT_DIR$/core/np/Convolution.py" />
         <option value="$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="329" />
-    <option name="y" value="10" />
-    <option name="width" value="1695" />
+    <option name="x" value="316" />
+    <option name="y" value="32" />
+    <option name="width" value="1650" />
     <option name="height" value="1036" />
   </component>
   <component name="ProjectView">
@@ -109,24 +106,6 @@
             <path>
               <item name="autodiff.light" type="b2602c69:ProjectViewProjectNode" />
               <item name="autodiff.light" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="autodiff.light" type="b2602c69:ProjectViewProjectNode" />
-              <item name="autodiff.light" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="autodiff.light" type="b2602c69:ProjectViewProjectNode" />
-              <item name="autodiff.light" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="autodiff.light" type="b2602c69:ProjectViewProjectNode" />
-              <item name="autodiff.light" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="np" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -160,27 +139,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small">
-    <configuration name="mnist" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2">
+    <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_contribution_tracker" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/data/mnist.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;TestConvolutionStandalone.MyTestCase.test_contribution_tracker&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
@@ -230,7 +202,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_download_mnist" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -241,24 +213,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestConvolutionStandalone.MyTestCase.test_download_mnist&quot;" />
+      <option name="_new_target" value="&quot;TestConvolutionStandalone.MyTestCase.test_convolution_with_l2&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.mnist" />
       <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d" />
-      <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_download_mnist" />
       <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d_plotting" />
       <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" />
+      <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" />
+      <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_contribution_tracker" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" />
+        <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_contribution_tracker" />
         <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" />
         <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d_plotting" />
         <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d" />
-        <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_download_mnist" />
-        <item itemvalue="Python.mnist" />
       </list>
     </recent_temporary>
   </component>
@@ -274,7 +246,7 @@
       <updated>1588794516666</updated>
       <workItem from="1588794522889" duration="22224000" />
       <workItem from="1588874727937" duration="237000" />
-      <workItem from="1588876480954" duration="26604000" />
+      <workItem from="1588876480954" duration="35394000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit ..">
       <created>1588794612152</created>
@@ -346,54 +318,61 @@
       <option name="project" value="LOCAL" />
       <updated>1588890004084</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Convolution almost working. Forward works and is exactly in agreement with pytorch. &#10;&#10;Backprop gradients are off. I wonder if thats because I am summing up gradient contributions to the kernel">
+      <created>1588988516316</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1588988516316</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.08 at 17h 19m 18s.xml">
-      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 17h 16m 39s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.08 at 17h 21m 10s.xml">
-      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 17h 18m 09s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.08 at 17h 23m 51s.xml">
-      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 17h 18m 18s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.08 at 17h 25m 33s.xml">
-      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 17h 21m 39s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.08 at 17h 26m 34s.xml">
-      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 18h 41m 53s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.08 at 17h 27m 41s.xml">
-      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 18h 42m 19s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.08 at 17h 29m 58s.xml">
-      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 18h 43m 22s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.08 at 17h 30m 41s.xml">
-      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 18h 44m 47s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.08 at 17h 30m 58s.xml">
-      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 18h 45m 27s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.08 at 21h 18m 46s.xml">
-      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2 - 2020.05.09 at 18h 50m 41s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49112000" />
+    <option name="totallyTimeSpent" value="57902000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="531" y="51" width="1695" height="1036" extended-state="0" />
+    <frame x="316" y="32" width="1650" height="1036" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4992272" visible="true" weight="0.11804281" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4992272" visible="true" weight="0.18616351" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32853982" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4579646" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933628" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3761062" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.19358407" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -408,7 +387,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info anchor="right" id="Structure" order="5" sideWeight="0.5007728" visible="true" weight="0.12232416" />
+      <window_info anchor="right" id="Structure" order="5" sideWeight="0.5007728" visible="true" weight="0.12578617" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +398,8 @@
     <MESSAGE value="Added basic documentation and requirements file" />
     <MESSAGE value="Dense layer working now. Added code, pyunit core, and notebook with pytorch testing code." />
     <MESSAGE value="Adding documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding documentation" />
+    <MESSAGE value="Convolution almost working. Forward works and is exactly in agreement with pytorch. &#10;&#10;Backprop gradients are off. I wonder if thats because I am summing up gradient contributions to the kernel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Convolution almost working. Forward works and is exactly in agreement with pytorch. &#10;&#10;Backprop gradients are off. I wonder if thats because I am summing up gradient contributions to the kernel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -428,6 +408,11 @@
           <url>file://$PROJECT_DIR$/tests/core/np/TestDenseLayer.py</url>
           <line>31</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/core/np/Nodes.py</url>
+          <line>381</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -439,16 +424,18 @@
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestFullNetwork_FullNetworkWithSigmoid_test_parabola.coverage" NAME="Unittests for TestFullNetwork.FullNetworkWithSigmoid.test_parabola Coverage Results" MODIFIED="1588805895746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_linear_optimization.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization Coverage Results" MODIFIED="1588874749844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution2d.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d Coverage Results" MODIFIED="1588965433524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_contribution_tracker.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_contribution_tracker Coverage Results" MODIFIED="1589058418065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestMatrixReverseModeFwdProp_BinaryOpFwdProp_test_basic.coverage" NAME="Unittests for TestMatrixReverseModeFwdProp.BinaryOpFwdProp.test_basic Coverage Results" MODIFIED="1588808121456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_np.coverage" NAME="Unittests in np Coverage Results" MODIFIED="1588797066703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_tests.coverage" NAME="Unittests in tests Coverage Results" MODIFIED="1588797241501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2 Coverage Results" MODIFIED="1589064750443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_optimization.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_optimization Coverage Results" MODIFIED="1588872309095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestDenseLayer_DenseLayerStandAlone_test_something.coverage" NAME="Unittests for TestDenseLayer.DenseLayerStandAlone.test_something Coverage Results" MODIFIED="1588812253093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution2d_plotting.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d_plotting Coverage Results" MODIFIED="1588965490280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_basic_op.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_basic_op Coverage Results" MODIFIED="1588872470344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_TestFwdModeOneDim_py.coverage" NAME="Unittests in TestFwdModeOneDim.py Coverage Results" MODIFIED="1588797115413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$mnist.coverage" NAME="mnist Coverage Results" MODIFIED="1588962655989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small Coverage Results" MODIFIED="1588988315347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small Coverage Results" MODIFIED="1588988854421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/conda-requirements.txt">
@@ -599,16 +586,6 @@
     <entry file="file://$PROJECT_DIR$/test.data/mnist/t10k-labels-idx1-ubyte">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/data/mnist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-326">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Anaconda3/envs/autodiff/Lib/site-packages/sklearn/datasets/_openml.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-253">
@@ -630,25 +607,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/autodiff.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4917" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/data/mnist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/np/Nodes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="400" column="8" selection-start-line="400" selection-start-column="8" selection-end-line="400" selection-end-column="8" />
+        <state relative-caret-position="257">
+          <caret line="383" column="18" selection-start-line="383" selection-start-column="18" selection-end-line="383" selection-end-column="18" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/autodiff.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4917" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/np/Convolution.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
+        <state relative-caret-position="357">
+          <caret line="114" column="26" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
@@ -657,8 +644,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="47" column="66" lean-forward="true" selection-start-line="47" selection-start-column="66" selection-end-line="47" selection-end-column="66" />
+        <state relative-caret-position="187">
+          <caret line="92" column="92" selection-start-line="92" selection-start-column="92" selection-end-line="92" selection-end-column="92" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

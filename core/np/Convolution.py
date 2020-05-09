@@ -1,6 +1,6 @@
 from . import Nodes as node
 import numpy as np
-from core import debug
+# from core import debug, info
 
 
 class Convolution2D(node.MComputeNode):
@@ -34,6 +34,8 @@ class Convolution2D(node.MComputeNode):
             self.kernel_size = kernel.shape[0]
         else:
             self.kernel = np.random.rand(self.kernel_size, self.kernel_size)
+        self.x_contrib_tracker = None
+        self.w_contrib_tracker = None
 
     def forward(self, var_map, upstream_value, upstream_node):
         x = self.input_node.value(var_map)
@@ -44,14 +46,24 @@ class Convolution2D(node.MComputeNode):
         if not expected_shape == x.shape:
             x = x.reshape(expected_shape)
 
-        self.node_value = np.zeros((self.m - self.kernel.shape[0]+1, self.n - self.kernel.shape[1]+1))
-        for i in range(self.m - self.kernel.shape[0]+1):
+        self.x_contrib_tracker = ConvContributionTracker(x.shape)
+        self.w_contrib_tracker = ConvContributionTracker(self.kernel.shape)
+        self.node_value = np.zeros((self.m - self.kernel.shape[0] + 1, self.n - self.kernel.shape[1] + 1))
+        for i in range(self.m - self.kernel_size + 1):
             i_end = i + self.kernel_size
-            for j in range(self.n - self.kernel.shape[1]+1):
+            for j in range(self.n - self.kernel_size + 1):
                 j_end = j + self.kernel_size
                 x_part = x[i:i_end, j:j_end]
                 prod = x_part * self.kernel
                 self.node_value[i, j] = np.sum(prod) + self.bias
+                y_contrib = (i, j)
+                w_i = 0
+                for m in range(i, i_end):
+                    w_j = 0
+                    for n in range(j, j_end):
+                        w_contrib = (w_i, w_j)
+                        self.x_contrib_tracker.add_contribution(m, n, w_contrib, y_contrib)
+
                 # debug("(i,j)=({},{})".format(i, j))
         self._forward_downstream(self.node_value, var_map)
 
@@ -67,27 +79,37 @@ class Convolution2D(node.MComputeNode):
         """
         x = self.input_node.value(var_map)
         x = x.reshape((self.m, self.n))
-        self.x_grad = np.zeros((self.m, self.n))
+        self.gradient_to_x = np.zeros((self.m, self.n))
+        for i in range(self.m):
+            for j in range(self.n):
+                contributions = self.x_contrib_tracker.get_contributions(i, j)
+                for wy_dict in contributions:
+                    wi, wj = wy_dict['w']
+                    yi, yj = wy_dict['y']
+                    self.gradient_to_x[i][j] += self.kernel[wi, wj] * self._grad_value[yi][yj]
+
         self.kernel_grad = np.zeros((self.kernel_size, self.kernel_size))
-        self.bias_grad = 0
+        grad_m, grad_n = self._grad_value.shape
+        for i in range(self.m - grad_m + 1):
+            for j in range(self.n - grad_n + 1):
+                x_part = x[i:i + grad_m, j:j + grad_n] * self._grad_value
+                self.kernel_grad[i, j] = np.sum(x_part)/x_part.size
 
-        for i in range(self.m - self.kernel.shape[0]+1):
-            for j in range(self.n - self.kernel.shape[1]+1):
-                y_grad_part = self._grad_value[i, j]
-                self._collect_component_grads(i, j, x, y_grad_part)
-
-        self.input_node.backward(self.x_grad, self, var_map, tab + " ")
+        self.bias_grad = np.sum(self._grad_value) / self._grad_value.size
+        self.input_node.backward(self.gradient_to_x, self, var_map, tab + " ")
 
     def _collect_component_grads(self, i, j, x, y_grad):
         x_window = x[i:i + self.kernel_size, j:j + self.kernel_size]
         grad_to_x_window = self.kernel * y_grad
-        self.x_grad[i:i + self.kernel_size, j:j + self.kernel_size] += grad_to_x_window
-        self.bias_grad += y_grad
+        self.gradient_to_x[i:i + self.kernel_size, j:j + self.kernel_size] += grad_to_x_window
         grad_to_kernel = x_window * y_grad
         self.kernel_grad += grad_to_kernel
 
-    def get_component_grads(self):
-        return {'k': self.kernel_grad, 'b': self.bias}
+    def get_kernel_grad(self):
+        return self.kernel_grad
+
+    def get_bias_grad(self):
+        return self.bias_grad
 
     def get_kernel(self):
         return self.kernel
@@ -100,11 +122,30 @@ class Convolution2D(node.MComputeNode):
         self.bias = optimizer(self.bias, self.bias_grad)
 
 
+class ConvContributionTracker:
+    def __init__(self, shape, shift_amt=64):
+        self.shift_i = shift_amt
+        self.contribs = []
+        for i in range(shape[0]):
+            row = []
+            self.contribs.append(row)
+            for j in range(shape[1]):
+                row.append([])
+
+    def add_contribution(self, i, j, w_tuple, y_tuple):
+        data = {'w': w_tuple, 'y': y_tuple}
+        self.contribs[i][j].append(data)
+
+    def get_contributions(self, i, j):
+        return self.contribs[i][j]
+
+
 class MaxPool2D(node.MComputeNode):
     r"""
     Simple max pool with 1 stride only
     """
-    def __init__(self, input_node,  pool_size=(2, 2), name=None):
+
+    def __init__(self, input_node, pool_size=(2, 2), name=None):
         r"""
 
         :param input_node:  must be  a 2D array
@@ -122,9 +163,9 @@ class MaxPool2D(node.MComputeNode):
         x = self.input_node.value(var_map)
         x_m = x.shape[0]
         x_n = x.shape[1]
-        self.node_value = np.zeros((x_m-del_m+1, x_n-del_n+1))
-        for i in range(x_m-del_m+1):
-            for j in range(x_n-del_n+1):
+        self.node_value = np.zeros((x_m - del_m + 1, x_n - del_n + 1))
+        for i in range(x_m - del_m + 1):
+            for j in range(x_n - del_n + 1):
                 max_i, max_j = self.get_max_idx_in_window(i, j, x)
                 self.node_value[i, j] = x[max_i, max_j]
         self._forward_downstream(self.node_value, var_map)
@@ -137,8 +178,8 @@ class MaxPool2D(node.MComputeNode):
         x_n = x.shape[1]
         self.x_grad = np.zeros_like(x)
 
-        for i in range(x_m-del_m+1):
-            for j in range(x_n-del_n+1):
+        for i in range(x_m - del_m + 1):
+            for j in range(x_n - del_n + 1):
                 max_i, max_j = self.get_max_idx_in_window(i, j, x)
                 self.x_grad[max_i, max_j] += self._grad_value[max_i, max_j]
 
@@ -146,8 +187,8 @@ class MaxPool2D(node.MComputeNode):
         max_i = i_start
         max_j = j_start
         max_value = None
-        for i in range(i_start, i_start+self.pool_size[0]):
-            for j in range(j_start, j_start+self.pool_size[1]):
+        for i in range(i_start, i_start + self.pool_size[0]):
+            for j in range(j_start, j_start + self.pool_size[1]):
                 v = x[i, j]
                 if not max_value:
                     max_value = v
@@ -156,8 +197,3 @@ class MaxPool2D(node.MComputeNode):
                     max_value = v
                     max_i, max_j = i, j
         return max_i, max_j
-
-
-
-
-

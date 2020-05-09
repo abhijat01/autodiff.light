@@ -381,7 +381,7 @@ class L2DistanceSquaredNorm(BinaryMatrixOp):
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         y_pred = self.a_node.value(var_map)
         y_act = self.b_node.value(var_map)
-        y_del = 2 * (y_pred - y_act)
+        y_del = 2*(y_pred - y_act)
         y_pred_grad = y_del * self._grad_value
         y_act_grad = -y_del * self._grad_value
         self.a_node.backward(y_pred_grad, self, var_map, tab + " ")
