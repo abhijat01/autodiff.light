@@ -53,7 +53,7 @@ class DenseLayerStandAlone(unittest.TestCase):
         expected_w_grad = np.array([[0., 15., -9.],
                                     [4., -24.5, 15.5]])
         expected_b_grad = np.array([[6.],
-                                     [-9.]])
+                                    [-9.]])
 
         np.testing.assert_almost_equal(expected_weight, dense.get_w())
         np.testing.assert_almost_equal(expected_w_grad, dense.get_w_grad())
@@ -63,20 +63,24 @@ class DenseLayerStandAlone(unittest.TestCase):
     def test_linear_optimization(self):
         np.random.seed(100)
         x_node = node.VarNode('x')
-        dense = node.DenseLayer(x_node, 2)
+        net_w = np.array([[-1, -3, 1], [0, 4, -2]])
+        net_b = np.array([3, -2]).reshape((2,1))
+        dense = node.DenseLayer(x_node, 2, net_w, net_b)
         y_node = node.VarNode('y')
         l2_node = node.L2DistanceSquaredNorm(dense, y_node)
         model_w = np.array([[1, 3, -1], [0, -4, 2]])
         model_b = np.array([[-3, 2]]).reshape((model_w.shape[0], 1))
         model = LinearModel(model_w, model_b)
 
+        learning_rate = 0.01
+
         def optimizer_function(_w, grad):
-            return _w - 0.001 * grad
+            return _w - learning_rate * grad
 
         optimizer = node.OptimizerIterator([x_node, y_node], l2_node, optimizer_function)
         log_at_info()
         epoch = 0
-        for x, y in model.data(40000, 64):
+        for x, y in model.data(50000, 8):
             var_map = {'x': x, 'y': y}
             loss = optimizer.step(var_map, 1.0)
             if epoch % 1000 == 0:
