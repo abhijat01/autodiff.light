@@ -8,29 +8,57 @@ from . import LinearModel
 class DenseLayerStandAlone(unittest.TestCase):
     def test_basic_op(self):
         np.random.seed(100)
+
+        x = np.array([[1, -1], [2, 3], [-1, -2]], dtype=np.float)
+        y = np.array([[-1, 1], [-3, -1]], dtype=np.float)
+        model_w = np.array([[1, 3, -1], [0, -4, 2]], dtype=np.float)
+        model_b = np.array([[-3, 2]], dtype=np.float).reshape((model_w.shape[0], 1))
+
         x_node = node.VarNode('x')
-        dense = node.DenseLayer(x_node, 2)
+        dense = node.DenseLayer(x_node, 2, model_w, model_b)
         ypred_node = node.VarNode('y_pred')
         l2_node = node.L2DistanceSquaredNorm(dense, ypred_node)
 
-        x = np.random.rand(3, 2)
-        y = np.random.rand(2, 2)
-        debug("x = np.{}".format(repr(x)))
         var_map = {'x': x, 'y_pred': y}
-
         x_node.forward(var_map, None, self)
         ypred_node.forward(var_map, None, self)
 
+        log_at_info()
         value = dense.value(var_map)
-        debug("dense node value = np.{}".format(value))
+        info("Dense node value = np.{}".format(repr(value)))
         value = l2_node.value(var_map)
-        debug("L2 node value:{}".format(value))
+        info("L2 node value:{}".format(value))
 
-        start_grad = 1.
-        l2_node.backward(start_grad, self, var_map, " ")
-        weight_grads = dense.get_component_grads()
-        debug("w_grad = np.{}".format(repr(weight_grads['w'])))
-        debug("b_grad = np.{}".format(repr(weight_grads['b'])))
+        info("--")
+        info("Printing weights (not updated yet)")
+        info("------------------------------------------")
+        info("Linear layer weight:{}".format(repr(dense.get_w())))
+        info("Linear layer bias:{}".format(repr(dense.get_b())))
+
+        def optimizer_function(_w, grad):
+            return _w - 0.001 * grad
+
+        optimizer = node.OptimizerIterator([x_node, ypred_node], l2_node, optimizer_function)
+        optimizer.step(var_map, 1.0)
+        info("Printing after updating weights")
+        info("------------------------------------------")
+        info("Linear layer weight:{}".format(repr(dense.get_w())))
+        info("Linear layer bias:{}".format(repr(dense.get_b())))
+        info("w_grad = np.{}".format(repr(dense.get_w_grad())))
+        info("b_grad = np.{}".format(repr(dense.get_b_grad())))
+        expected_weight = np.array([[1., 2.985, -0.991],
+                                    [-0.004, -3.9755, 1.9845]])
+        expected_bias = np.array([[-3.006],
+                                  [2.009]])
+        expected_w_grad = np.array([[0., 15., -9.],
+                                    [4., -24.5, 15.5]])
+        expected_b_grad = np.array([[6.],
+                                     [-9.]])
+
+        np.testing.assert_almost_equal(expected_weight, dense.get_w())
+        np.testing.assert_almost_equal(expected_w_grad, dense.get_w_grad())
+        np.testing.assert_almost_equal(expected_bias, dense.get_b())
+        np.testing.assert_almost_equal(expected_b_grad, dense.get_b_grad())
 
     def test_linear_optimization(self):
         np.random.seed(100)

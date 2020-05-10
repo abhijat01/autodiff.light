@@ -236,7 +236,7 @@ class DenseLayer(MComputeNode):
         self.b = initial_b
         self.w_grad = None
         self.b_grad = None
-        self.weights_initialized = self.w and self.b
+        self.weights_initialized = not ((self.w is None) or (self.b is None))
 
     def init_weights(self, input_dim):
         r"""
@@ -254,6 +254,9 @@ class DenseLayer(MComputeNode):
         x = self.input_node.value(var_map)
         if not self.weights_initialized:
             self.init_weights(x.shape[0])
+        debug("W=np.{}".format(repr(self.w)))
+        debug("b=np.{}".format(repr(self.b)))
+        debug("x=np.{}".format(repr(x)))
         self.node_value = self.w @ x + self.b
         self._forward_downstream(self.node_value, var_map)
 
@@ -263,6 +266,12 @@ class DenseLayer(MComputeNode):
         :return: a dictionary  with 'w' containing the w gradient and 'b' containing b gradient
         """
         return {'w': self.w_grad, 'b': self.b_grad}
+
+    def get_w_grad(self):
+        return self.w_grad
+
+    def get_b_grad(self):
+        return self.b_grad
 
     def get_w(self):
         return self.w
@@ -274,7 +283,8 @@ class DenseLayer(MComputeNode):
         x = self.input_node.value(var_map)
         incoming_grad = self.grad_value()
         self.b_grad = np.average(incoming_grad, axis=1).reshape((self.output_dim, 1))
-        self.w_grad = incoming_grad @ x.T
+        self.b_grad = self.b_grad/incoming_grad.shape[1]
+        self.w_grad = (incoming_grad @ x.T)/incoming_grad.size
         input_grad = self.w.T @ incoming_grad
         self.input_node.backward(input_grad, self, var_map, tab + " ")
 
