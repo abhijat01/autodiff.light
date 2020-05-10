@@ -1,7 +1,6 @@
 import unittest
 import numpy as np
 import core.np.Nodes as node
-import math
 import matplotlib.pyplot as plt
 import tests.core.np.TestModels as models
 from core import debug, info
@@ -40,10 +39,6 @@ class FullNetworkWithSigmoid(unittest.TestCase):
         print("w:{}".format(var_map['w']))
         print("b:{}".format(var_map['b']))
 
-    def get_model_generator(self):
-        #return models.Parabola()
-        return models.Transform1()
-
     def test_transform1(self):
         model = models.Transform1()
         # change this to 10,000 when running real test
@@ -55,7 +50,7 @@ class FullNetworkWithSigmoid(unittest.TestCase):
     def test_parabola(self):
         model = models.Parabola()
         # Change this to 20,000 when running real test
-        iter_count = 15000
+        iter_count = 1500
 
         def optimizer_function(_w, grad):
             return _w - 0.001 * grad

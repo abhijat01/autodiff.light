@@ -9,7 +9,7 @@ class BinaryOpFwdProp(unittest.TestCase):
         x_node = node.VarNode('x')
         w = np.array([[1, 3, 0], [0, 1, -1]])
         x = np.array([[1, -1], [0, 2], [9, 1]])
-        mult_node = node.MatrixMult(w_node, x_node)
+        mult_node = node.MatrixMultiplication(w_node, x_node)
         var_map = {'x': x, 'w': w}
         x_node.forward(var_map, None, self)
         self.assertIsNone(mult_node.value(var_map))

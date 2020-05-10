@@ -63,7 +63,7 @@ class Transform1:
     def y(self, x1, x2):
         return 2 * x1 * x2
 
-    def data(self, count):
+    def data(self, count, batch_size=1):
         total = 0
         while total < count:
             total += 1

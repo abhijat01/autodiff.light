@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0fc7163f-473c-4b51-a488-7b8602a4d407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TestDenseLayer.LinearOpt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TestDenseLayer.LinearOpt.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/core/np/TestBasicBatchProcess.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestBasicBatchProcess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/core/np/TestBasicNetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestBasicNetwork.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/core/np/TestDenseLayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestDenseLayer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/core/np/TestFullNetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestFullNetwork.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/core/np/TestMatrixReverseModeBackProp.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestMatrixReverseModeBackProp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/core/np/TestMatrixReverseModeFwdProp.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestMatrixReverseModeFwdProp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/core/np/TestModels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestModels.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,11 +20,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/core/np/TestDenseLayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="84" column="47" lean-forward="true" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="47" />
+            <state relative-caret-position="532">
+              <caret line="62" column="59" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/core/np/TestFullNetwork.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/core/np/TestBasicNetwork.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-640">
+              <caret line="116" selection-start-line="116" selection-end-line="116" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Anaconda3/envs/autodiff/Lib/site-packages/numpy/testing/_private/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="845" selection-start-line="845" selection-end-line="845" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/core/np/TestMatrixReverseModeFwdProp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/core/np/TestMatrixReverseModeBackProp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="5" column="11" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="22" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -29,10 +101,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/np/Nodes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="988">
-              <caret line="240" column="8" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="8" />
+            <state relative-caret-position="1516">
+              <caret line="391" selection-start-line="391" selection-end-line="391" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/core/np/TestModels.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1037">
+              <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/core/np/TestNetworkViz.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,29 +148,33 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/tests/core/np/TestBasicBatchProcess.py" />
         <option value="$PROJECT_DIR$/core/log.py" />
         <option value="$PROJECT_DIR$/core/__init__.py" />
-        <option value="$PROJECT_DIR$/tests/core/np/TestFullNetwork.py" />
         <option value="$PROJECT_DIR$/tests/core/np/__init__.py" />
-        <option value="$PROJECT_DIR$/tests/core/np/TestModels.py" />
         <option value="$PROJECT_DIR$/core/np/conv_nodes.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/pip-requirements.txt" />
         <option value="$PROJECT_DIR$/core/data/mnist.py" />
         <option value="$PROJECT_DIR$/test.data/.gitignore" />
         <option value="$PROJECT_DIR$/core/np/Convolution.py" />
-        <option value="$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py" />
         <option value="$PROJECT_DIR$/core/ForwardAutoDiffOneD.py" />
         <option value="$PROJECT_DIR$/core/ReverseModeAutoDiff.py" />
         <option value="$PROJECT_DIR$/core/np/Nodes.py" />
+        <option value="$PROJECT_DIR$/tests/core/np/TestBasicBatchProcess.py" />
+        <option value="$PROJECT_DIR$/tests/core/np/TestBasicNetwork.py" />
+        <option value="$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py" />
         <option value="$PROJECT_DIR$/tests/core/np/TestDenseLayer.py" />
+        <option value="$PROJECT_DIR$/tests/core/np/TestNetworkViz.py" />
+        <option value="$PROJECT_DIR$/tests/core/np/TestModels.py" />
+        <option value="$PROJECT_DIR$/tests/core/np/TestMatrixReverseModeBackProp.py" />
+        <option value="$PROJECT_DIR$/tests/core/np/TestFullNetwork.py" />
+        <option value="$PROJECT_DIR$/tests/core/np/TestMatrixReverseModeFwdProp.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="382" />
-    <option name="y" value="20" />
+    <option name="x" value="199" />
+    <option name="y" value="45" />
     <option name="width" value="1650" />
     <option name="height" value="1036" />
   </component>
@@ -130,7 +227,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -144,8 +241,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization">
-    <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_contribution_tracker" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Unittests in np">
+    <configuration name="Unittests for TestFullNetwork.FullNetworkWithSigmoid.test_transform1" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -156,11 +253,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestConvolutionStandalone.MyTestCase.test_contribution_tracker&quot;" />
+      <option name="_new_target" value="&quot;TestFullNetwork.FullNetworkWithSigmoid.test_transform1&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for TestMatrixReverseModeBackProp.BinaryOpBackProp" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -171,11 +268,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestConvolutionStandalone.MyTestCase.test_convolution_small&quot;" />
+      <option name="_new_target" value="&quot;TestMatrixReverseModeBackProp.BinaryOpBackProp&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for TestMatrixReverseModeBackProp.BinaryOpBackProp.test_l2norm" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -186,54 +283,56 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestConvolutionStandalone.MyTestCase.test_convolution_with_l2&quot;" />
+      <option name="_new_target" value="&quot;TestMatrixReverseModeBackProp.BinaryOpBackProp.test_l2norm&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_basic_op" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for tests.core.np.TestMatrixReverseModeFwdProp" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_pattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;np.TestDenseLayer.DenseLayerStandAlone.test_basic_op&quot;" />
+      <option name="_new_target" value="&quot;tests.core.np.TestMatrixReverseModeFwdProp&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in np" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_pattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/core/np&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" />
-      <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" />
-      <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_contribution_tracker" />
-      <item itemvalue="Python tests.Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_basic_op" />
-      <item itemvalue="Python tests.Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization" />
+      <item itemvalue="Python tests.Unittests in np" />
+      <item itemvalue="Python tests.Unittests for TestFullNetwork.FullNetworkWithSigmoid.test_transform1" />
+      <item itemvalue="Python tests.Unittests for TestMatrixReverseModeBackProp.BinaryOpBackProp.test_l2norm" />
+      <item itemvalue="Python tests.Unittests for TestMatrixReverseModeBackProp.BinaryOpBackProp" />
+      <item itemvalue="Python tests.Unittests for tests.core.np.TestMatrixReverseModeFwdProp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization" />
-        <item itemvalue="Python tests.Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_basic_op" />
-        <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2" />
-        <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_contribution_tracker" />
-        <item itemvalue="Python tests.Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" />
+        <item itemvalue="Python tests.Unittests in np" />
+        <item itemvalue="Python tests.Unittests for tests.core.np.TestMatrixReverseModeFwdProp" />
+        <item itemvalue="Python tests.Unittests for TestMatrixReverseModeBackProp.BinaryOpBackProp" />
+        <item itemvalue="Python tests.Unittests for TestMatrixReverseModeBackProp.BinaryOpBackProp.test_l2norm" />
+        <item itemvalue="Python tests.Unittests for TestFullNetwork.FullNetworkWithSigmoid.test_transform1" />
       </list>
     </recent_temporary>
   </component>
@@ -250,6 +349,9 @@
       <workItem from="1588794522889" duration="22224000" />
       <workItem from="1588874727937" duration="237000" />
       <workItem from="1588876480954" duration="47071000" />
+      <workItem from="1589141206274" duration="492000" />
+      <workItem from="1589141725937" duration="345000" />
+      <workItem from="1589142088813" duration="1946000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit ..">
       <created>1588794612152</created>
@@ -360,46 +462,46 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_basic_op - 2020.05.10 at 11h 55m 46s.xml">
-      <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_basic_op" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.10 at 16h 40m 39s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_basic_op - 2020.05.10 at 11h 57m 31s.xml">
-      <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_basic_op" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.10 at 16h 41m 41s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_basic_op - 2020.05.10 at 12h 00m 52s.xml">
-      <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_basic_op" configurationId="tests" />
+    <history-entry file="Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small - 2020.05.10 at 16h 42m 03s.xml">
+      <configuration name="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_linear_optimization - 2020.05.10 at 12h 40m 50s.xml">
-      <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization" configurationId="tests" />
+    <history-entry file="Unittests_in_np - 2020.05.10 at 16h 46m 56s.xml">
+      <configuration name="Unittests in np" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_linear_optimization - 2020.05.10 at 12h 50m 36s.xml">
-      <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization" configurationId="tests" />
+    <history-entry file="Unittests_for_TestFullNetwork_FullNetworkWithSigmoid_test_transform1 - 2020.05.10 at 16h 47m 22s.xml">
+      <configuration name="Unittests for TestFullNetwork.FullNetworkWithSigmoid.test_transform1" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_linear_optimization - 2020.05.10 at 12h 54m 26s.xml">
-      <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization" configurationId="tests" />
+    <history-entry file="Unittests_for_TestFullNetwork_FullNetworkWithSigmoid_test_transform1 - 2020.05.10 at 16h 49m 16s.xml">
+      <configuration name="Unittests for TestFullNetwork.FullNetworkWithSigmoid.test_transform1" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_linear_optimization - 2020.05.10 at 12h 56m 58s.xml">
-      <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization" configurationId="tests" />
+    <history-entry file="Unittests_in_np - 2020.05.10 at 16h 51m 04s.xml">
+      <configuration name="Unittests in np" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_linear_optimization - 2020.05.10 at 13h 07m 02s.xml">
-      <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization" configurationId="tests" />
+    <history-entry file="Unittests_for_TestMatrixReverseModeBackProp_BinaryOpBackProp_test_l2norm - 2020.05.10 at 16h 52m 15s.xml">
+      <configuration name="Unittests for TestMatrixReverseModeBackProp.BinaryOpBackProp.test_l2norm" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_linear_optimization - 2020.05.10 at 13h 07m 40s.xml">
-      <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization" configurationId="tests" />
+    <history-entry file="Unittests_for_TestMatrixReverseModeBackProp_BinaryOpBackProp - 2020.05.10 at 16h 52m 46s.xml">
+      <configuration name="Unittests for TestMatrixReverseModeBackProp.BinaryOpBackProp" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_linear_optimization - 2020.05.10 at 13h 11m 10s.xml">
-      <configuration name="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization" configurationId="tests" />
+    <history-entry file="Unittests_in_np - 2020.05.10 at 16h 53m 38s.xml">
+      <configuration name="Unittests in np" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69579000" />
+    <option name="totallyTimeSpent" value="72362000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="382" y="20" width="1650" height="1036" extended-state="0" />
+    <frame x="199" y="45" width="1650" height="1036" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4992272" visible="true" weight="0.18616351" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4992272" visible="true" weight="0.19371068" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32853982" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3761062" />
@@ -413,12 +515,13 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
-      <window_info anchor="right" id="SciView" order="0" weight="0.2610063" />
+      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="right" id="SciView" order="0" visible="true" weight="0.2610063" />
       <window_info anchor="right" id="Database" order="1" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info anchor="right" id="Structure" order="5" sideWeight="0.5007728" visible="true" weight="0.12578617" />
+      <window_info anchor="right" id="Structure" order="5" sideWeight="0.5007728" weight="0.12578617" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,24 +556,30 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestBasicBatchProcess_UnitNetworkBatch_test_linear_transformation.coverage" NAME="Unittests for TestBasicBatchProcess.UnitNetworkBatch.test_linear_transformation Coverage Results" MODIFIED="1588803958335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestBasicBatchProcess_UnitNetworkBatch_test_linear_transformation.coverage" NAME="Unittests for TestBasicBatchProcess.UnitNetworkBatch.test_linear_transformation Coverage Results" MODIFIED="1589141338928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestBasicNetwork_BasicNetworkNoActivation.coverage" NAME="Unittests for TestBasicNetwork.BasicNetworkNoActivation Coverage Results" MODIFIED="1589141918691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestFullNetwork_FullNetworkWithSigmoid_test_transform1.coverage" NAME="Unittests for TestFullNetwork.FullNetworkWithSigmoid.test_transform1 Coverage Results" MODIFIED="1589143749213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_TestConvolutionStandalone_py.coverage" NAME="Unittests in TestConvolutionStandalone.py Coverage Results" MODIFIED="1589141937825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_download_mnist.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_download_mnist Coverage Results" MODIFIED="1588963403701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
-    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_TestBasicNetwork_py.coverage" NAME="Unittests in TestBasicNetwork.py Coverage Results" MODIFIED="1588797036431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_TestBasicNetwork_py.coverage" NAME="Unittests in TestBasicNetwork.py Coverage Results" MODIFIED="1589141929580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestFullNetwork_FullNetworkWithSigmoid_test_parabola.coverage" NAME="Unittests for TestFullNetwork.FullNetworkWithSigmoid.test_parabola Coverage Results" MODIFIED="1588805895746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution2d.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d Coverage Results" MODIFIED="1588965433524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_contribution_tracker.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_contribution_tracker Coverage Results" MODIFIED="1589058418065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_linear_optimization.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_linear_optimization Coverage Results" MODIFIED="1589130533896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestMatrixReverseModeFwdProp_BinaryOpFwdProp_test_basic.coverage" NAME="Unittests for TestMatrixReverseModeFwdProp.BinaryOpFwdProp.test_basic Coverage Results" MODIFIED="1588808121456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
-    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_np.coverage" NAME="Unittests in np Coverage Results" MODIFIED="1588797066703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_tests.coverage" NAME="Unittests in tests Coverage Results" MODIFIED="1588797241501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2 Coverage Results" MODIFIED="1589064750443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_np.coverage" NAME="Unittests in np Coverage Results" MODIFIED="1589144054525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_tests_core_np_TestMatrixReverseModeFwdProp.coverage" NAME="Unittests for tests.core.np.TestMatrixReverseModeFwdProp Coverage Results" MODIFIED="1589144044392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_optimization.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_optimization Coverage Results" MODIFIED="1588872309095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestDenseLayer_DenseLayerStandAlone_test_something.coverage" NAME="Unittests for TestDenseLayer.DenseLayerStandAlone.test_something Coverage Results" MODIFIED="1588812253093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
-    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution2d_plotting.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d_plotting Coverage Results" MODIFIED="1588965490280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestMatrixReverseModeBackProp_BinaryOpBackProp.coverage" NAME="Unittests for TestMatrixReverseModeBackProp.BinaryOpBackProp Coverage Results" MODIFIED="1589143958498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution2d_plotting.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d_plotting Coverage Results" MODIFIED="1589142712574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_basic_op.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_basic_op Coverage Results" MODIFIED="1589126451804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_TestFwdModeOneDim_py.coverage" NAME="Unittests in TestFwdModeOneDim.py Coverage Results" MODIFIED="1588797115413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestMatrixReverseModeBackProp_BinaryOpBackProp_test_l2norm.coverage" NAME="Unittests for TestMatrixReverseModeBackProp.BinaryOpBackProp.test_l2norm Coverage Results" MODIFIED="1589143934499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$mnist.coverage" NAME="mnist Coverage Results" MODIFIED="1588962655989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small Coverage Results" MODIFIED="1588988854421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small Coverage Results" MODIFIED="1589143323033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/conda-requirements.txt">
@@ -495,37 +604,6 @@
         <state>
           <folding>
             <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Anaconda3/envs/autodiff/Lib/site-packages/numpy/testing/_private/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="938" column="4" selection-start-line="938" selection-start-column="4" selection-end-line="938" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/core/np/TestBasicBatchProcess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="3" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/core/np/TestMatrixReverseModeFwdProp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/core/np/TestFullNetwork.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="59" selection-start-line="59" selection-end-line="60" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -561,16 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="2183" column="4" selection-start-line="2183" selection-start-column="4" selection-end-line="2183" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/core/np/TestBasicNetwork.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="148" selection-start-line="148" selection-end-line="149" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -617,32 +685,13 @@
         <state relative-caret-position="-4917" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/data/mnist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/core/data/mnist.py" />
     <entry file="file://$PROJECT_DIR$/core/np/Convolution.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="114" column="26" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="92" column="92" selection-start-line="92" selection-start-column="92" selection-end-line="92" selection-end-column="92" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -685,30 +734,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/core/np/TestModels.py">
+    <entry file="file://$PROJECT_DIR$/tests/core/np/TestBasicBatchProcess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="425">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Anaconda3/envs/autodiff/Lib/site-packages/numpy/testing/_private/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="845" selection-start-line="845" selection-end-line="845" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/core/np/TestConvolutionStandalone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/core/np/TestBasicNetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-640">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/core/np/TestNetworkViz.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/core/np/TestMatrixReverseModeBackProp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/np/Nodes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="240" column="8" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="8" />
+        <state relative-caret-position="1516">
+          <caret line="391" selection-start-line="391" selection-end-line="391" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/core/np/TestModels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/core/np/TestDenseLayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="84" column="47" lean-forward="true" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="47" />
+        <state relative-caret-position="532">
+          <caret line="62" column="59" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/core/np/TestFullNetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/core/np/TestMatrixReverseModeFwdProp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
         </state>
       </provider>
     </entry>

@@ -60,6 +60,7 @@ class DenseLayerStandAlone(unittest.TestCase):
         np.testing.assert_almost_equal(expected_bias, dense.get_b())
         np.testing.assert_almost_equal(expected_b_grad, dense.get_b_grad())
 
+    @unittest.skip("This will iterate over 50,000 times .. ")
     def test_linear_optimization(self):
         np.random.seed(100)
         x_node = node.VarNode('x')

@@ -32,7 +32,7 @@ class BinaryOpBackProp(unittest.TestCase):
         y_pred = np.array([[1, 2, 3]]).T
         y_act = np.array([[1, 1, 1]]).T
         y_del = y_pred - y_act
-        expected_norm = np.sum(np.square(y_del))
+        expected_norm = np.sum(np.square(y_del))/y_del.size
 
         y_p_node = node.VarNode('y_p')
         y_a_node = node.VarNode('y_a')

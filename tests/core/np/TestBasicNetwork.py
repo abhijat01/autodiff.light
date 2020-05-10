@@ -2,6 +2,7 @@ import unittest
 import numpy as np
 import core.np.Nodes as node
 import math
+from core import debug, info, log_at_info
 
 
 class BasicNetworkNoActivation(unittest.TestCase):
@@ -26,31 +27,32 @@ class BasicNetworkNoActivation(unittest.TestCase):
         b_node.forward(var_map, None, self)
         ya_node.forward(var_map, None, self)
         l2norm = l2_node.value(var_map)
-        print("L2Norm: {}".format(l2norm))
+        info("L2Norm: {}".format(l2norm))
         y_p = w @ x + b
         y_del = y_p - y_act
-        expected = np.sum(np.square(y_del))
+        expected = np.sum(np.square(y_del))/y_del.size
+        debug("l2norm:{}".format(l2_node))
         self.assertEqual(expected, l2norm)
         l2_node.backward(1.0, self, var_map, " ")
         w_grad = w_node.grad_value()
         b_grad = b_node.grad_value()
-        print("----- w grad ------")
-        print(w_grad)
-        print("-------------------")
-        print("----- b grad ------")
-        print(b_grad)
-        print("-------------------")
+        debug("----- w grad ------")
+        debug(w_grad)
+        debug("-------------------")
+        debug("----- b grad ------")
+        debug(b_grad)
+        debug("-------------------")
         l2_node.reset_network_back()
         self.assertIsNone(w_node.grad_value())
         l2_node.backward(1.0, self, var_map, " ")
         w_grad = w_node.grad_value()
         b_grad = b_node.grad_value()
-        print("----- w grad ------")
-        print(w_grad)
-        print("-------------------")
-        print("----- b grad ------")
-        print(b_grad)
-        print("-------------------")
+        debug("----- w grad ------")
+        debug(w_grad)
+        debug("-------------------")
+        debug("----- b grad ------")
+        debug(b_grad)
+        debug("-------------------")
 
     def test_optimizer_step(self):
         w_node = node.VarNode('w', True)
@@ -75,16 +77,16 @@ class BasicNetworkNoActivation(unittest.TestCase):
 
         l2_node.backward(1.0, self, var_map, " ")
         loss = l2_node.value(var_map)
-        print("Loss:{}".format(loss))
+        debug("Loss:{}".format(loss))
 
         def optimizer(w, grad):
             return w - 0.01 * grad
 
-        print("W before step")
-        print(var_map['w'])
+        debug("W before step")
+        debug(var_map['w'])
         l2_node.optimizer_step(optimizer, var_map)
-        print("W after step")
-        print(var_map['w'])
+        debug("W after step")
+        debug(var_map['w'])
 
         losses = []
         for i in range(50):
@@ -92,17 +94,18 @@ class BasicNetworkNoActivation(unittest.TestCase):
             losses.append(loss)
 
         for i, loss in enumerate(losses):
-            print("Loss[{}]:{}".format(i, loss))
+            if i % 10 == 0:
+                info("Loss[{}]:{}".format(i, loss))
 
         final_w = var_map['w']
         final_b = var_map['b']
-        print("W={}".format(final_w))
-        print("b={}".format(final_b))
+        debug("W={}".format(final_w))
+        debug("b={}".format(final_b))
         final_y_pred = final_w @ x + final_b
         loss = np.sum(np.square(final_y_pred - y_act))
-        print("direct loss calculation:{}".format(loss))
+        debug("direct loss calculation:{}".format(loss))
         network_loss = l2_node.value(var_map)
-        print("Network loss:{}".format(network_loss))
+        debug("Network loss:{}".format(network_loss))
         # np.testing.assert_array_almost_equal(final_y_pred, y_act)
         expected_w = np.array([[1.71395966, 2.28604034, 1.42791932],
                                [1.14233545, -0.14233545, 1.2846709]])
@@ -143,7 +146,7 @@ class BasicNetworkNoActivation(unittest.TestCase):
         node.OptimizerIterator.set_log_to_info()
         for _ in range(100):
             loss = optimizer.step(var_map, 1.0)
-        print("Final loss:{}".format(loss))
+        debug("Final loss:{}".format(loss))
         self.assertTrue(math.fabs(loss) < 1e-11)
 
     def simple_name(self):
@@ -160,11 +163,11 @@ class BasicNetworkSigmoid(unittest.TestCase):
         value = sigmoid.value(var_map)
         expected_value = 1/(1+np.exp(-x))
         np.testing.assert_array_almost_equal(expected_value, value)
-        print(value)
+        debug(value)
         sigmoid.backward(np.ones_like(value), self, var_map, " ")
         grad = x_node.grad_value()
         expected_grad = expected_value*(1-expected_value)
-        print(grad)
+        debug(grad)
         np.testing.assert_array_almost_equal(expected_grad, grad)
 
     def simple_name(self):

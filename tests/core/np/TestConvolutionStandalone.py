@@ -7,13 +7,9 @@ import core.np.Convolution as conv
 import matplotlib.pyplot as plt
 from core import debug
 import os
-from sklearn.datasets import fetch_openml
 
 
 class MyTestCase(unittest.TestCase):
-
-    def test_download_mnist(self):
-        X, y = fetch_openml('mnist_784', version=1, return_X_y=True)
 
     def rgb2gray(self, rgb):
         return np.dot(rgb[..., :3], [0.2989, 0.5870, 0.1140])
@@ -49,12 +45,11 @@ class MyTestCase(unittest.TestCase):
         info(repr(loss))
         info("Printing kernel after gradient descent")
         info(repr(c2d.get_kernel()))
-        expected_kernel = np.array([[0.982, -1.028],
-                                    [-0.013, 1.976]])
-        info("Print kernel gradient ")
-        info(repr(c2d.kernel_grad))
+        expected_kernel = np.array([[0.998, -1.003111],
+                                    [-1.444444444e-3, 1.9973333]])
+        info("kernel gradient:{}".format(repr(c2d.kernel_grad)))
         np.testing.assert_array_almost_equal(expected_kernel, c2d.get_kernel())
-        self.assertAlmostEqual(-0.009, c2d.get_bias())
+        self.assertAlmostEqual(-0.001, c2d.get_bias())
         info("Bias after gradient descent:{}".format(c2d.get_bias()))
         info("Gradient of bias :{}".format(c2d.bias_grad))
 
