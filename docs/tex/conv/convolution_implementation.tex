@@ -1,0 +1,139 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[usenames,dvipsnames]{color}
+
+%%% PAGE DIMENSIONS
+\usepackage[top=.9in, bottom=1in, left=.5in, right=.5in]{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{url}
+\usepackage{longtable}
+\usepackage{makeidx}
+\usepackage{pdfpages}
+\usepackage{wasysym}
+\usepackage{blindtext}
+\usepackage[inline]{enumitem}
+\usepackage{draftwatermark}
+\usepackage{xcolor}
+\usepackage[backend=bibtex,style=ieee]{biblatex}
+\bibliography{BMS-EA-Framework.bib}
+\usepackage[autostyle]{csquotes} 
+\usepackage{epigraph}
+\usepackage{authblk}
+
+%\usepackage{fullpage}
+
+%%% HEADERS & FOOTERS
+\usepackage{lastpage}
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}
+\chead{\rightmark} 
+\rhead{\thepage\ of \pageref{LastPage}}
+
+\lfoot{}
+\cfoot{{\color{Gray} \small https://github.com/abhijat01/autodiff.light \normalsize}}
+\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+\makeindex
+
+\SetWatermarkText{Draft}
+\SetWatermarkScale{4}
+\SetWatermarkLightness{0.8}
+
+\usepackage[normalem]{ulem}
+\usepackage{lineno}
+\usepackage[colorlinks=true,urlcolor=Gray]{hyperref}
+\DeclareMathSizes{10}{8}{7}{5}
+
+
+\title{2D Convolution implementation in autodiff.light}
+\author{Abhijat Vatsyayan}
+\date{}
+\begin{document}
+\setcounter{secnumdepth}{5}
+\maketitle
+\tableofcontents
+\section{Introduction}
+This is used to document the implementation of 2D convolution implementation in 
+autodiff.light so that others can understand and improve the implementation. Let us start 
+with the  input matrix X, Kernel w,  and the result of the convolution y, 
+\begin{gather*} 
+\begin{split}
+X &= 
+\begin{bmatrix}
+x_{11} & x_{12} & x_{13} & x_{14} \\
+x_{21} & x_{22} & x_{23} & x_{24} \\
+x_{31} & x_{32} & x_{33} & x_{34}
+\end{bmatrix}  
+\\
+w &= \begin{bmatrix}
+w_{11} & w_{12} \\
+w_{21} & w_{22} 
+\end{bmatrix} 
+\\
+y & = \begin{bmatrix}
+x_{11}w_{11}  + x_{12}w_{12}  + x_{21}w_{21}  + x_{22}w_{22} 
+& 
+x_{12}w_{11}  + x_{13}w_{12}  + x_{22}w_{21}  + x_{23}w_{22} 
+& 
+x_{13}w_{11}  + x_{14}w_{12}  + x_{23}w_{21}  + x_{24}w_{22} \\
+x_{21}w_{11}  + x_{22}w_{12}  + x_{31}w_{21}  + x_{32}w_{22} 
+& 
+x_{22}w_{11}  + x_{23}w_{12}  + x_{32}w_{21}  + x_{33}w_{22} 
+& 
+x_{23}w_{11}  + x_{24}w_{12}  + x_{33}w_{21}  + x_{34}w_{22} 
+\end{bmatrix} 
+\end{split} 
+\end{gather*} 
+Note that these matrices use $0$ based indexing - it is easier to convert this to code 
+but even more importantly, latex code for these matrices was generating using {\em Sympy} 
+which uses $0$ based 
+indexing.
+
+
+
+
+%\begin{figure}[!htb]
+%	\begin{center}
+%	\includegraphics[keepaspectratio=true,width=.7\linewidth]{diagrams/DesignExpTemplate.png}
+%	\caption{Designing experiment templates}
+%	\label{fig:exp-design}
+%	\end{center}
+%\end{figure} 
+
+\end{document}

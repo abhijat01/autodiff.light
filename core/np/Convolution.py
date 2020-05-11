@@ -123,8 +123,7 @@ class Convolution2D(node.MComputeNode):
 
 
 class ConvContributionTracker:
-    def __init__(self, shape, shift_amt=64):
-        self.shift_i = shift_amt
+    def __init__(self, shape):
         self.contribs = []
         for i in range(shape[0]):
             row = []
@@ -133,8 +132,8 @@ class ConvContributionTracker:
                 row.append([])
 
     def add_contribution(self, i, j, w_tuple, y_tuple):
-        data = {'w': w_tuple, 'y': y_tuple}
-        self.contribs[i][j].append(data)
+        contrib = {'w': w_tuple, 'y': y_tuple}
+        self.contribs[i][j].append(contrib)
 
     def get_contributions(self, i, j):
         return self.contribs[i][j]

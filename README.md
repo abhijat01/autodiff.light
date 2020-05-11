@@ -45,7 +45,8 @@ You can create a new conda environment using the command
     
 ## Jupyter notebooks 
 
-Jupyter notebooks require pytorch. Any recent version should work. 
+Jupyter notebooks require pytorch for most of the notebooks. There is one notebook that uses 
+symy. You can skip this notebook if you do not wish to install sympy 
 
 ## Running pyunit on command prompt 
 

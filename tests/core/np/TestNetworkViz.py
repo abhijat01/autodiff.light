@@ -1,11 +1,9 @@
 import unittest
 import tests.core.np.TestModels as models
-import core.np.Nodes as node
 import core.np.NetworkViz as net
 import networkx as nx
-import matplotlib.pyplot as plt
+
 from pyvis.network import Network
-import random
 
 
 class BasicNetworkViz(unittest.TestCase):
