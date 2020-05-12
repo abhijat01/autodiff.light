@@ -1,5 +1,6 @@
 import unittest
 
+from core.np.Loss import L2DistanceSquaredNorm
 from core import info, log_at_info
 import numpy as np
 import core.np.Nodes as node
@@ -7,9 +8,10 @@ import core.np.Convolution as conv
 import matplotlib.pyplot as plt
 from core import debug
 import os
+from . import BaseComputeNodeTest
 
 
-class MyTestCase(unittest.TestCase):
+class ConvolutionTests(BaseComputeNodeTest):
 
     def rgb2gray(self, rgb):
         return np.dot(rgb[..., :3], [0.2989, 0.5870, 0.1140])
@@ -61,7 +63,7 @@ class MyTestCase(unittest.TestCase):
         img_node = node.VarNode('img')
         c2d = conv.Convolution2D(img_node, input_shape=(4, 4), kernel=kernel)
         target_node = node.VarNode('y')
-        l2 = node.L2DistanceSquaredNorm(c2d, target_node)
+        l2 = L2DistanceSquaredNorm(c2d, target_node)
 
         var_map = {'img': img, 'y': y}
         img_node.forward(var_map, None, self)
@@ -107,8 +109,14 @@ class MyTestCase(unittest.TestCase):
         np.testing.assert_almost_equal(expected_bias, c2d.get_bias())
         np.testing.assert_almost_equal(expected_bias_grad, c2d.get_bias_grad())
 
+    def get_image(self, filename):
+        myfile = os.path.dirname(os.path.realpath(__file__))
+        project_path = os.path.join(myfile, '..','..','..')
+        imgpath = os.path.join(project_path, 'test.data','conv2d',filename)
+        return  imgpath
+
     def test_convolution2d_plotting(self):
-        image_path = os.path.join('test.data', 'conv2d', 'Vd-Orig.png')
+        image_path = self.get_image( 'Vd-Orig.png')
         image = plt.imread(image_path)
         shape = image.shape
         print("shape {}".format(shape))
@@ -142,12 +150,6 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(len(contribs), 2)
         for dicts in contribs:
             print("W:{} , Y={}".format(dicts['w'], dicts['y']))
-
-    def test_maxpool2d(self):
-        pass
-
-    def simple_name(self):
-        return self.__class__.__name__
 
 
 if __name__ == '__main__':

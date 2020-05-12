@@ -151,9 +151,10 @@ class MaxPool2D(node.MComputeNode):
         :param pool_size:
         :param name:
         """
-        node.MComputeNode.__init__(name)
-        self.pool_size = pool_size
+        node.MComputeNode.__init__(self, name)
         self.input_node = input_node
+        self._add_upstream_nodes([input_node])
+        self.pool_size = pool_size
         self.x_grad = None
 
     def forward(self, var_map, upstream_value, upstream_node):
@@ -180,7 +181,9 @@ class MaxPool2D(node.MComputeNode):
         for i in range(x_m - del_m + 1):
             for j in range(x_n - del_n + 1):
                 max_i, max_j = self.get_max_idx_in_window(i, j, x)
-                self.x_grad[max_i, max_j] += self._grad_value[max_i, max_j]
+                self.x_grad[max_i, max_j] += self._grad_value[i, j]
+
+        self.input_node.backward(self.x_grad, self, var_map, tab+" ")
 
     def get_max_idx_in_window(self, i_start, j_start, x):
         max_i = i_start

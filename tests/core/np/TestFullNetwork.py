@@ -1,12 +1,17 @@
 import unittest
 import numpy as np
+
+from core.np.Loss import L2DistanceSquaredNorm
 import core.np.Nodes as node
 import matplotlib.pyplot as plt
+
+from  core.np.Activations import SigmoidNode
 import tests.core.np.TestModels as models
-from core import debug, info
+from core import info
+from . import BaseComputeNodeTest
 
 
-class FullNetworkWithSigmoid(unittest.TestCase):
+class FullNetworkWithSigmoid(BaseComputeNodeTest):
     def test_full_sgmoid_node(self):
         w_node = node.VarNode('w', True)
         x_node = node.VarNode('x')
@@ -21,8 +26,8 @@ class FullNetworkWithSigmoid(unittest.TestCase):
         var_map = {'w': w, 'x': x, 'y_a': y_act, 'b': b}
         wx_node = node.MatrixMultiplication(w_node, x_node)
         sum_node = node.MatrixAddition(wx_node, b_node)
-        sigmoid_node = node.SigmoidNode(sum_node)
-        l2_node = node.L2DistanceSquaredNorm(sigmoid_node, ya_node)
+        sigmoid_node = SigmoidNode(sum_node)
+        l2_node = L2DistanceSquaredNorm(sigmoid_node, ya_node)
 
         def default_optimizer_function(_w, grad, lr=1):
             return _w - lr * grad
@@ -99,9 +104,6 @@ class FullNetworkWithSigmoid(unittest.TestCase):
         av_np = np.array(av)
         plt.plot(av_np[:,0], av_np[:,1], 'r')
         plt.show()
-
-    def simple_name(self):
-        return FullNetworkWithSigmoid.__name__
 
 
 if __name__ == '__main__':

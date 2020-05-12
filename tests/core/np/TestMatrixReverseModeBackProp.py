@@ -1,9 +1,12 @@
 import unittest
 import numpy as np
+
+from core.np.Loss import L2DistanceSquaredNorm
 import core.np.Nodes as node
+from . import BaseComputeNodeTest
 
 
-class BinaryOpBackProp(unittest.TestCase):
+class BinaryOpBackProp(BaseComputeNodeTest):
 
     def test_matrix_sum(self):
         a_node = node.VarNode('a')
@@ -37,7 +40,7 @@ class BinaryOpBackProp(unittest.TestCase):
         y_p_node = node.VarNode('y_p')
         y_a_node = node.VarNode('y_a')
         var_map = {'y_p': y_pred, 'y_a': y_act}
-        l2norm_node = node.L2DistanceSquaredNorm(y_p_node, y_a_node)
+        l2norm_node = L2DistanceSquaredNorm(y_p_node, y_a_node)
 
         y_p_node.forward(var_map, None, self)
         y_a_node.forward(var_map, None, self)
@@ -81,9 +84,6 @@ class BinaryOpBackProp(unittest.TestCase):
         print(x_grad)
         np.testing.assert_array_almost_equal(x_grad_expected, x_grad)
         print("---- end printing   ----")
-
-    def simple_name(self):
-        return BinaryOpBackProp.__name__
 
 
 if __name__ == '__main__':

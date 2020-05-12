@@ -1,8 +1,10 @@
 import numpy as np
+
+from core.np.Loss import L2DistanceSquaredNorm
 import core.np.Nodes as node
-import math
 import random
 import matplotlib.pyplot as plt
+from core.np.Activations import SigmoidNode
 
 
 def make__two_layer_model():
@@ -28,12 +30,12 @@ def make__two_layer_model():
 
     wx_node = node.MatrixMultiplication(w_node, x_node, "wx")
     sum_node = node.MatrixAddition(wx_node, b_node, "wx+b")
-    sigmoid_node = node.SigmoidNode(sum_node, "sig")
+    sigmoid_node = SigmoidNode(sum_node, "sig")
 
     wx2_node = node.MatrixMultiplication(w2_node, sigmoid_node, "wx2")
     sum2_node = node.MatrixAddition(wx2_node, b2_node, "wx2+b2")
 
-    l2_node = node.L2DistanceSquaredNorm(sum2_node, ya_node, "l2")
+    l2_node = L2DistanceSquaredNorm(sum2_node, ya_node, "l2")
     return var_map, start_nodes, l2_node
 
 

@@ -43,8 +43,12 @@ generate_b_matrix('x', 3, 4)
 
 generate_b_matrix('w', 2, 2)
 
+
 generate_conv_expression("x", "w", [(1, 1), (1, 2), (2, 1), (2, 2)], [(1, 1), (1, 2), (2, 1), (2, 2)])
 
 print("---------------------------")
 
 do_convolution('x','w',3,4,2,2)
+
+print("---------------")
+generate_b_matrix('y',2,3)

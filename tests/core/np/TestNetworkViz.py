@@ -26,7 +26,5 @@ class BasicNetworkViz(unittest.TestCase):
         G.show("g.html")
 
 
-
-
 if __name__ == '__main__':
     unittest.main()

@@ -24,50 +24,32 @@ class MComputeNode:
         debug("Created Node named:{}".format(self.name))
         self.upstream_nodes = {}
         self.downstream_nodes = {}
-        self.grad_from_downstream = {}
+        self.grad_from_downstream = []
         self.fwd_count = 0
         self.back_count = 0
         self.node_value = None
         self._grad_value = None
         self.is_trainable = is_trainable
 
-    def _do_check_input(self):
-        pass
-
-    def grad_value(self):
-        return self._grad_value
-
-    def reset_fwd(self):
+    def _reset_fwd(self):
         debug("resetting {}".format(self.simple_name()))
         self.fwd_count = 0
         self.node_value = None
 
     def reset_network_fwd(self):
-        self.reset_fwd()
+        self._reset_fwd()
         for node in self.downstream_nodes.values():
             node.reset_network_fwd()
 
-    def reset_back(self):
+    def _reset_back(self):
         self._grad_value = None
         self.back_count = 0
-        self.grad_from_downstream = {}
+        self.grad_from_downstream = []
 
     def reset_network_back(self):
-        self.reset_back()
+        self._reset_back()
         for node in self.upstream_nodes.values():
             node.reset_network_back()
-
-    def optimizer_step(self, optimizer, var_map):
-        if self.is_trainable:
-            self._optimizer_step(optimizer, var_map)
-        for node in self.upstream_nodes.values():
-            node.optimizer_step(optimizer, var_map)
-
-    def _optimizer_step(self, optimizer, var_map):
-        raise Exception("No implemented. Subclass responsibility")
-
-    def _move_impl(self, optimizer, var_map):
-        raise Exception("No implemented. Subclass responsibility")
 
     def can_go_fwd(self):
         num_upstream_nodes = len(self.upstream_nodes)
@@ -77,16 +59,15 @@ class MComputeNode:
             raise Exception("Cannot be greater than number of "
                             "downstream nodes ({})".format(num_upstream_nodes))
 
-    def __can_go_fwd(self):
-        raise Exception("Not implemented. Subclass responsibility")
-
-    def _process_backprop(self, downstream_grad, downstream_calling_node, var_values_dict):
-        self.grad_from_downstream[downstream_calling_node] = downstream_grad
-        self.back_count += 1
-        return self.can_go_back()
-
     def backward(self, downstream_grad, downstream_node, var_map, tab=""):
+        r"""
 
+        :param downstream_grad:  gradient coming from downstream.
+        :param downstream_node:
+        :param var_map:
+        :param tab:
+        :return:
+        """
         calling_node_name = downstream_node.simple_name()
         _value = self.value(var_map)
         if type(downstream_grad).__module__ == np.__name__:
@@ -103,24 +84,29 @@ class MComputeNode:
         debug(tab + "Value:")
         debug(repr(_value))
 
-        should_continue = self._process_backprop(downstream_grad, downstream_node, var_map)
+        should_continue = self._process_backprop(downstream_grad)
         if not should_continue:
             return
         self._collect_grads()
         self._backprop_impl(downstream_grad, downstream_node, var_map, tab)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
-        raise Exception("Not implemented. Subclass responsibility")
+    def _process_backprop(self, downstream_grad):
+        self.grad_from_downstream.append(downstream_grad)
+        self.back_count += 1
+        return self._can_go_back()
+
+    def _can_go_back(self):
+        return self.back_count >= len(self.downstream_nodes)
 
     def _collect_grads(self):
         self._grad_value = None
-        for grad_value in self.grad_from_downstream.values():
-            if not self._grad_value:
+        for grad_value in self.grad_from_downstream:
+            if self._grad_value is None:
                 self._grad_value = np.zeros_like(grad_value)
             self._grad_value += grad_value
 
-    def can_go_back(self):
-        return self.back_count >= len(self.downstream_nodes)
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+        raise Exception("Not implemented. Subclass responsibility")
 
     def _add_upstream_nodes(self, node_list):
         for node in node_list:
@@ -145,9 +131,6 @@ class MComputeNode:
         for node in self.downstream_nodes.values():
             node.forward(my_value, self, var_map)
 
-    def simple_name(self):
-        return self.name
-
     def forward(self, var_map, upstream_value, upstream_node):
         raise Exception("Not implemented. Subclass responsibility")
 
@@ -158,10 +141,25 @@ class MComputeNode:
         """
         return self.node_value
 
+    def grad_value(self):
+        return self._grad_value
+
+    def simple_name(self):
+        return self.name
+
     def accept(self, visitor):
         visitor.visit(self)
         for upstream_node in self.upstream_nodes.values():
             upstream_node.accept(visitor)
+
+    def optimizer_step(self, optimizer, var_map):
+        if self.is_trainable:
+            self._optimizer_step(optimizer, var_map)
+        for node in self.upstream_nodes.values():
+            node.optimizer_step(optimizer, var_map)
+
+    def _optimizer_step(self, optimizer, var_map):
+        raise Exception("No implemented. Subclass responsibility")
 
 
 class BinaryMatrixOp(MComputeNode):
@@ -169,7 +167,6 @@ class BinaryMatrixOp(MComputeNode):
         MComputeNode.__init__(self, name)
         self.a_node = a_node
         self.b_node = b_node
-        self._do_check_input()
         self._add_upstream_nodes([a_node, b_node])
 
     def forward(self, var_map, upstream_value, upstream_node):
@@ -352,50 +349,6 @@ class VarNode(MComputeNode):
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         pass
-
-
-class SigmoidNode(MComputeNode):
-    def __init__(self, upstream_node, name=None):
-        MComputeNode.__init__(self, name, False)
-        self.node = upstream_node
-        self._add_upstream_nodes([upstream_node])
-
-    def forward(self, var_map, upstream_value, upstream_node):
-        matrix = self.node.value(var_map)
-        self.node_value = 1 / (1 + np.exp(-matrix))
-        self._forward_downstream(self.node_value, var_map)
-
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
-        sig_grad = self.node_value * (1 - self.node_value)
-        grad_downstream = sig_grad * self.grad_value()
-        self.node.backward(grad_downstream, self, var_map, tab + " ")
-
-
-class L2DistanceSquaredNorm(BinaryMatrixOp):
-    r"""
-    y_pre and y_actual should both be N x 1 matrices but there are no
-    checks at present
-    """
-
-    def __init__(self, y_predicted, y_actual, name=None):
-        BinaryMatrixOp.__init__(self, y_predicted, y_actual, name)
-
-    def _do_compute(self, var_map):
-        y_pred = self.a_node.value(var_map)
-        y_act = self.b_node.value(var_map)
-        y_pred = y_pred.reshape((-1,))
-        y_act = y_act.reshape((-1,))
-        y_del = y_pred - y_act
-        return np.sum(np.square(y_del)) / y_del.size
-
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
-        y_pred = self.a_node.value(var_map)
-        y_act = self.b_node.value(var_map)
-        y_del = 2*(y_pred - y_act)
-        y_pred_grad = y_del * self._grad_value
-        y_act_grad = -y_del * self._grad_value
-        self.a_node.backward(y_pred_grad, self, var_map, tab + " ")
-        self.b_node.backward(y_act_grad, self, var_map, tab + " ")
 
 
 def default_optimizer_function(w, grad, lr=0.01):

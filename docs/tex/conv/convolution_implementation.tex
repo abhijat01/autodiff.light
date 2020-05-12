@@ -42,6 +42,16 @@
 \usepackage{epigraph}
 \usepackage{authblk}
 
+% Package for marking matrices 
+\usepackage{tikz}
+\usetikzlibrary{fit}
+\tikzset{%
+	highlight/.style={rectangle,rounded corners,fill=red!15,draw,
+		fill opacity=0.5,thick,inner sep=0pt}
+}
+\newcommand{\tikzmark}[2]{\tikz[overlay,remember picture,
+	baseline=(#1.base)] \node (#1) {#2};}
+
 %\usepackage{fullpage}
 
 %%% HEADERS & FOOTERS
@@ -87,45 +97,75 @@
 \setcounter{secnumdepth}{5}
 \maketitle
 \tableofcontents
-\section{Introduction}
+\section{Convolution}
 This is used to document the implementation of 2D convolution implementation in 
 autodiff.light so that others can understand and improve the implementation. Let us start 
-with the  input matrix X, Kernel w,  and the result of the convolution y, 
-\begin{gather*} 
-\begin{split}
+with the  input matrix X, Kernel w,  and the result of the convolution y with zero padding 
+and stride of 1. 
+\begin{equation*} 
+\begin{aligned}
 X &= 
+	\begin{bmatrix}
+	x_{11} & x_{12} & x_{13} & x_{14} \\
+	x_{21} & x_{22} & x_{23} & x_{24} \\
+	x_{31} & x_{32} & x_{33} & x_{34}
+	\end{bmatrix}  
+\\
+w &= 
+	\begin{bmatrix}
+	w_{11} & w_{12} \\
+	w_{21} & w_{22} 
+	\end{bmatrix} 
+\\
+Y & = 
 \begin{bmatrix}
-x_{11} & x_{12} & x_{13} & x_{14} \\
-x_{21} & x_{22} & x_{23} & x_{24} \\
-x_{31} & x_{32} & x_{33} & x_{34}
+	x_{11}w_{11}  + x_{12}w_{12}  + x_{21}w_{21}  + x_{22}w_{22} & 
+	x_{12}w_{11}  + x_{13}w_{12}  + x_{22}w_{21}  + x_{23}w_{22} & 
+	x_{13}w_{11}  + x_{14}w_{12}  + x_{23}w_{21}  + x_{24}w_{22} \\
+	x_{21}w_{11}  + x_{22}w_{12}  + x_{31}w_{21}  + x_{32}w_{22} & 
+	x_{22}w_{11}  + x_{23}w_{12}  + x_{32}w_{21}  + x_{33}w_{22} & 
+	x_{23}w_{11}  + x_{24}w_{12}  + x_{33}w_{21}  + x_{34}w_{22} 
 \end{bmatrix}  
 \\
-w &= \begin{bmatrix}
-w_{11} & w_{12} \\
-w_{21} & w_{22} 
-\end{bmatrix} 
-\\
-y & = \begin{bmatrix}
-x_{11}w_{11}  + x_{12}w_{12}  + x_{21}w_{21}  + x_{22}w_{22} 
-& 
-x_{12}w_{11}  + x_{13}w_{12}  + x_{22}w_{21}  + x_{23}w_{22} 
-& 
-x_{13}w_{11}  + x_{14}w_{12}  + x_{23}w_{21}  + x_{24}w_{22} \\
-x_{21}w_{11}  + x_{22}w_{12}  + x_{31}w_{21}  + x_{32}w_{22} 
-& 
-x_{22}w_{11}  + x_{23}w_{12}  + x_{32}w_{21}  + x_{33}w_{22} 
-& 
-x_{23}w_{11}  + x_{24}w_{12}  + x_{33}w_{21}  + x_{34}w_{22} 
-\end{bmatrix} 
+ & = 
+ \begin{bmatrix}
+	y_{11} & y_{12} & y_{13} \\
+	y_{21} & y_{22} & y_{23} 
+ \end{bmatrix}
+\end{aligned} 
+\end{equation*} 
+
+\subsection{Calculating gradients}
+Based on this, now let us look at 
+\begin{equation*}
+\begin{split}
+\frac{\partial L}{\partial x_{11}} & = \frac{\partial L}{\partial y_{11}} \frac{\partial y_{11}}{\partial x_{11}} 
++ \frac{\partial L}{\partial y_{12}} \frac{\partial y_{12}}{\partial x_{11}} 
++ \frac{\partial L}{\partial y_{13}} \frac{\partial y_{13}}{\partial x_{11}} +\dots \\
+  & = \frac{\partial L}{\partial y_{11}} w_{11} +0 \dots 
 \end{split} 
-\end{gather*} 
-Note that these matrices use $0$ based indexing - it is easier to convert this to code 
-but even more importantly, latex code for these matrices was generating using {\em Sympy} 
-which uses $0$ based 
-indexing.
+\end{equation*}
 
 
-
+$\frac{\partial L}{\partial x_{22}}$ is more interesting 
+\begin{equation*}
+\begin{split}
+\frac{\partial L}{\partial x_{22}} & = 
+\frac{\partial L}{\partial y_{11}} \frac{\partial y_{11}}{\partial x_{22}} +
+\frac{\partial L}{\partial y_{12}} \frac{\partial y_{12}}{\partial x_{22}} + 
+\frac{\partial L}{\partial y_{13}} \frac{\partial y_{13}}{\partial x_{22}} +  
+\frac{\partial L}{\partial y_{21}} \frac{\partial y_{21}}{\partial x_{22}} +
+\frac{\partial L}{\partial y_{22}} \frac{\partial y_{22}}{\partial x_{22}} + 
+\frac{\partial L}{\partial y_{23}} \frac{\partial y_{23}}{\partial x_{22}} \\
+ & = 
+\frac{\partial L}{\partial y_{11}} w_{22} +
+\frac{\partial L}{\partial y_{12}} w_{21} + 
+\frac{\partial L}{\partial y_{13}} \times 0 +  
+\frac{\partial L}{\partial y_{21}} w_{12} +
+\frac{\partial L}{\partial y_{22}} w_{11} + 
+\frac{\partial L}{\partial y_{23}} \times 0 \\
+\end{split}
+\end{equation*}
 
 %\begin{figure}[!htb]
 %	\begin{center}
@@ -133,6 +173,18 @@ indexing.
 %	\caption{Designing experiment templates}
 %	\label{fig:exp-design}
 %	\end{center}
-%\end{figure} 
+%\end{figure}
+
+\begin{equation*} 
+\begin{split}
+X &= 
+\begin{bmatrix}
+\tikzmark{left}{x_{11}} & x_{12}                   & x_{13} & x_{14} \\
+x_{21}                  & \tikzmark{right}{x_{22}} & x_{23} & x_{24} \\
+x_{31}                  & x_{32}                   & x_{33} & x_{34}
+\end{bmatrix} 
+\end{split}
+\end{equation*} 
+
 
 \end{document}

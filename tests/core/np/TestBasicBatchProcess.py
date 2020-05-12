@@ -1,11 +1,13 @@
 import unittest
 import numpy as np
+
 import core.np.Nodes as node
-import math
-from core import log_at_info, debug, info
+from . import BaseComputeNodeTest
+from core import log_at_info, info
+from core.np.Loss import L2DistanceSquaredNorm
 
 
-class UnitNetworkBatch(unittest.TestCase):
+class UnitNetworkBatch(BaseComputeNodeTest):
     def test_linear_transformation(self):
         np.random.seed(100)
         w_node = node.VarNode('w')
@@ -26,7 +28,7 @@ class UnitNetworkBatch(unittest.TestCase):
         var_map = {'w': w, 'x': x, 'y_a': y_act}
 
         wx_node = node.MatrixMultiplication(w_node, x_node)
-        l2_node = node.L2DistanceSquaredNorm(wx_node, ya_node)
+        l2_node = L2DistanceSquaredNorm(wx_node, ya_node)
         log_at_info()
         w_node.forward(var_map, None, self)
         x_node.forward(var_map, None, self)
@@ -35,9 +37,6 @@ class UnitNetworkBatch(unittest.TestCase):
         info(wx_node.value(var_map))
         info("grad...")
         info(wx_node.grad_value())
-
-    def simple_name(self):
-        return self.__class__.__name__
 
 
 if __name__ == '__main__':

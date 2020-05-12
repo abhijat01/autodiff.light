@@ -1,11 +1,17 @@
 import unittest
 import numpy as np
+
 import core.np.Nodes as node
 import math
-from core import debug, info, log_at_info
+
+from  core.np.Activations import SigmoidNode
+from core import debug, info
+from . import BaseComputeNodeTest
+
+from core.np.Loss import L2DistanceSquaredNorm
 
 
-class BasicNetworkNoActivation(unittest.TestCase):
+class BasicNetworkNoActivation(BaseComputeNodeTest):
     def test_single_step(self):
         w_node = node.VarNode('w')
         x_node = node.VarNode('x')
@@ -21,7 +27,7 @@ class BasicNetworkNoActivation(unittest.TestCase):
 
         wx_node = node.MatrixMultiplication(w_node, x_node)
         sum_node = node.MatrixAddition(wx_node, b_node)
-        l2_node = node.L2DistanceSquaredNorm(sum_node, ya_node)
+        l2_node = L2DistanceSquaredNorm(sum_node, ya_node)
         w_node.forward(var_map, None, self)
         x_node.forward(var_map, None, self)
         b_node.forward(var_map, None, self)
@@ -70,7 +76,7 @@ class BasicNetworkNoActivation(unittest.TestCase):
 
         wx_node = node.MatrixMultiplication(w_node, x_node)
         sum_node = node.MatrixAddition(wx_node, b_node)
-        l2_node = node.L2DistanceSquaredNorm(sum_node, ya_node)
+        l2_node = L2DistanceSquaredNorm(sum_node, ya_node)
 
         for start_node in start_nodes:
             start_node.forward(var_map, None, self)
@@ -141,7 +147,7 @@ class BasicNetworkNoActivation(unittest.TestCase):
 
         wx_node = node.MatrixMultiplication(w_node, x_node)
         sum_node = node.MatrixAddition(wx_node, b_node)
-        l2_node = node.L2DistanceSquaredNorm(sum_node, ya_node)
+        l2_node = L2DistanceSquaredNorm(sum_node, ya_node)
         optimizer = node.OptimizerIterator(start_nodes, l2_node)
         node.OptimizerIterator.set_log_to_info()
         for _ in range(100):
@@ -149,16 +155,13 @@ class BasicNetworkNoActivation(unittest.TestCase):
         debug("Final loss:{}".format(loss))
         self.assertTrue(math.fabs(loss) < 1e-11)
 
-    def simple_name(self):
-        return BasicNetworkNoActivation.__name__
 
-
-class BasicNetworkSigmoid(unittest.TestCase):
+class BasicNetworkSigmoid(BaseComputeNodeTest):
     def test_sigmoid_node(self):
         x_node = node.VarNode('x')
         x = (np.array([[1, -1, 2]])).T
         var_map = {'x': x}
-        sigmoid = node.SigmoidNode(x_node)
+        sigmoid = SigmoidNode(x_node)
         x_node.forward(var_map,None, self)
         value = sigmoid.value(var_map)
         expected_value = 1/(1+np.exp(-x))
@@ -169,9 +172,6 @@ class BasicNetworkSigmoid(unittest.TestCase):
         expected_grad = expected_value*(1-expected_value)
         debug(grad)
         np.testing.assert_array_almost_equal(expected_grad, grad)
-
-    def simple_name(self):
-        return BasicNetworkSigmoid.__name__
 
 
 if __name__ == '__main__':

@@ -1,11 +1,14 @@
 import unittest
 import numpy as np
+
+from core.np.Loss import L2DistanceSquaredNorm
 import core.np.Nodes as node
 from core import debug, info, log_at_info
 from . import LinearModel
+from . import BaseComputeNodeTest
 
 
-class DenseLayerStandAlone(unittest.TestCase):
+class DenseLayerStandAlone(BaseComputeNodeTest):
     def test_basic_op(self):
         np.random.seed(100)
 
@@ -17,7 +20,7 @@ class DenseLayerStandAlone(unittest.TestCase):
         x_node = node.VarNode('x')
         dense = node.DenseLayer(x_node, 2, model_w, model_b)
         ypred_node = node.VarNode('y_pred')
-        l2_node = node.L2DistanceSquaredNorm(dense, ypred_node)
+        l2_node = L2DistanceSquaredNorm(dense, ypred_node)
 
         var_map = {'x': x, 'y_pred': y}
         x_node.forward(var_map, None, self)
@@ -68,7 +71,7 @@ class DenseLayerStandAlone(unittest.TestCase):
         net_b = np.array([3, -2]).reshape((2,1))
         dense = node.DenseLayer(x_node, 2, net_w, net_b)
         y_node = node.VarNode('y')
-        l2_node = node.L2DistanceSquaredNorm(dense, y_node)
+        l2_node = L2DistanceSquaredNorm(dense, y_node)
         model_w = np.array([[1, 3, -1], [0, -4, 2]])
         model_b = np.array([[-3, 2]]).reshape((model_w.shape[0], 1))
         model = LinearModel(model_w, model_b)
@@ -96,9 +99,6 @@ class DenseLayerStandAlone(unittest.TestCase):
         info("b = np.{}".format(repr(dense_b)))
         np.testing.assert_array_almost_equal(dense_w, model_w, 3)
         np.testing.assert_array_almost_equal(dense_b, model_b, 3)
-
-    def simple_name(self):
-        return self.__class__.__name__
 
 
 if __name__ == '__main__':
