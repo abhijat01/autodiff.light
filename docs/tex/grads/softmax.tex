@@ -1,0 +1,81 @@
+\section{Softmax} 
+It is a  mapping 
+\begin{equation}
+	\begin{aligned}
+		\begin{bmatrix}
+			y_{11} \\
+			y_{21} \\
+			\vdots \\
+			y_{m1}  
+		\end{bmatrix} & \longrightarrow  
+		\begin{bmatrix}
+			u_{11} \\
+			u_{21} \\
+			\vdots \\
+			u_{m1}
+		\end{bmatrix}   \\	
+	\end{aligned} \\
+\end{equation}
+
+Dropping second subscript for simplicity, the following is basic calculus without taking into account the 
+exact function that maps $\vec{{\bf y}}$ to $\vec{{\bf u}}$
+\begin{equation}
+	\begin{aligned}
+		\begin{bmatrix}
+			y_{1} \\
+			y_{2} \\
+			\vdots \\
+			y_{m}  
+		\end{bmatrix} & \longrightarrow  
+		\begin{bmatrix}
+			u_{1} \\
+			u_{2} \\
+			\vdots \\
+			u_{m}
+		\end{bmatrix}   \\
+		u_{1} & = \frac{e^{y_1}}{e^{y_1} + e^{y_2} + \dots + e^{y_m}}
+	\end{aligned}
+\end{equation}
+Where $u_{1}  = \frac{e^{y_1}}{e^{y_1} + e^{y_2} + \dots + e^{y_m}} $ , and in general, 
+$u_{i}  = \frac{e^{y_i}}{e^{y_1} + e^{y_2} + \dots + e^{y_i} + \dots + e^{y_m}} $
+\subsection{Gradient calculations}
+\begin{equation}
+\begin{aligned}
+\frac{\partial L}{\partial y_{1}} & = \frac{\partial L}{\partial u_{1}}\frac{\partial u_{1}}{\partial y_{1}} + 
+									\frac{\partial L}{\partial u_{2}}\frac{\partial u_{2}}{\partial y_{1}} +
+									\dots +  
+									\frac{\partial L}{\partial u_{m}}\frac{\partial u_{m}}{\partial y_{1}}   \\
+								 & = 		
+								 \begin{bmatrix}
+									 \frac{\partial u_{1}}{\partial y_{1}}  & \frac{\partial u_{2}}{\partial y_{1}}  &  \dots  & 
+									 \frac{\partial u_{m}}{\partial y_{1}} \\
+								 \end{bmatrix}	
+								 \begin{bmatrix}
+									 \frac{\partial L}{\partial u_{1}} \\
+									 \frac{\partial L}{\partial u_{2}} \\
+									 \vdots \\ 
+									 \frac{\partial L}{\partial u_{m}}
+								 \end{bmatrix} \\
+\begin{bmatrix} 
+\frac{\partial L}{\partial y_{1}} \\
+\frac{\partial L}{\partial y_{2}} \\
+\vdots \\
+\frac{\partial L}{\partial y_{m}} 
+\end{bmatrix} & = 	
+\begin{bmatrix}
+\frac{\partial u_{1}}{\partial y_{1}}  & \frac{\partial u_{2}}{\partial y_{1}}  &  \dots  & \frac{\partial u_{m}}{\partial y_{1}} \\
+\frac{\partial u_{1}}{\partial y_{2}}  & \frac{\partial u_{2}}{\partial y_{2}}  &  \dots  & \frac{\partial u_{m}}{\partial y_{2}} \\
+\vdots 	                               & \vdots                                 &         & \vdots \\ 
+\frac{\partial u_{1}}{\partial y_{m}}  & \frac{\partial u_{2}}{\partial y_{m}}  &  \dots  & \frac{\partial u_{m}}{\partial y_{m}} 
+\end{bmatrix} 	
+\begin{bmatrix}
+\frac{\partial L}{\partial u_{1}} \\
+\frac{\partial L}{\partial u_{2}} \\
+\vdots \\ 
+\frac{\partial L}{\partial u_{m}}
+\end{bmatrix}  \\
+\frac{\partial u_i}{\partial y_j} & = \frac{\partial}{\partial y_j} (\frac{e^{y_i}}{e^{y_1}+\dots + e^{y_i}+\dots+e^{y_m}})\\
+								  & = \twopartdef {u_i(1-u_i)} {i=j}{-u_i u_j}{i \neq j} \\  		  
+\end{aligned}
+\end{equation}
+
