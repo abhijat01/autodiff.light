@@ -129,7 +129,8 @@ class MComputeNode:
 
     def _forward_downstream(self, my_value, var_map):
         for node in self.downstream_nodes.values():
-            node.forward(my_value, self, var_map)
+            #node.forward(my_value, self, var_map)
+            node.forward(var_map, my_value, self)
 
     def forward(self, var_map, upstream_value, upstream_node):
         raise Exception("Not implemented. Subclass responsibility")

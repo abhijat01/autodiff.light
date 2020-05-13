@@ -28,3 +28,31 @@ class L2DistanceSquaredNorm(BinaryMatrixOp):
         y_act_grad = -y_del * self._grad_value
         self.a_node.backward(y_pred_grad, self, var_map, tab + " ")
         self.b_node.backward(y_act_grad, self, var_map, tab + " ")
+
+
+class CrossEntropy(MComputeNode):
+    def __init__(self, predicted, target, name=None):
+        MComputeNode.__init__(self, name)
+        self.predicted = predicted
+        self.target = target
+        self._add_upstream_nodes([predicted, target])
+        self.predicted_logs = None
+        self.predicted_fixed = None
+
+    def forward(self, var_map, upstream_value, upstream_node):
+        self.fwd_count += 1
+        if not self.can_go_fwd():
+            return
+        yp = self.predicted.value(var_map)
+        yt = self.target.value(var_map)
+        yp[yp == 0] = 1e-10
+        self.predicted_fixed = yp
+        self.predicted_logs = -np.log(yp)
+        self.node_value = np.sum(self.predicted_logs * yt)
+        self._forward_downstream(self.node_value, var_map)
+
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+        grad_to_predicted = np.reciprocal(self.predicted_fixed) * self.target.value(var_map)
+        grad_to_target = self.predicted_logs
+        self.predicted.backward( grad_to_predicted, self, var_map, tab+" ")
+        self.target.backward(grad_to_target, self, var_map, tab+" ")

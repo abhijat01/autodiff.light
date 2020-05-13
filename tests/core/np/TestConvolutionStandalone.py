@@ -113,8 +113,10 @@ class ConvolutionTests(BaseComputeNodeTest):
         myfile = os.path.dirname(os.path.realpath(__file__))
         project_path = os.path.join(myfile, '..','..','..')
         imgpath = os.path.join(project_path, 'test.data','conv2d',filename)
-        return  imgpath
+        return imgpath
 
+    running_manually = False
+    @unittest.skipUnless(running_manually, "No point automating visualization")
     def test_convolution2d_plotting(self):
         image_path = self.get_image( 'Vd-Orig.png')
         image = plt.imread(image_path)

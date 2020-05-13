@@ -5,7 +5,8 @@ import networkx as nx
 
 from pyvis.network import Network
 
-
+running_manually = False
+@unittest.skipUnless(running_manually, "No point automating visualization")
 class BasicNetworkViz(unittest.TestCase):
     def test_two_layer(self):
         var_map, start_nodes, end_node = models.make__two_layer_model()

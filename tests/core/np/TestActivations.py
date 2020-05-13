@@ -7,6 +7,9 @@ from core import debug
 
 
 class SimpleActivationTests(BaseComputeNodeTest):
+    r"""
+    Over time, we should check these tests in pytorch (preferred) or tensorflow/keras
+    """
     def test_sigmoid(self):
         x = np.array([[1, 2, 3, 4], [3, 4, 5, 6], [-1, 0, 1, 3]])
         x_node = node.VarNode('x')
@@ -24,7 +27,36 @@ class SimpleActivationTests(BaseComputeNodeTest):
         expected_grad = np.array([[0.19661193, 0.10499359, 0.04517666, 0.01766271],
                                   [0.04517666, 0.01766271, 0.00664806, 0.00246651],
                                   [0.19661193, 0.25, 0.19661193, 0.04517666]])
-        np.testing.assert_almost_equal(expected_grad, grad_from_sigmoid)
+        np.testing.assert_almost_equal(expected_grad/12.0, grad_from_sigmoid)
+
+    def test_sigmoid_grad(self):
+        r"""
+        See TestActivations.Sigmoid.ipynb for the corresponding pytorch calculations
+        :return:
+        """
+        x = np.array([[1, 2, 3, 4], [3, 4, 5, 6], [-1, 0, 1, 3]])
+        x_node = node.VarNode('x')
+        target = np.zeros(x.shape)
+        target_node = node.VarNode('target')
+        var_map = {'x': x, 'target': target}
+        sigmoid = SigmoidNode(x_node)
+        l2loss = L2DistanceSquaredNorm(sigmoid, target_node)
+        x_node.forward(var_map, None, self)
+        target_node.forward(var_map, None, self)
+        value = sigmoid.value(var_map)
+        expected_value = np.array([[0.73105858, 0.88079708, 0.95257413, 0.98201379],
+                                   [0.95257413, 0.98201379, 0.99330715, 0.99752738],
+                                   [0.26894142, 0.5, 0.73105858, 0.95257413]])
+        np.testing.assert_almost_equal(expected_value, value)
+        loss = l2loss.value(var_map)
+        print("L2 Loss:{}".format(loss))
+        l2loss.backward(1.0, self, var_map, " ")
+        x_grad = x_node.grad_value()
+        debug("x_grad = np.{}".format(repr(x_grad)))
+        expected_x_grad = np.array([[0.02395581, 0.01541301, 0.00717235, 0.00289084],
+                                    [0.00717235, 0.00289084, 0.00110059, 0.00041007],
+                                    [0.00881285, 0.02083333, 0.02395581, 0.00717235]])
+        np.testing.assert_almost_equal(expected_x_grad, x_grad)
 
     def test_relu(self):
         x = np.array([[1, -2, 3, -4], [2, 0, -9, .5]])

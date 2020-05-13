@@ -15,7 +15,7 @@ class SigmoidNode(MComputeNode):
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         sig_grad = self.node_value * (1 - self.node_value)
-        grad_to_input = sig_grad * self.grad_value()
+        grad_to_input = sig_grad * self.grad_value()/sig_grad.size
         self.input_node.backward(grad_to_input, self, var_map, tab + " ")
 
 

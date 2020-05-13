@@ -100,9 +100,12 @@ class FullNetworkWithSigmoid(BaseComputeNodeTest):
         info(var_map['b2'])
 
         info("[{}] Current loss:{} Average loss so far:{}".format(count, loss, average_l100))
+        # self.plot_losses(av, losses, x_axis)
+
+    def plot_losses(self, av, losses, x_axis):
         plt.scatter(x_axis, losses)
         av_np = np.array(av)
-        plt.plot(av_np[:,0], av_np[:,1], 'r')
+        plt.plot(av_np[:, 0], av_np[:, 1], 'r')
         plt.show()
 
 

@@ -171,7 +171,7 @@ class BasicNetworkSigmoid(BaseComputeNodeTest):
         grad = x_node.grad_value()
         expected_grad = expected_value*(1-expected_value)
         debug(grad)
-        np.testing.assert_array_almost_equal(expected_grad, grad)
+        np.testing.assert_array_almost_equal(expected_grad/expected_grad.size, grad)
 
 
 if __name__ == '__main__':
