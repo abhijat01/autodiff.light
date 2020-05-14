@@ -1,5 +1,6 @@
 import unittest
 
+import core.np.Optimization
 from core.np.Loss import L2DistanceSquaredNorm
 from core import info, log_at_info
 import numpy as np
@@ -38,10 +39,10 @@ class ConvolutionTests(BaseComputeNodeTest):
         info("Kernel before gradient descent")
         info(repr(c2d.get_kernel()))
 
-        def optimizer_function(_w, grad):
+        def optimizer_function(_w, grad, local_node_storage={}):
             return _w - 0.001 * grad
 
-        optimizer = node.OptimizerIterator([img_node], c2d, optimizer_function)
+        optimizer = core.np.Optimization.OptimizerIterator([img_node], c2d, optimizer_function)
         loss = optimizer.step(var_map, np.ones_like(output_image))
         info("Printing loss matrix - not really loss  but just the output of the last node")
         info(repr(loss))
@@ -82,10 +83,9 @@ class ConvolutionTests(BaseComputeNodeTest):
         info("Kernel before gradient descent")
         info(repr(c2d.get_kernel()))
 
-        def optimizer_function(_w, grad):
-            return _w - 0.001 * grad
+        optim_func = self.rate_adjustable_optimizer_func(0.001)
 
-        optimizer = node.OptimizerIterator([img_node, target_node], l2, optimizer_function)
+        optimizer = core.np.Optimization.OptimizerIterator([img_node, target_node], l2, optim_func)
         loss = optimizer.step(var_map, 1.0)
         info("Took a single gradient descent step - calculated weights and updated gradients")
         info("<<<<Printing loss matrix after single step>>>>")

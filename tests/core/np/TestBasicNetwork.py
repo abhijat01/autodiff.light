@@ -4,8 +4,9 @@ import numpy as np
 import core.np.Nodes as node
 import math
 
+import core.np.Optimization
 from  core.np.Activations import SigmoidNode
-from core import debug, info
+from core import debug, info, log_at_info
 from . import BaseComputeNodeTest
 
 from core.np.Loss import L2DistanceSquaredNorm
@@ -85,7 +86,7 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
         loss = l2_node.value(var_map)
         debug("Loss:{}".format(loss))
 
-        def optimizer(w, grad):
+        def optimizer(w, grad, node_local_storage={}):
             return w - 0.01 * grad
 
         debug("W before step")
@@ -148,8 +149,8 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
         wx_node = node.MatrixMultiplication(w_node, x_node)
         sum_node = node.MatrixAddition(wx_node, b_node)
         l2_node = L2DistanceSquaredNorm(sum_node, ya_node)
-        optimizer = node.OptimizerIterator(start_nodes, l2_node)
-        node.OptimizerIterator.set_log_to_info()
+        optimizer = core.np.Optimization.OptimizerIterator(start_nodes, l2_node)
+        log_at_info()
         for _ in range(100):
             loss = optimizer.step(var_map, 1.0)
         debug("Final loss:{}".format(loss))

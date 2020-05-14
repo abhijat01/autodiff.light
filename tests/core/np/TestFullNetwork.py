@@ -1,13 +1,14 @@
 import unittest
 import numpy as np
 
+import core.np.Optimization
 from core.np.Loss import L2DistanceSquaredNorm
 import core.np.Nodes as node
 import matplotlib.pyplot as plt
 
-from  core.np.Activations import SigmoidNode
+from core.np.Activations import SigmoidNode
 import tests.core.np.TestModels as models
-from core import info
+from core import info, log_at_info
 from . import BaseComputeNodeTest
 
 
@@ -29,11 +30,9 @@ class FullNetworkWithSigmoid(BaseComputeNodeTest):
         sigmoid_node = SigmoidNode(sum_node)
         l2_node = L2DistanceSquaredNorm(sigmoid_node, ya_node)
 
-        def default_optimizer_function(_w, grad, lr=1):
-            return _w - lr * grad
-
-        optimizer = node.OptimizerIterator(start_nodes, l2_node, default_optimizer_function)
-        node.OptimizerIterator.set_log_to_info()
+        optim_func = self.rate_adjustable_optimizer_func(0.01)
+        optimizer = core.np.Optimization.OptimizerIterator(start_nodes, l2_node, optim_func)
+        log_at_info()
         losses = []
         for i in range(100):
             loss = optimizer.step(var_map, 1.0)
@@ -48,23 +47,21 @@ class FullNetworkWithSigmoid(BaseComputeNodeTest):
         model = models.Transform1()
         # change this to 10,000 when running real test
         iter_count = 1500
-        def optimizer_function(_w, grad):
-            return _w - 0.001 * grad
-        self.run_model(model, optimizer_function, iter_count)
+        optim_func = self.rate_adjustable_optimizer_func(0.001)
+        self.run_model(model, optim_func, iter_count)
 
     def test_parabola(self):
         model = models.Parabola()
         # Change this to 20,000 when running real test
         iter_count = 1500
 
-        def optimizer_function(_w, grad):
-            return _w - 0.001 * grad
-        self.run_model(model, optimizer_function, iter_count)
+        optim_func = self.rate_adjustable_optimizer_func(0.001)
+        self.run_model(model,  optim_func, iter_count)
 
     def run_model(self, model, optimizer_func, epochs):
         var_map, start_nodes, l2_node = models.make__two_layer_model()
-        optimizer = node.OptimizerIterator(start_nodes, l2_node, optimizer_func)
-        node.OptimizerIterator.set_log_to_info()
+        optimizer = core.np.Optimization.OptimizerIterator(start_nodes, l2_node, optimizer_func)
+        log_at_info()
         count = 0
         losses = []
         sum_losses = 0

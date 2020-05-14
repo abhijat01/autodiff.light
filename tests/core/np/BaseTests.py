@@ -15,6 +15,6 @@ class BaseComputeNodeTest(unittest.TestCase):
     def rate_adjustable_optimizer_func(self, initial_rate=0.1):
         self.learning_rate = initial_rate
 
-        def optimizer(w, grad):
+        def optimizer(w, grad, node_local_storage={}):
             return w - self.learning_rate*grad
         return optimizer

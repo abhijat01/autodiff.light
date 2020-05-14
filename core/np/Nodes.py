@@ -1,7 +1,6 @@
 import numpy as np
 
 from .. import debug
-from .. import log_at_debug, log_at_info
 
 compute_node_list = []
 
@@ -30,6 +29,12 @@ class MComputeNode:
         self.node_value = None
         self._grad_value = None
         self.is_trainable = is_trainable
+        self.optimization_storage = {}
+
+    def clear_optimization_storage(self):
+        self.optimization_storage = {}
+        for node in self.upstream_nodes.values():
+            node.clear_optimization_storage()
 
     def _reset_fwd(self):
         debug("resetting {}".format(self.simple_name()))
@@ -129,7 +134,7 @@ class MComputeNode:
 
     def _forward_downstream(self, my_value, var_map):
         for node in self.downstream_nodes.values():
-            #node.forward(my_value, self, var_map)
+            # node.forward(my_value, self, var_map)
             node.forward(var_map, my_value, self)
 
     def forward(self, var_map, upstream_value, upstream_node):
@@ -235,6 +240,12 @@ class DenseLayer(MComputeNode):
         self.w_grad = None
         self.b_grad = None
         self.weights_initialized = not ((self.w is None) or (self.b is None))
+        self.optimization_storage = {'w': {}, 'b': {}}
+
+    def clear_optimization_storage(self):
+        self.optimization_storage = {'w': {}, 'b': {}}
+        for node in self.upstream_nodes.values():
+            node.clear_optimization_storage()
 
     def init_weights(self, input_dim):
         r"""
@@ -252,9 +263,9 @@ class DenseLayer(MComputeNode):
         x = self.input_node.value(var_map)
         if not self.weights_initialized:
             self.init_weights(x.shape[0])
-        debug("W=np.{}".format(repr(self.w)))
-        debug("b=np.{}".format(repr(self.b)))
-        debug("x=np.{}".format(repr(x)))
+        debug("DenseLayer.forward() W=np.{}".format(repr(self.w)))
+        debug("DenseLayer.forward() b=np.{}".format(repr(self.b)))
+        debug("DenseLayer.forward() x=np.{}".format(repr(x)))
         self.node_value = self.w @ x + self.b
         self._forward_downstream(self.node_value, var_map)
 
@@ -281,14 +292,15 @@ class DenseLayer(MComputeNode):
         x = self.input_node.value(var_map)
         incoming_grad = self.grad_value()
         self.b_grad = np.average(incoming_grad, axis=1).reshape((self.output_dim, 1))
-        self.b_grad = self.b_grad/incoming_grad.shape[1]
-        self.w_grad = (incoming_grad @ x.T)/incoming_grad.size
+        # self.b_grad = self.b_grad/incoming_grad.shape[1]
+
+        self.w_grad = (incoming_grad @ x.T) / self.node_value.shape[1]
         input_grad = self.w.T @ incoming_grad
         self.input_node.backward(input_grad, self, var_map, tab + " ")
 
     def _optimizer_step(self, optimizer, var_map):
-        self.w = optimizer(self.w, self.w_grad)
-        self.b = optimizer(self.b, self.b_grad)
+        self.w = optimizer(self.w, self.w_grad, self.optimization_storage['w'])
+        self.b = optimizer(self.b, self.b_grad, self.optimization_storage['b'])
 
 
 class MatrixAddition(BinaryMatrixOp):
@@ -345,48 +357,8 @@ class VarNode(MComputeNode):
 
     def _optimizer_step(self, optimizer, var_map):
         var = var_map[self.var_name]
-        new_var = optimizer(var, self.grad_value())
+        new_var = optimizer(var, self.grad_value(), self.optimization_storage)
         var_map[self.var_name] = new_var
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         pass
-
-
-def default_optimizer_function(w, grad, lr=0.01):
-    return w - lr * grad
-
-
-class OptimizerIterator:
-    def __init__(self, start_nodes, end_node_with_loss, optimizer_function=default_optimizer_function):
-        self.optimizer_function = optimizer_function
-        self.start_nodes = start_nodes
-        self.end_node = end_node_with_loss
-
-    def step(self, var_map, incoming_grad):
-        r"""
-        Will reset the network, do forward and backward prop and then update gradient.
-        The loss returned is before the gradient update
-        :param var_map:
-        :param incoming_grad: Starting grad, typically ones
-        :return: loss before the reset and gradient updates.
-        """
-        for node in self.start_nodes:
-            node.reset_network_fwd()
-        self.end_node.reset_network_back()
-        for node in self.start_nodes:
-            node.forward(var_map, None, self)
-        self.end_node.backward(incoming_grad, self, var_map, " ")
-        loss = self.end_node.value(var_map)
-        self.end_node.optimizer_step(self.optimizer_function, var_map)
-        return loss
-
-    @staticmethod
-    def set_log_to_info():
-        log_at_info()
-
-    @staticmethod
-    def set_log_to_debug():
-        log_at_debug()
-
-    def simple_name(self):
-        return OptimizerIterator.__name__

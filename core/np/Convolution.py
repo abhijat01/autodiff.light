@@ -36,6 +36,12 @@ class Convolution2D(node.MComputeNode):
             self.kernel = np.random.rand(self.kernel_size, self.kernel_size)
         self.x_contrib_tracker = None
         self.w_contrib_tracker = None
+        self.optimization_storage = {'w': {}, 'b': {}}
+
+    def clear_optimization_storage(self):
+        self.optimization_storage = {'w': {}, 'b': {}}
+        for up_node in self.upstream_nodes.values():
+            up_node.clear_optimization_storage()
 
     def forward(self, var_map, upstream_value, upstream_node):
         x = self.input_node.value(var_map)
@@ -118,8 +124,8 @@ class Convolution2D(node.MComputeNode):
         return self.bias
 
     def _optimizer_step(self, optimizer, var_map):
-        self.kernel = optimizer(self.kernel, self.kernel_grad)
-        self.bias = optimizer(self.bias, self.bias_grad)
+        self.kernel = optimizer(self.kernel, self.kernel_grad, self.optimization_storage['w'])
+        self.bias = optimizer(self.bias, self.bias_grad, self.optimization_storage['b'])
 
 
 class ConvContributionTracker:

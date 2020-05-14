@@ -1,4 +1,6 @@
 import unittest
+
+import core.np.Optimization
 from core.np.datasets.IrisDataset import Iris
 from core import debug, info, log_at_info
 import core.np.Nodes as node
@@ -17,6 +19,7 @@ class IrisDsTest(BaseComputeNodeTest):
             debug("y = np.{}".format(repr(y)))
 
     def test_linear_fit(self):
+        epochs = 500
         iris = Iris()
         x_node = node.VarNode('x')
         yt_node = node.VarNode('yt')
@@ -24,10 +27,10 @@ class IrisDsTest(BaseComputeNodeTest):
         softmax = act.Softmax( dense)
         cross_entropy = loss.CrossEntropy(softmax, yt_node)
         optimizer_func = self.rate_adjustable_optimizer_func()
-        optimizer = node.OptimizerIterator([x_node, yt_node], cross_entropy, optimizer_func)
+        optimizer = core.np.Optimization.OptimizerIterator([x_node, yt_node], cross_entropy, optimizer_func)
         log_at_info()
         epoch = 0
-        for x, y in iris.train_iterator(5000, 16):
+        for x, y in iris.train_iterator(epochs, 16):
             var_map = {'x': x, 'yt': y}
             loss_now = optimizer.step(var_map, 1.0)
             if epoch % 100 == 0:
