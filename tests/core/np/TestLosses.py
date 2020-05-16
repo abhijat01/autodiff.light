@@ -16,8 +16,8 @@ class SimpleCrossEntryTestCase(BaseComputeNodeTest):
         softmax = Softmax(predicted_node)
         cross_entropy = CrossEntropy(softmax, target_node)
         var_map = {'predicted': predicted, 'target': target}
-        predicted_node.forward(var_map, None, self)
-        target_node.forward(var_map, None, self)
+        predicted_node.forward(var_map)
+        target_node.forward(var_map)
         loss = cross_entropy.value(var_map)
         debug("loss = {}".format(loss))
         expected_loss = 6.188115770824936

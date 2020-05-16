@@ -132,12 +132,12 @@ class MComputeNode:
             raise Exception("Downstream node <{}> added multiple times".format(name))
         self.downstream_nodes[name] = downstream_node
 
-    def _forward_downstream(self, my_value, var_map):
+    def _forward_downstream(self,  var_map):
         for node in self.downstream_nodes.values():
             # node.forward(my_value, self, var_map)
-            node.forward(var_map, my_value, self)
+            node.forward(var_map)
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         raise Exception("Not implemented. Subclass responsibility")
 
     def value(self, var_map):
@@ -175,12 +175,12 @@ class BinaryMatrixOp(MComputeNode):
         self.b_node = b_node
         self._add_upstream_nodes([a_node, b_node])
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         self.fwd_count += 1
         if not self.can_go_fwd():
             return
         self.node_value = self._do_compute(var_map)
-        self._forward_downstream(self.node_value, var_map)
+        self._forward_downstream( var_map)
 
     def _do_compute(self, var_map):
         r"""
@@ -259,7 +259,7 @@ class DenseLayer(MComputeNode):
         self.b = np.random.rand(self.output_dim).reshape((self.output_dim, 1))
         self.weights_initialized = True
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         x = self.input_node.value(var_map)
         if not self.weights_initialized:
             self.init_weights(x.shape[0])
@@ -267,7 +267,7 @@ class DenseLayer(MComputeNode):
         debug("DenseLayer.forward() b=np.{}".format(repr(self.b)))
         debug("DenseLayer.forward() x=np.{}".format(repr(x)))
         self.node_value = self.w @ x + self.b
-        self._forward_downstream(self.node_value, var_map)
+        self._forward_downstream(var_map)
 
     def get_component_grads(self):
         r"""
@@ -351,9 +351,9 @@ class VarNode(MComputeNode):
         self.var_name = var_name
         self.is_trainable = is_trainable
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         self.node_value = var_map[self.var_name]
-        self._forward_downstream(self.node_value, var_map)
+        self._forward_downstream(var_map)
 
     def _optimizer_step(self, optimizer, var_map):
         var = var_map[self.var_name]
@@ -377,7 +377,7 @@ class SingleOutputNetworkEvaluator:
         for start_node in self.start_nodes:
             start_node.reset_network_fwd()
         for start_node in self.start_nodes:
-            start_node.forward(var_map, None, self)
+            start_node.forward(var_map)
         return self.output_node.value(var_map)
 
     def simple_name(self):

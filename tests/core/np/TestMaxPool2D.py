@@ -17,7 +17,7 @@ class MaxPool2DUnitTests(BaseComputeNodeTest):
         debug("x = np.{}".format(repr(x)))
 
     def forward(self):
-        self.x_node.forward(self.var_map, None, self)
+        self.x_node.forward(self.var_map)
 
     def test_forward(self):
         self.forward()

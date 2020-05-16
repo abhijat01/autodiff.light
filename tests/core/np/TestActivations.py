@@ -15,7 +15,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         x_node = node.VarNode('x')
         var_map = {'x': x}
         sigmoid = SigmoidNode(x_node)
-        x_node.forward(var_map, None, self)
+        x_node.forward(var_map)
         value = sigmoid.value(var_map)
         expected_value = np.array([[0.73105858, 0.88079708, 0.95257413, 0.98201379],
                                    [0.95257413, 0.98201379, 0.99330715, 0.99752738],
@@ -41,8 +41,8 @@ class SimpleActivationTests(BaseComputeNodeTest):
         var_map = {'x': x, 'target': target}
         sigmoid = SigmoidNode(x_node)
         l2loss = L2DistanceSquaredNorm(sigmoid, target_node)
-        x_node.forward(var_map, None, self)
-        target_node.forward(var_map, None, self)
+        x_node.forward(var_map)
+        target_node.forward(var_map)
         value = sigmoid.value(var_map)
         expected_value = np.array([[0.73105858, 0.88079708, 0.95257413, 0.98201379],
                                    [0.95257413, 0.98201379, 0.99330715, 0.99752738],
@@ -63,7 +63,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         x_node = node.VarNode('x')
         var_map = {'x': x}
         relu = RelUNode(x_node)
-        x_node.forward(var_map, None, self)
+        x_node.forward(var_map)
         expected_value = np.array([[1, 0, 3, 0], [2, 0, 0, .5]])
         value = relu.value(var_map)
         np.testing.assert_almost_equal(expected_value, value)
@@ -78,7 +78,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         x_node = node.VarNode('x')
         var_map = {'x': x}
         softmax = Softmax(x_node)
-        x_node.forward(var_map, None, self)
+        x_node.forward(var_map)
         expected_value = np.array([[1.12457214e-01, 1.23048334e-04],
                                    [8.30952661e-01, 9.97070980e-01],
                                    [1.52194289e-02, 3.34480051e-04],
@@ -103,8 +103,8 @@ class SimpleActivationTests(BaseComputeNodeTest):
         target_node = node.VarNode('target')
         var_map = {'x': x, 'target': target}
         l2loss = L2DistanceSquaredNorm(softmax, target_node)
-        x_node.forward(var_map, None, self)
-        target_node.forward(var_map, None, self)
+        x_node.forward(var_map)
+        target_node.forward(var_map)
 
         expected_value = np.array([[1.12457214e-01, 1.23048334e-04],
                                    [8.30952661e-01, 9.97070980e-01],

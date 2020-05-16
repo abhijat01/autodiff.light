@@ -11,9 +11,9 @@ class BinaryOpFwdProp(unittest.TestCase):
         x = np.array([[1, -1], [0, 2], [9, 1]])
         mult_node = node.MatrixMultiplication(w_node, x_node)
         var_map = {'x': x, 'w': w}
-        x_node.forward(var_map, None, self)
+        x_node.forward(var_map)
         self.assertIsNone(mult_node.value(var_map))
-        w_node.forward(var_map, None, self)
+        w_node.forward(var_map)
         value = mult_node.value(var_map)
         expected = w @ x
         np.testing.assert_array_almost_equal(expected, value)
@@ -30,7 +30,7 @@ class BinaryOpFwdProp(unittest.TestCase):
 
         var_nodes = [x_node, w_node, b_node]
         for var_node in var_nodes:
-            var_node.forward(var_map, None, self)
+            var_node.forward(var_map)
 
         expected = expected+b
         np.testing.assert_array_almost_equal(expected, sum_node.value(var_map))

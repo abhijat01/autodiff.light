@@ -84,7 +84,7 @@ class OptimizerIterator:
             node.reset_network_fwd()
         self.end_node.reset_network_back()
         for node in self.start_nodes:
-            node.forward(var_map, None, self)
+            node.forward(var_map)
         self.end_node.backward(incoming_grad, self, var_map, " ")
         loss = self.end_node.value(var_map)
         self.end_node.optimizer_step(self.optimizer_function, var_map)

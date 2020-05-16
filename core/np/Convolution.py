@@ -45,7 +45,7 @@ class Convolution2D(node.MComputeNode):
         for up_node in self.upstream_nodes.values():
             up_node.clear_optimization_storage()
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         x = self.input_node.value(var_map)
         if not x.size == self.size:
             raise Exception("Expecting size:({},{}). Received:{}".format(self.m, self.n, x.shape))
@@ -73,7 +73,7 @@ class Convolution2D(node.MComputeNode):
                         self.x_contrib_tracker.add_contribution(m, n, w_contrib, y_contrib)
 
                 # debug("(i,j)=({},{})".format(i, j))
-        self._forward_downstream(self.node_value, var_map)
+        self._forward_downstream( var_map)
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         r"""
@@ -165,7 +165,7 @@ class MaxPool2D(node.MComputeNode):
         self.pool_size = pool_size
         self.x_grad = None
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         del_m = self.pool_size[0]
         del_n = self.pool_size[1]
         x = self.input_node.value(var_map)
@@ -176,7 +176,7 @@ class MaxPool2D(node.MComputeNode):
             for j in range(x_n - del_n + 1):
                 max_i, max_j = self.get_max_idx_in_window(i, j, x)
                 self.node_value[i, j] = x[max_i, max_j]
-        self._forward_downstream(self.node_value, var_map)
+        self._forward_downstream( var_map)
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         del_m = self.pool_size[0]
@@ -234,9 +234,9 @@ class Convolution2DAggregate(node.MComputeNode):
             channel = Convolution2D(self, input_shape, kern_size, name="Ch-" + str(i))
             self.aggregates.append(channel)
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         self.node_value = self.input_node.value(var_map)
-        self._forward_downstream(self.node_value, var_map)
+        self._forward_downstream( var_map)
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         self.input_node.backward(self._grad_value, self, var_map, tab + " ")

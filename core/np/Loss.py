@@ -39,7 +39,7 @@ class CrossEntropy(MComputeNode):
         self.predicted_logs = None
         self.predicted_fixed = None
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         self.fwd_count += 1
         if not self.can_go_fwd():
             return
@@ -49,7 +49,7 @@ class CrossEntropy(MComputeNode):
         self.predicted_fixed = yp
         self.predicted_logs = -np.log(yp)
         self.node_value = np.sum(self.predicted_logs * yt)
-        self._forward_downstream(self.node_value, var_map)
+        self._forward_downstream(var_map)
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         grad_to_predicted = -np.reciprocal(self.predicted_fixed) * self.target.value(var_map)

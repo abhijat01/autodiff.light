@@ -8,10 +8,10 @@ class SigmoidNode(MComputeNode):
         self.input_node = upstream_node
         self._add_upstream_nodes([upstream_node])
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         matrix = self.input_node.value(var_map)
         self.node_value = 1 / (1 + np.exp(-matrix))
-        self._forward_downstream(self.node_value, var_map)
+        self._forward_downstream( var_map)
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         sig_grad = self.node_value * (1 - self.node_value)
@@ -25,10 +25,10 @@ class TanhNode(MComputeNode):
         self.input_node = upstream_node
         self._add_upstream_nodes([upstream_node])
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         matrix = self.input_node.value(var_map)
-        self.node_value =  np.tanh(matrix)
-        self._forward_downstream(self.node_value, var_map)
+        self.node_value = np.tanh(matrix)
+        self._forward_downstream( var_map)
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         sig_grad = 1 - np.square(self.node_value)
@@ -42,10 +42,10 @@ class RelUNode(MComputeNode):
         self.input_node = upstream_node
         self._add_upstream_nodes([upstream_node])
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         input_value = self.input_node.value(var_map)
         self.node_value = input_value * (input_value > 0)
-        self._forward_downstream(self.node_value, var_map)
+        self._forward_downstream( var_map)
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         grad_to_input = np.ones_like(self.node_value)
@@ -69,12 +69,12 @@ class Softmax(MComputeNode):
         self.input_node = input_node
         self._add_upstream_nodes([input_node])
 
-    def forward(self, var_map, upstream_value, upstream_node):
+    def forward(self, var_map):
         y = self.input_node.value(var_map)
         e = np.exp(y)
         s = np.sum(e, axis=0)
         self.node_value = e / s
-        self._forward_downstream(self.node_value, var_map)
+        self._forward_downstream(var_map)
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         categories = self.node_value.shape[0]

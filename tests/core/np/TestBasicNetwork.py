@@ -29,10 +29,10 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
         wx_node = node.MatrixMultiplication(w_node, x_node)
         sum_node = node.MatrixAddition(wx_node, b_node)
         l2_node = L2DistanceSquaredNorm(sum_node, ya_node)
-        w_node.forward(var_map, None, self)
-        x_node.forward(var_map, None, self)
-        b_node.forward(var_map, None, self)
-        ya_node.forward(var_map, None, self)
+        w_node.forward(var_map)
+        x_node.forward(var_map)
+        b_node.forward(var_map)
+        ya_node.forward(var_map)
         l2norm = l2_node.value(var_map)
         info("L2Norm: {}".format(l2norm))
         y_p = w @ x + b
@@ -80,7 +80,7 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
         l2_node = L2DistanceSquaredNorm(sum_node, ya_node)
 
         for start_node in start_nodes:
-            start_node.forward(var_map, None, self)
+            start_node.forward(var_map)
 
         l2_node.backward(1.0, self, var_map, " ")
         loss = l2_node.value(var_map)
@@ -127,7 +127,7 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
             start_node.reset_network_fwd()
         l2_node.reset_network_back()
         for start_node in start_nodes:
-            start_node.forward(var_map, None, self)
+            start_node.forward(var_map)
         loss = l2_node.value(var_map)
         l2_node.backward(1.0, self, var_map, " ")
         l2_node.optimizer_step(optimizer, var_map)
@@ -163,7 +163,7 @@ class BasicNetworkSigmoid(BaseComputeNodeTest):
         x = (np.array([[1, -1, 2]])).T
         var_map = {'x': x}
         sigmoid = SigmoidNode(x_node)
-        x_node.forward(var_map,None, self)
+        x_node.forward(var_map)
         value = sigmoid.value(var_map)
         expected_value = 1/(1+np.exp(-x))
         np.testing.assert_array_almost_equal(expected_value, value)

@@ -19,8 +19,9 @@ class IrisDsTest(BaseComputeNodeTest):
             debug("x = np.{}".format(repr(x)))
             debug("y = np.{}".format(repr(y)))
 
+
     def test_linear_fit(self):
-        epochs = 2000
+        epochs = 200
         iris = Iris()
         x_node = node.VarNode('x')
         yt_node = node.VarNode('yt')
@@ -65,7 +66,7 @@ class IrisDsTest(BaseComputeNodeTest):
         optimizer = core.np.Optimization.OptimizerIterator([x_node, yt_node], cross_entropy, optimizer_func)
         log_at_info()
         epoch = 0
-        epochs = 5000
+        epochs = 500
         batch_size=8
         for x, y in iris.train_iterator(epochs, batch_size):
             var_map = {'x': x, 'yt': y}

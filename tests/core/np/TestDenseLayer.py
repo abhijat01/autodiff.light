@@ -29,8 +29,8 @@ class DenseLayerStandAlone(BaseComputeNodeTest):
         l2_node = L2DistanceSquaredNorm(dense, ypred_node)
 
         var_map = {'x': x, 'y_pred': y}
-        x_node.forward(var_map, None, self)
-        ypred_node.forward(var_map, None, self)
+        x_node.forward(var_map)
+        ypred_node.forward(var_map)
 
         log_at_info()
         value = dense.value(var_map)

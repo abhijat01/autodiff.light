@@ -15,8 +15,8 @@ class BinaryOpBackProp(BaseComputeNodeTest):
         b = np.array([[0, 1, -1], [2, 0, 1]])
         sum_node = node.MatrixAddition(a_node, b_node)
         var_map = {'a': a, 'b': b}
-        a_node.forward(var_map, None, self)
-        b_node.forward(var_map, None, self)
+        a_node.forward(var_map)
+        b_node.forward(var_map)
         matrix_sum = sum_node.value(var_map)
         expected_sum = a + b
         print(matrix_sum)
@@ -42,8 +42,8 @@ class BinaryOpBackProp(BaseComputeNodeTest):
         var_map = {'y_p': y_pred, 'y_a': y_act}
         l2norm_node = L2DistanceSquaredNorm(y_p_node, y_a_node)
 
-        y_p_node.forward(var_map, None, self)
-        y_a_node.forward(var_map, None, self)
+        y_p_node.forward(var_map)
+        y_a_node.forward(var_map)
         l2norm = l2norm_node.value(var_map)
         print(l2norm)
         self.assertEqual(l2norm, expected_norm)
@@ -67,9 +67,9 @@ class BinaryOpBackProp(BaseComputeNodeTest):
 
         mult_node = node.MatrixMultiplication(w_node, x_node, name="wx")
         var_map = {'x': x, 'w': w}
-        x_node.forward(var_map, None, self)
+        x_node.forward(var_map)
         self.assertIsNone(mult_node.value(var_map))
-        w_node.forward(var_map, None, self)
+        w_node.forward(var_map)
         value = mult_node.value(var_map)
         expected = w @ x
         np.testing.assert_array_almost_equal(expected, value)

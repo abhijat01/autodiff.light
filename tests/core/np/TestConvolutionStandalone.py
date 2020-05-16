@@ -24,7 +24,7 @@ class ConvolutionTests(BaseComputeNodeTest):
 
         c2d = conv.Convolution2D(img_node, input_shape=(4, 4), kernel=kernel)
         var_map = {'img': img}
-        img_node.forward(var_map, None, self)
+        img_node.forward(var_map)
         info("Original x into the convolution layer")
         info(repr(img))
         output_image = c2d.value(var_map)
@@ -67,8 +67,8 @@ class ConvolutionTests(BaseComputeNodeTest):
         l2 = L2DistanceSquaredNorm(c2d, target_node)
 
         var_map = {'img': img, 'y': y}
-        img_node.forward(var_map, None, self)
-        target_node.forward(var_map, None, self)
+        img_node.forward(var_map)
+        target_node.forward(var_map)
 
         info("Original x into the convolution layer")
         info(repr(img))
@@ -116,6 +116,7 @@ class ConvolutionTests(BaseComputeNodeTest):
         return imgpath
 
     running_manually = False
+
     @unittest.skipUnless(running_manually, "No point automating visualization")
     def test_convolution2d_plotting(self):
         image_path = self.get_image( 'Vd-Orig.png')
@@ -132,14 +133,14 @@ class ConvolutionTests(BaseComputeNodeTest):
         var_map = {'x': x_image}
         x_shape = (image.shape[0], image.shape[1])
         conv_node = conv.Convolution2D(img_node, x_shape)
-        img_node.forward(var_map, None, self)
+        img_node.forward(var_map)
         final_image = conv_node.value(var_map)
         plt.imshow(final_image)
         plt.show()
         edge_kernel = np.array([[-1, -1, -1], [-1, 8, -1], [-1, -1, -1]])
         img_node = node.VarNode('x')
         conv_node = conv.Convolution2D(img_node, x_shape, kernel=edge_kernel)
-        img_node.forward(var_map, None, self)
+        img_node.forward(var_map)
         edge_img = conv_node.value(var_map)
         plt.imshow(edge_img)
         plt.show()
