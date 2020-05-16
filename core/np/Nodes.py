@@ -362,3 +362,23 @@ class VarNode(MComputeNode):
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         pass
+
+
+def make_evaluator(start_node_list, output_node):
+    return SingleOutputNetworkEvaluator(start_node_list, output_node)
+
+
+class SingleOutputNetworkEvaluator:
+    def __init__(self, start_nodes, output_node):
+        self.start_nodes = start_nodes
+        self.output_node = output_node
+
+    def at(self, var_map):
+        for start_node in self.start_nodes:
+            start_node.reset_network_fwd()
+        for start_node in self.start_nodes:
+            start_node.forward(var_map, None, self)
+        return self.output_node.value(var_map)
+
+    def simple_name(self):
+        return self.__class__.__name__

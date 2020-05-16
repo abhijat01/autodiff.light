@@ -18,3 +18,5 @@ class BaseComputeNodeTest(unittest.TestCase):
         def optimizer(w, grad, node_local_storage={}):
             return w - self.learning_rate*grad
         return optimizer
+
+

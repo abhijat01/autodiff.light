@@ -74,16 +74,16 @@ class DenseLayerStandAlone(BaseComputeNodeTest):
         losses_gd = self.do_linear_optimization(opt1, epochs=20000, do_assert=True)
 
         opt2 = core.np.Optimization.AdamOptimizer(lr=0.01)
-        lossed_adam = self.do_linear_optimization(opt2, epochs=20000, do_assert=True)
+        losses_adam = self.do_linear_optimization(opt2, epochs=20000, do_assert=True)
 
         start_idx = 100
         plt.plot(losses_gd[start_idx:,0], losses_gd[start_idx:,1], 'r')
-        plt.plot(lossed_adam[start_idx:,0], lossed_adam[start_idx:,1], 'g')
+        plt.plot(losses_adam[start_idx:,0], losses_adam[start_idx:,1], 'g')
         plt.show()
 
     def test_linear_optimization(self):
-        opt2 = core.np.Optimization.AdamOptimizer(lr=0.01)
-        lossed_adam = self.do_linear_optimization(opt2, epochs=7000, do_assert=True)
+        adam = core.np.Optimization.AdamOptimizer(lr=0.01)
+        self.do_linear_optimization(adam, epochs=7000, do_assert=True)
 
     # @unittest.skip("This will iterate over 50,000 times .. ")
     def do_linear_optimization(self, optim_func, epochs=25000, batch_size=8,

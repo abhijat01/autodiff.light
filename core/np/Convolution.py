@@ -1,5 +1,7 @@
 from . import Nodes as node
 import numpy as np
+
+
 # from core import debug, info
 
 
@@ -99,7 +101,7 @@ class Convolution2D(node.MComputeNode):
         for i in range(self.m - grad_m + 1):
             for j in range(self.n - grad_n + 1):
                 x_part = x[i:i + grad_m, j:j + grad_n] * self._grad_value
-                self.kernel_grad[i, j] = np.sum(x_part)/x_part.size
+                self.kernel_grad[i, j] = np.sum(x_part) / x_part.size
 
         self.bias_grad = np.sum(self._grad_value) / self._grad_value.size
         self.input_node.backward(self.gradient_to_x, self, var_map, tab + " ")
@@ -189,7 +191,7 @@ class MaxPool2D(node.MComputeNode):
                 max_i, max_j = self.get_max_idx_in_window(i, j, x)
                 self.x_grad[max_i, max_j] += self._grad_value[i, j]
 
-        self.input_node.backward(self.x_grad, self, var_map, tab+" ")
+        self.input_node.backward(self.x_grad, self, var_map, tab + " ")
 
     def get_max_idx_in_window(self, i_start, j_start, x):
         max_i = i_start
@@ -205,3 +207,36 @@ class MaxPool2D(node.MComputeNode):
                     max_value = v
                     max_i, max_j = i, j
         return max_i, max_j
+
+
+class Convolution2DAggregate(node.MComputeNode):
+    def __init__(self, input_node, input_shape, num_channels, kern_size=2, name=None):
+        r"""
+        if
+        :param input_node:
+        :param input_shape: required. Should be the expected image size
+        :param kern_size:  ignored if kernel is provided.
+        :param kernel:
+        :param name:
+        """
+        node.MComputeNode.__init__(self, name, is_trainable=True)
+        self.input_node = input_node
+        self._add_upstream_nodes([input_node])
+        self.m, self.n = input_shape
+        self.size = self.m * self.n
+        self.kernel_size = kern_size
+        self.n_stride = 1
+        self.m_stride = 1
+        self.num_channels = num_channels
+        self.optimization_storage = {'w': {}, 'b': {}}
+        self.aggregates = []
+        for i in range(self.num_channels):
+            channel = Convolution2D(self, input_shape, kern_size, name="Ch-" + str(i))
+            self.aggregates.append(channel)
+
+    def forward(self, var_map, upstream_value, upstream_node):
+        self.node_value = self.input_node.value(var_map)
+        self._forward_downstream(self.node_value, var_map)
+
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+        self.input_node.backward(self._grad_value, self, var_map, tab + " ")
