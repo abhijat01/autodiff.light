@@ -40,7 +40,7 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
         expected = np.sum(np.square(y_del))/y_del.size
         debug("l2norm:{}".format(l2_node))
         self.assertEqual(expected, l2norm)
-        l2_node.backward(1.0, self, var_map, " ")
+        l2_node.backward(1.0, self, var_map)
         w_grad = w_node.grad_value()
         b_grad = b_node.grad_value()
         debug("----- w grad ------")
@@ -51,7 +51,7 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
         debug("-------------------")
         l2_node.reset_network_back()
         self.assertIsNone(w_node.grad_value())
-        l2_node.backward(1.0, self, var_map, " ")
+        l2_node.backward(1.0, self, var_map)
         w_grad = w_node.grad_value()
         b_grad = b_node.grad_value()
         debug("----- w grad ------")
@@ -82,7 +82,7 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
         for start_node in start_nodes:
             start_node.forward(var_map)
 
-        l2_node.backward(1.0, self, var_map, " ")
+        l2_node.backward(1.0, self, var_map)
         loss = l2_node.value()
         debug("Loss:{}".format(loss))
 
@@ -129,7 +129,7 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
         for start_node in start_nodes:
             start_node.forward(var_map)
         loss = l2_node.value()
-        l2_node.backward(1.0, self, var_map, " ")
+        l2_node.backward(1.0, self, var_map)
         l2_node.optimizer_step(optimizer, var_map)
         return loss
 
@@ -168,7 +168,7 @@ class BasicNetworkSigmoid(BaseComputeNodeTest):
         expected_value = 1/(1+np.exp(-x))
         np.testing.assert_array_almost_equal(expected_value, value)
         debug(value)
-        sigmoid.backward(np.ones_like(value), self, var_map, " ")
+        sigmoid.backward(np.ones_like(value), self, var_map)
         grad = x_node.grad_value()
         expected_grad = expected_value*(1-expected_value)
         debug(grad)

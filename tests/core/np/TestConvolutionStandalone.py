@@ -35,7 +35,7 @@ class ConvolutionTests(BaseComputeNodeTest):
         np.testing.assert_array_almost_equal(expected_output, output_image)
         info(repr(output_image))
         log_at_info()
-        c2d.backward(output_image * 0.1, self, var_map, "")
+        c2d.backward(output_image * 0.1, self, var_map)
         info("Kernel before gradient descent")
         info(repr(c2d.get_kernel()))
 

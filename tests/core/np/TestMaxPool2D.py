@@ -32,7 +32,7 @@ class MaxPool2DUnitTests(BaseComputeNodeTest):
         value = self.max_pool_node.value()
         debug("value = np.{}".format(repr(value)))
         ones = np.ones_like(value)
-        self.max_pool_node.backward(ones, self, self.var_map, " ")
+        self.max_pool_node.backward(ones, self, self.var_map)
         grad_from_maxpool = self.x_node.grad_value()
         debug("grad_from_maxpool = np.{}".format(repr(grad_from_maxpool)))
         expected_grad = np.array([[0, 1, 0, 1],

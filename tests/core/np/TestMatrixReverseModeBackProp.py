@@ -49,7 +49,7 @@ class BinaryOpBackProp(BaseComputeNodeTest):
         self.assertEqual(l2norm, expected_norm)
 
         ones = np.ones_like(y_pred)
-        l2norm_node.backward(ones, self, var_map, " ")
+        l2norm_node.backward(ones, self, var_map)
         grad_at_yp = y_p_node.grad_value()
         print("start print grad at y_p:")
         print(grad_at_yp)
@@ -73,7 +73,7 @@ class BinaryOpBackProp(BaseComputeNodeTest):
         value = mult_node.value()
         expected = w @ x
         np.testing.assert_array_almost_equal(expected, value)
-        mult_node.backward(local_grad, self, var_map, " ")
+        mult_node.backward(local_grad, self, var_map)
         w_grad = w_node.grad_value()
         print("---- printing w_grad ---")
         print(w_grad)

@@ -75,14 +75,13 @@ class Convolution2D(node.MComputeNode):
                 # debug("(i,j)=({},{})".format(i, j))
         self._forward_downstream( var_map)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         r"""
         Variable naming assumes x as incoming value and y as the output of the
         convolution
         :param downstream_grad:
         :param downstream_node:
         :param var_map:
-        :param tab:
         :return:
         """
         x = self.input_node.value()
@@ -104,7 +103,7 @@ class Convolution2D(node.MComputeNode):
                 self.kernel_grad[i, j] = np.sum(x_part) / x_part.size
 
         self.bias_grad = np.sum(self._grad_value) / self._grad_value.size
-        self.input_node.backward(self.gradient_to_x, self, var_map, tab + " ")
+        self.input_node.backward(self.gradient_to_x, self, var_map)
 
     def _collect_component_grads(self, i, j, x, y_grad):
         x_window = x[i:i + self.kernel_size, j:j + self.kernel_size]
@@ -178,7 +177,7 @@ class MaxPool2D(node.MComputeNode):
                 self.node_value[i, j] = x[max_i, max_j]
         self._forward_downstream( var_map)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         del_m = self.pool_size[0]
         del_n = self.pool_size[1]
         x = self.input_node.value()
@@ -191,7 +190,7 @@ class MaxPool2D(node.MComputeNode):
                 max_i, max_j = self.get_max_idx_in_window(i, j, x)
                 self.x_grad[max_i, max_j] += self._grad_value[i, j]
 
-        self.input_node.backward(self.x_grad, self, var_map, tab + " ")
+        self.input_node.backward(self.x_grad, self, var_map)
 
     def get_max_idx_in_window(self, i_start, j_start, x):
         max_i = i_start
@@ -238,5 +237,5 @@ class Convolution2DAggregate(node.MComputeNode):
         self.node_value = self.input_node.value()
         self._forward_downstream( var_map)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
-        self.input_node.backward(self._grad_value, self, var_map, tab + " ")
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
+        self.input_node.backward(self._grad_value, self, var_map)

@@ -13,10 +13,10 @@ class SigmoidNode(MComputeNode):
         self.node_value = 1 / (1 + np.exp(-matrix))
         self._forward_downstream( var_map)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         sig_grad = self.node_value * (1 - self.node_value)
         grad_to_input = sig_grad * self.grad_value()/sig_grad.size
-        self.input_node.backward(grad_to_input, self, var_map, tab + " ")
+        self.input_node.backward(grad_to_input, self, var_map)
 
 
 class TanhNode(MComputeNode):
@@ -30,10 +30,10 @@ class TanhNode(MComputeNode):
         self.node_value = np.tanh(matrix)
         self._forward_downstream( var_map)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         sig_grad = 1 - np.square(self.node_value)
         grad_to_input = sig_grad * self.grad_value()/sig_grad.size
-        self.input_node.backward(grad_to_input, self, var_map, tab + " ")
+        self.input_node.backward(grad_to_input, self, var_map)
 
 
 class RelUNode(MComputeNode):
@@ -47,12 +47,12 @@ class RelUNode(MComputeNode):
         self.node_value = input_value * (input_value > 0)
         self._forward_downstream( var_map)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         grad_to_input = np.ones_like(self.node_value)
         input_value = self.input_node.value()
         grad_to_input = grad_to_input * (input_value > 0)
         grad_to_input = self._grad_value * grad_to_input
-        self.input_node.backward(grad_to_input, self, var_map, tab + " ")
+        self.input_node.backward(grad_to_input, self, var_map)
 
 
 class Softmax(MComputeNode):
@@ -76,7 +76,7 @@ class Softmax(MComputeNode):
         self.node_value = e / s
         self._forward_downstream(var_map)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         categories = self.node_value.shape[0]
         num_batches = self.node_value.shape[1]
         grad_to_input = np.zeros((categories, num_batches))
@@ -90,4 +90,4 @@ class Softmax(MComputeNode):
                         batch_grad[i, j] = -self.node_value[i, d] * self.node_value[j, d]
             grad_to_input[:, d] = batch_grad @ self._grad_value[:, d]
         grad_to_input = grad_to_input/grad_to_input.size
-        self.input_node.backward(grad_to_input, self, var_map, tab + " ")
+        self.input_node.backward(grad_to_input, self, var_map)

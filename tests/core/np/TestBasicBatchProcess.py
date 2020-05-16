@@ -33,7 +33,7 @@ class UnitNetworkBatch(BaseComputeNodeTest):
         w_node.forward(var_map)
         x_node.forward(var_map)
         ya_node.forward(var_map)
-        l2_node.backward(1.0, self, var_map, " ")
+        l2_node.backward(1.0, self, var_map)
         info(wx_node.value())
         info("grad...")
         info(wx_node.grad_value())

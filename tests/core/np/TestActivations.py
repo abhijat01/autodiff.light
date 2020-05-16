@@ -22,7 +22,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
                                    [0.26894142, 0.5, 0.73105858, 0.95257413]])
         np.testing.assert_almost_equal(expected_value, value)
         initial_grad = np.ones_like(value)
-        sigmoid.backward(initial_grad, self, var_map, " ")
+        sigmoid.backward(initial_grad, self, var_map)
         grad_from_sigmoid = x_node.grad_value()
         expected_grad = np.array([[0.19661193, 0.10499359, 0.04517666, 0.01766271],
                                   [0.04517666, 0.01766271, 0.00664806, 0.00246651],
@@ -50,7 +50,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         np.testing.assert_almost_equal(expected_value, value)
         loss = l2loss.value()
         print("L2 Loss:{}".format(loss))
-        l2loss.backward(1.0, self, var_map, " ")
+        l2loss.backward(1.0, self, var_map)
         x_grad = x_node.grad_value()
         debug("x_grad = np.{}".format(repr(x_grad)))
         expected_x_grad = np.array([[0.02395581, 0.01541301, 0.00717235, 0.00289084],
@@ -69,7 +69,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         np.testing.assert_almost_equal(expected_value, value)
         expected_grad = np.array([[1, 0, 1, 0], [1, 0, 0, 1]])
         ones = np.ones_like(value)
-        relu.backward(ones, self, var_map, " ")
+        relu.backward(ones, self, var_map)
         grad = x_node.grad_value()
         np.testing.assert_almost_equal(expected_grad, grad)
 
@@ -86,7 +86,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         value = softmax.value()
         np.testing.assert_almost_equal(expected_value, value)
         ones = np.ones_like(value)
-        softmax.backward(ones, self, var_map, " ")
+        softmax.backward(ones, self, var_map)
         grad = x_node.grad_value()
         debug("grad = np.{}".format(repr(grad)))
 
@@ -115,7 +115,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         loss_value = l2loss.value()
         debug("Loss = {}".format(loss_value))
         init_grad = np.ones(x.shape)
-        l2loss.backward(init_grad, self, var_map, " ")
+        l2loss.backward(init_grad, self, var_map)
         x_grad = x_node.grad_value()
 
         expected_grad = np.array([[-0.01666096, -0.00003058],

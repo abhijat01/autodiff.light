@@ -64,13 +64,13 @@ class MComputeNode:
             raise Exception("Cannot be greater than number of "
                             "downstream nodes ({})".format(num_upstream_nodes))
 
-    def backward(self, downstream_grad, downstream_node, var_map, tab=""):
+    def backward(self, downstream_grad, downstream_node, var_map):
         r"""
-
-        :param downstream_grad:  gradient coming from downstream.
-        :param downstream_node:
+        This implements some of the common processing needed for backprop to work properly.
+        :param downstream_grad:   gradient coming from downstream. probably not needed. We should make
+        sure that this is achieved through calling grad_value() on the node
+        :param downstream_node: downstream node that invoked backward
         :param var_map:
-        :param tab:
         :return:
         """
         calling_node_name = downstream_node.simple_name()
@@ -79,21 +79,21 @@ class MComputeNode:
             grad_shape = downstream_grad.shape
         else:
             grad_shape = "(float)"
-        debug("{}Backprop@{} from:{} downstream grad shape:{}, value shape:{}".format(tab, self.simple_name(),
+        debug("Backprop@{} from:{} downstream grad shape:{}, value shape:{}".format( self.simple_name(),
                                                                                       calling_node_name,
                                                                                       grad_shape,
                                                                                       _value.shape
                                                                                       ))
-        debug(tab + "Downstream grad received:")
+        debug("Downstream grad received:")
         debug(repr(downstream_grad))
-        debug(tab + "Value:")
+        debug("Value:")
         debug(repr(_value))
 
         should_continue = self._process_backprop(downstream_grad)
         if not should_continue:
             return
         self._collect_grads()
-        self._backprop_impl(downstream_grad, downstream_node, var_map, tab)
+        self._backprop_impl(downstream_grad, downstream_node, var_map)
 
     def _process_backprop(self, downstream_grad):
         self.grad_from_downstream.append(downstream_grad)
@@ -110,7 +110,7 @@ class MComputeNode:
                 self._grad_value = np.zeros_like(grad_value)
             self._grad_value += grad_value
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         raise Exception("Not implemented. Subclass responsibility")
 
     def _add_upstream_nodes(self, node_list):
@@ -133,6 +133,11 @@ class MComputeNode:
         self.downstream_nodes[name] = downstream_node
 
     def _forward_downstream(self,  var_map):
+        r"""
+        Node should invoke forward after it is done processing ..
+        :param var_map:
+        :return:
+        """
         for node in self.downstream_nodes.values():
             # node.forward(my_value, self, var_map)
             node.forward(var_map)
@@ -206,13 +211,13 @@ class MatrixMultiplication(BinaryMatrixOp):
         # info("a_matrix shape:{}, b_matrix_shape:{}".format(a_matrix.shape, b_matrix.shape))
         return a_matrix @ b_matrix
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         w = self.a_node.value()
         x = self.b_node.value()
         w_grad = self._grad_value @ x.T
         x_grad = w.T @ self._grad_value
-        self.a_node.backward(w_grad, self, var_map, tab + " ")
-        self.b_node.backward(x_grad, self, var_map, tab + " ")
+        self.a_node.backward(w_grad, self, var_map)
+        self.b_node.backward(x_grad, self, var_map)
 
 
 class DenseLayer(MComputeNode):
@@ -288,7 +293,7 @@ class DenseLayer(MComputeNode):
     def get_b(self):
         return self.b
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         x = self.input_node.value()
         incoming_grad = self.grad_value()
         self.b_grad = np.average(incoming_grad, axis=1).reshape((self.output_dim, 1))
@@ -296,7 +301,7 @@ class DenseLayer(MComputeNode):
 
         self.w_grad = (incoming_grad @ x.T) / self.node_value.shape[1]
         input_grad = self.w.T @ incoming_grad
-        self.input_node.backward(input_grad, self, var_map, tab + " ")
+        self.input_node.backward(input_grad, self, var_map)
 
     def _optimizer_step(self, optimizer, var_map):
         self.w = optimizer(self.w, self.w_grad, self.optimization_storage['w'])
@@ -313,15 +318,15 @@ class MatrixAddition(BinaryMatrixOp):
         b_matrix = self.b_node.value()
         return a_matrix + b_matrix
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         a = self.a_node.value()
         b = self.b_node.value()
         a_eyes = np.ones_like(a)
         b_eyes = np.ones_like(b)
         grad_2_a = np.multiply(a_eyes, downstream_grad)
         grad_2_b = np.multiply(b_eyes, downstream_grad)
-        self.a_node.backward(grad_2_a, self, var_map, tab + " ")
-        self.b_node.backward(grad_2_b, self, var_map, tab + " ")
+        self.a_node.backward(grad_2_a, self, var_map)
+        self.b_node.backward(grad_2_b, self, var_map)
 
 
 class MatrixSubtraction(BinaryMatrixOp):
@@ -334,15 +339,15 @@ class MatrixSubtraction(BinaryMatrixOp):
         b_matrix = self.b_node.value()
         return a_matrix - b_matrix
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         a = self.a_node.value()
         b = self.b_node.value()
         a_eyes = np.ones_like(a)
         b_eyes = np.ones_like(b)
         grad_2_a = np.multiply(a_eyes, downstream_grad)
         grad_2_b = np.multiply(b_eyes, downstream_grad)
-        self.a_node.backward(grad_2_a, self, var_map, tab + " ")
-        self.b_node.backward(-grad_2_b, self, var_map, tab + " ")
+        self.a_node.backward(grad_2_a, self, var_map)
+        self.b_node.backward(-grad_2_b, self, var_map)
 
 
 class VarNode(MComputeNode):
@@ -360,7 +365,7 @@ class VarNode(MComputeNode):
         new_var = optimizer(var, self.grad_value(), self.optimization_storage)
         var_map[self.var_name] = new_var
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
+    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
         pass
 
 
