@@ -86,7 +86,7 @@ class OptimizerIterator:
         for node in self.start_nodes:
             node.forward(var_map)
         self.end_node.backward(incoming_grad, self, var_map, " ")
-        loss = self.end_node.value(var_map)
+        loss = self.end_node.value()
         self.end_node.optimizer_step(self.optimizer_function, var_map)
         return loss
 

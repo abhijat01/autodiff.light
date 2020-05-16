@@ -17,7 +17,7 @@ class BinaryOpBackProp(BaseComputeNodeTest):
         var_map = {'a': a, 'b': b}
         a_node.forward(var_map)
         b_node.forward(var_map)
-        matrix_sum = sum_node.value(var_map)
+        matrix_sum = sum_node.value()
         expected_sum = a + b
         print(matrix_sum)
         np.testing.assert_array_almost_equal(expected_sum, matrix_sum)
@@ -44,7 +44,7 @@ class BinaryOpBackProp(BaseComputeNodeTest):
 
         y_p_node.forward(var_map)
         y_a_node.forward(var_map)
-        l2norm = l2norm_node.value(var_map)
+        l2norm = l2norm_node.value()
         print(l2norm)
         self.assertEqual(l2norm, expected_norm)
 
@@ -68,9 +68,9 @@ class BinaryOpBackProp(BaseComputeNodeTest):
         mult_node = node.MatrixMultiplication(w_node, x_node, name="wx")
         var_map = {'x': x, 'w': w}
         x_node.forward(var_map)
-        self.assertIsNone(mult_node.value(var_map))
+        self.assertIsNone(mult_node.value())
         w_node.forward(var_map)
-        value = mult_node.value(var_map)
+        value = mult_node.value()
         expected = w @ x
         np.testing.assert_array_almost_equal(expected, value)
         mult_node.backward(local_grad, self, var_map, " ")

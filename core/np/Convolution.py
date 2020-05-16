@@ -46,7 +46,7 @@ class Convolution2D(node.MComputeNode):
             up_node.clear_optimization_storage()
 
     def forward(self, var_map):
-        x = self.input_node.value(var_map)
+        x = self.input_node.value()
         if not x.size == self.size:
             raise Exception("Expecting size:({},{}). Received:{}".format(self.m, self.n, x.shape))
         expected_shape = (self.m, self.n)
@@ -85,7 +85,7 @@ class Convolution2D(node.MComputeNode):
         :param tab:
         :return:
         """
-        x = self.input_node.value(var_map)
+        x = self.input_node.value()
         x = x.reshape((self.m, self.n))
         self.gradient_to_x = np.zeros((self.m, self.n))
         for i in range(self.m):
@@ -168,7 +168,7 @@ class MaxPool2D(node.MComputeNode):
     def forward(self, var_map):
         del_m = self.pool_size[0]
         del_n = self.pool_size[1]
-        x = self.input_node.value(var_map)
+        x = self.input_node.value()
         x_m = x.shape[0]
         x_n = x.shape[1]
         self.node_value = np.zeros((x_m - del_m + 1, x_n - del_n + 1))
@@ -181,7 +181,7 @@ class MaxPool2D(node.MComputeNode):
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         del_m = self.pool_size[0]
         del_n = self.pool_size[1]
-        x = self.input_node.value(var_map)
+        x = self.input_node.value()
         x_m = x.shape[0]
         x_n = x.shape[1]
         self.x_grad = np.zeros_like(x)
@@ -235,7 +235,7 @@ class Convolution2DAggregate(node.MComputeNode):
             self.aggregates.append(channel)
 
     def forward(self, var_map):
-        self.node_value = self.input_node.value(var_map)
+        self.node_value = self.input_node.value()
         self._forward_downstream( var_map)
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):

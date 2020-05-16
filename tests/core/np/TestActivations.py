@@ -16,7 +16,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         var_map = {'x': x}
         sigmoid = SigmoidNode(x_node)
         x_node.forward(var_map)
-        value = sigmoid.value(var_map)
+        value = sigmoid.value()
         expected_value = np.array([[0.73105858, 0.88079708, 0.95257413, 0.98201379],
                                    [0.95257413, 0.98201379, 0.99330715, 0.99752738],
                                    [0.26894142, 0.5, 0.73105858, 0.95257413]])
@@ -43,12 +43,12 @@ class SimpleActivationTests(BaseComputeNodeTest):
         l2loss = L2DistanceSquaredNorm(sigmoid, target_node)
         x_node.forward(var_map)
         target_node.forward(var_map)
-        value = sigmoid.value(var_map)
+        value = sigmoid.value()
         expected_value = np.array([[0.73105858, 0.88079708, 0.95257413, 0.98201379],
                                    [0.95257413, 0.98201379, 0.99330715, 0.99752738],
                                    [0.26894142, 0.5, 0.73105858, 0.95257413]])
         np.testing.assert_almost_equal(expected_value, value)
-        loss = l2loss.value(var_map)
+        loss = l2loss.value()
         print("L2 Loss:{}".format(loss))
         l2loss.backward(1.0, self, var_map, " ")
         x_grad = x_node.grad_value()
@@ -65,7 +65,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         relu = RelUNode(x_node)
         x_node.forward(var_map)
         expected_value = np.array([[1, 0, 3, 0], [2, 0, 0, .5]])
-        value = relu.value(var_map)
+        value = relu.value()
         np.testing.assert_almost_equal(expected_value, value)
         expected_grad = np.array([[1, 0, 1, 0], [1, 0, 0, 1]])
         ones = np.ones_like(value)
@@ -83,7 +83,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
                                    [8.30952661e-01, 9.97070980e-01],
                                    [1.52194289e-02, 3.34480051e-04],
                                    [4.13706969e-02, 2.47149186e-03]])
-        value = softmax.value(var_map)
+        value = softmax.value()
         np.testing.assert_almost_equal(expected_value, value)
         ones = np.ones_like(value)
         softmax.backward(ones, self, var_map, " ")
@@ -110,9 +110,9 @@ class SimpleActivationTests(BaseComputeNodeTest):
                                    [8.30952661e-01, 9.97070980e-01],
                                    [1.52194289e-02, 3.34480051e-04],
                                    [4.13706969e-02, 2.47149186e-03]])
-        value = softmax.value(var_map)
+        value = softmax.value()
         np.testing.assert_almost_equal(expected_value, value)
-        loss_value = l2loss.value(var_map)
+        loss_value = l2loss.value()
         debug("Loss = {}".format(loss_value))
         init_grad = np.ones(x.shape)
         l2loss.backward(init_grad, self, var_map, " ")

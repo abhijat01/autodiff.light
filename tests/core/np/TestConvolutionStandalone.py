@@ -27,7 +27,7 @@ class ConvolutionTests(BaseComputeNodeTest):
         img_node.forward(var_map)
         info("Original x into the convolution layer")
         info(repr(img))
-        output_image = c2d.value(var_map)
+        output_image = c2d.value()
         info("Output of the convolution layer")
         expected_output = np.array([[7., 9., 11.],
                                     [-1., 1., 5.],
@@ -72,7 +72,7 @@ class ConvolutionTests(BaseComputeNodeTest):
 
         info("Original x into the convolution layer")
         info(repr(img))
-        output_image = c2d.value(var_map)
+        output_image = c2d.value()
         info("Output of the convolution layer")
         expected_output = np.array([[7., 9., 11.],
                                     [-1., 1., 5.],
@@ -134,14 +134,14 @@ class ConvolutionTests(BaseComputeNodeTest):
         x_shape = (image.shape[0], image.shape[1])
         conv_node = conv.Convolution2D(img_node, x_shape)
         img_node.forward(var_map)
-        final_image = conv_node.value(var_map)
+        final_image = conv_node.value()
         plt.imshow(final_image)
         plt.show()
         edge_kernel = np.array([[-1, -1, -1], [-1, 8, -1], [-1, -1, -1]])
         img_node = node.VarNode('x')
         conv_node = conv.Convolution2D(img_node, x_shape, kernel=edge_kernel)
         img_node.forward(var_map)
-        edge_img = conv_node.value(var_map)
+        edge_img = conv_node.value()
         plt.imshow(edge_img)
         plt.show()
 

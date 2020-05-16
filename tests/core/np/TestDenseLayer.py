@@ -33,9 +33,9 @@ class DenseLayerStandAlone(BaseComputeNodeTest):
         ypred_node.forward(var_map)
 
         log_at_info()
-        value = dense.value(var_map)
+        value = dense.value()
         info("Dense node value = np.{}".format(repr(value)))
-        value = l2_node.value(var_map)
+        value = l2_node.value()
         info("L2 node value:{}".format(value))
 
         info("--")

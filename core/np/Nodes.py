@@ -74,7 +74,7 @@ class MComputeNode:
         :return:
         """
         calling_node_name = downstream_node.simple_name()
-        _value = self.value(var_map)
+        _value = self.value()
         if type(downstream_grad).__module__ == np.__name__:
             grad_shape = downstream_grad.shape
         else:
@@ -140,7 +140,7 @@ class MComputeNode:
     def forward(self, var_map):
         raise Exception("Not implemented. Subclass responsibility")
 
-    def value(self, var_map):
+    def value(self):
         r"""
         Must return last computed value or None
         :return:
@@ -201,14 +201,14 @@ class MatrixMultiplication(BinaryMatrixOp):
         BinaryMatrixOp.__init__(self, a_node, b_node, name)
 
     def _do_compute(self, var_map):
-        a_matrix = self.a_node.value(var_map)
-        b_matrix = self.b_node.value(var_map)
+        a_matrix = self.a_node.value()
+        b_matrix = self.b_node.value()
         # info("a_matrix shape:{}, b_matrix_shape:{}".format(a_matrix.shape, b_matrix.shape))
         return a_matrix @ b_matrix
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
-        w = self.a_node.value(var_map)
-        x = self.b_node.value(var_map)
+        w = self.a_node.value()
+        x = self.b_node.value()
         w_grad = self._grad_value @ x.T
         x_grad = w.T @ self._grad_value
         self.a_node.backward(w_grad, self, var_map, tab + " ")
@@ -260,7 +260,7 @@ class DenseLayer(MComputeNode):
         self.weights_initialized = True
 
     def forward(self, var_map):
-        x = self.input_node.value(var_map)
+        x = self.input_node.value()
         if not self.weights_initialized:
             self.init_weights(x.shape[0])
         debug("DenseLayer.forward() W=np.{}".format(repr(self.w)))
@@ -289,7 +289,7 @@ class DenseLayer(MComputeNode):
         return self.b
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
-        x = self.input_node.value(var_map)
+        x = self.input_node.value()
         incoming_grad = self.grad_value()
         self.b_grad = np.average(incoming_grad, axis=1).reshape((self.output_dim, 1))
         # self.b_grad = self.b_grad/incoming_grad.shape[1]
@@ -309,13 +309,13 @@ class MatrixAddition(BinaryMatrixOp):
         BinaryMatrixOp.__init__(self, a_node, b_node, name)
 
     def _do_compute(self, var_map):
-        a_matrix = self.a_node.value(var_map)
-        b_matrix = self.b_node.value(var_map)
+        a_matrix = self.a_node.value()
+        b_matrix = self.b_node.value()
         return a_matrix + b_matrix
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
-        a = self.a_node.value(var_map)
-        b = self.b_node.value(var_map)
+        a = self.a_node.value()
+        b = self.b_node.value()
         a_eyes = np.ones_like(a)
         b_eyes = np.ones_like(b)
         grad_2_a = np.multiply(a_eyes, downstream_grad)
@@ -330,13 +330,13 @@ class MatrixSubtraction(BinaryMatrixOp):
         BinaryMatrixOp.__init__(self, a_node, b_node, name)
 
     def _do_compute(self, var_map):
-        a_matrix = self.a_node.value(var_map)
-        b_matrix = self.b_node.value(var_map)
+        a_matrix = self.a_node.value()
+        b_matrix = self.b_node.value()
         return a_matrix - b_matrix
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
-        a = self.a_node.value(var_map)
-        b = self.b_node.value(var_map)
+        a = self.a_node.value()
+        b = self.b_node.value()
         a_eyes = np.ones_like(a)
         b_eyes = np.ones_like(b)
         grad_2_a = np.multiply(a_eyes, downstream_grad)
@@ -378,7 +378,7 @@ class SingleOutputNetworkEvaluator:
             start_node.reset_network_fwd()
         for start_node in self.start_nodes:
             start_node.forward(var_map)
-        return self.output_node.value(var_map)
+        return self.output_node.value()
 
     def simple_name(self):
         return self.__class__.__name__

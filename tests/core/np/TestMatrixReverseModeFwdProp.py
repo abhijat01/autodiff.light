@@ -12,17 +12,17 @@ class BinaryOpFwdProp(unittest.TestCase):
         mult_node = node.MatrixMultiplication(w_node, x_node)
         var_map = {'x': x, 'w': w}
         x_node.forward(var_map)
-        self.assertIsNone(mult_node.value(var_map))
+        self.assertIsNone(mult_node.value())
         w_node.forward(var_map)
-        value = mult_node.value(var_map)
+        value = mult_node.value()
         expected = w @ x
         np.testing.assert_array_almost_equal(expected, value)
         print(value)
-        self.assertIsNotNone(x_node.value(var_map))
+        self.assertIsNotNone(x_node.value())
         mult_node.reset_network_fwd()
         # Just checking
         # Not none because fwd should start from start vars
-        self.assertIsNotNone(x_node.value(var_map))
+        self.assertIsNotNone(x_node.value())
         b_node = node.VarNode('b')
         b = np.array([-1, -1])
         var_map['b'] = b
@@ -33,8 +33,8 @@ class BinaryOpFwdProp(unittest.TestCase):
             var_node.forward(var_map)
 
         expected = expected+b
-        np.testing.assert_array_almost_equal(expected, sum_node.value(var_map))
-        print(sum_node.value(var_map))
+        np.testing.assert_array_almost_equal(expected, sum_node.value())
+        print(sum_node.value())
 
 
 if __name__ == '__main__':

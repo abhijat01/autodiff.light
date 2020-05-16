@@ -18,7 +18,7 @@ class SimpleCrossEntryTestCase(BaseComputeNodeTest):
         var_map = {'predicted': predicted, 'target': target}
         predicted_node.forward(var_map)
         target_node.forward(var_map)
-        loss = cross_entropy.value(var_map)
+        loss = cross_entropy.value()
         debug("loss = {}".format(loss))
         expected_loss = 6.188115770824936
         self.assertAlmostEqual(expected_loss, loss)

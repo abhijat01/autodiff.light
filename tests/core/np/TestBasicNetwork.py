@@ -33,7 +33,7 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
         x_node.forward(var_map)
         b_node.forward(var_map)
         ya_node.forward(var_map)
-        l2norm = l2_node.value(var_map)
+        l2norm = l2_node.value()
         info("L2Norm: {}".format(l2norm))
         y_p = w @ x + b
         y_del = y_p - y_act
@@ -83,7 +83,7 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
             start_node.forward(var_map)
 
         l2_node.backward(1.0, self, var_map, " ")
-        loss = l2_node.value(var_map)
+        loss = l2_node.value()
         debug("Loss:{}".format(loss))
 
         def optimizer(w, grad, node_local_storage={}):
@@ -111,7 +111,7 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
         final_y_pred = final_w @ x + final_b
         loss = np.sum(np.square(final_y_pred - y_act))
         debug("direct loss calculation:{}".format(loss))
-        network_loss = l2_node.value(var_map)
+        network_loss = l2_node.value()
         debug("Network loss:{}".format(network_loss))
         # np.testing.assert_array_almost_equal(final_y_pred, y_act)
         expected_w = np.array([[1.71395966, 2.28604034, 1.42791932],
@@ -128,7 +128,7 @@ class BasicNetworkNoActivation(BaseComputeNodeTest):
         l2_node.reset_network_back()
         for start_node in start_nodes:
             start_node.forward(var_map)
-        loss = l2_node.value(var_map)
+        loss = l2_node.value()
         l2_node.backward(1.0, self, var_map, " ")
         l2_node.optimizer_step(optimizer, var_map)
         return loss
@@ -164,7 +164,7 @@ class BasicNetworkSigmoid(BaseComputeNodeTest):
         var_map = {'x': x}
         sigmoid = SigmoidNode(x_node)
         x_node.forward(var_map)
-        value = sigmoid.value(var_map)
+        value = sigmoid.value()
         expected_value = 1/(1+np.exp(-x))
         np.testing.assert_array_almost_equal(expected_value, value)
         debug(value)

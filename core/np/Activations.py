@@ -9,7 +9,7 @@ class SigmoidNode(MComputeNode):
         self._add_upstream_nodes([upstream_node])
 
     def forward(self, var_map):
-        matrix = self.input_node.value(var_map)
+        matrix = self.input_node.value()
         self.node_value = 1 / (1 + np.exp(-matrix))
         self._forward_downstream( var_map)
 
@@ -26,7 +26,7 @@ class TanhNode(MComputeNode):
         self._add_upstream_nodes([upstream_node])
 
     def forward(self, var_map):
-        matrix = self.input_node.value(var_map)
+        matrix = self.input_node.value()
         self.node_value = np.tanh(matrix)
         self._forward_downstream( var_map)
 
@@ -43,13 +43,13 @@ class RelUNode(MComputeNode):
         self._add_upstream_nodes([upstream_node])
 
     def forward(self, var_map):
-        input_value = self.input_node.value(var_map)
+        input_value = self.input_node.value()
         self.node_value = input_value * (input_value > 0)
         self._forward_downstream( var_map)
 
     def _backprop_impl(self, downstream_grad, downstream_node, var_map, tab=""):
         grad_to_input = np.ones_like(self.node_value)
-        input_value = self.input_node.value(var_map)
+        input_value = self.input_node.value()
         grad_to_input = grad_to_input * (input_value > 0)
         grad_to_input = self._grad_value * grad_to_input
         self.input_node.backward(grad_to_input, self, var_map, tab + " ")
@@ -70,7 +70,7 @@ class Softmax(MComputeNode):
         self._add_upstream_nodes([input_node])
 
     def forward(self, var_map):
-        y = self.input_node.value(var_map)
+        y = self.input_node.value()
         e = np.exp(y)
         s = np.sum(e, axis=0)
         self.node_value = e / s

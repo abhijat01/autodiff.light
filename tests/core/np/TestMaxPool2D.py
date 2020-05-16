@@ -21,7 +21,7 @@ class MaxPool2DUnitTests(BaseComputeNodeTest):
 
     def test_forward(self):
         self.forward()
-        value = self.max_pool_node.value(self.var_map)
+        value = self.max_pool_node.value()
         info("maxpool = np.{}".format(repr(value)))
         expected_value = np.array([[2, 3, 4],
                                    [9, 9, 5]])
@@ -29,7 +29,7 @@ class MaxPool2DUnitTests(BaseComputeNodeTest):
 
     def test_backprop(self):
         self.forward()
-        value = self.max_pool_node.value(self.var_map)
+        value = self.max_pool_node.value()
         debug("value = np.{}".format(repr(value)))
         ones = np.ones_like(value)
         self.max_pool_node.backward(ones, self, self.var_map, " ")
