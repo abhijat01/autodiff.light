@@ -15,17 +15,15 @@ class L2DistanceSquaredNorm(BinaryMatrixOp):
     def _do_compute(self, var_map):
         y_pred = self.a_node.value()
         y_act = self.b_node.value()
-        y_pred = y_pred.reshape((-1,))
-        y_act = y_act.reshape((-1,))
         y_del = y_pred - y_act
         return np.sum(np.square(y_del)) / y_del.size
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
+    def _do_backprop(self, downstream_grad, downstream_node, var_map):
         y_pred = self.a_node.value()
         y_act = self.b_node.value()
         y_del = 2 * (y_pred - y_act)
-        y_pred_grad = y_del * self._grad_value
-        y_act_grad = -y_del * self._grad_value
+        y_pred_grad = (y_del * self._grad_value)/y_pred.size
+        y_act_grad = -(y_del * self._grad_value)/y_pred.size
         self.a_node.backward(y_pred_grad, self, var_map)
         self.b_node.backward(y_act_grad, self, var_map)
 
@@ -51,7 +49,7 @@ class CrossEntropy(MComputeNode):
         self.node_value = np.sum(self.predicted_logs * yt)
         self._forward_downstream(var_map)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
+    def _do_backprop(self, downstream_grad, downstream_node, var_map):
         grad_to_predicted = -np.reciprocal(self.predicted_fixed) * self.target.value()
         grad_to_target = self.predicted_logs
         self.predicted.backward(grad_to_predicted, self, var_map)

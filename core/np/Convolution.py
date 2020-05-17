@@ -75,7 +75,7 @@ class Convolution2D(node.MComputeNode):
                 # debug("(i,j)=({},{})".format(i, j))
         self._forward_downstream( var_map)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
+    def _do_backprop(self, downstream_grad, downstream_node, var_map):
         r"""
         Variable naming assumes x as incoming value and y as the output of the
         convolution
@@ -177,7 +177,7 @@ class MaxPool2D(node.MComputeNode):
                 self.node_value[i, j] = x[max_i, max_j]
         self._forward_downstream( var_map)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
+    def _do_backprop(self, downstream_grad, downstream_node, var_map):
         del_m = self.pool_size[0]
         del_n = self.pool_size[1]
         x = self.input_node.value()
@@ -237,5 +237,5 @@ class Convolution2DAggregate(node.MComputeNode):
         self.node_value = self.input_node.value()
         self._forward_downstream( var_map)
 
-    def _backprop_impl(self, downstream_grad, downstream_node, var_map):
+    def _do_backprop(self, downstream_grad, downstream_node, var_map):
         self.input_node.backward(self._grad_value, self, var_map)
