@@ -3,7 +3,7 @@ from core.np.Activations import SigmoidNode, RelUNode, Softmax
 from core.np.Loss import L2DistanceSquaredNorm
 import core.np.Nodes as node
 import numpy as np
-from core import debug
+from core import debug, info, log_at_info
 
 
 class SimpleActivationTests(BaseComputeNodeTest):
@@ -49,13 +49,17 @@ class SimpleActivationTests(BaseComputeNodeTest):
                                    [0.26894142, 0.5, 0.73105858, 0.95257413]])
         np.testing.assert_almost_equal(expected_value, value)
         loss = l2loss.value()
-        print("L2 Loss:{}".format(loss))
+        info("L2 Loss:{}".format(loss))
+        log_at_info()
         l2loss.backward(1.0, self, var_map)
         x_grad = x_node.grad_value()
-        debug("x_grad = np.{}".format(repr(x_grad)))
         expected_x_grad = np.array([[0.02395581, 0.01541301, 0.00717235, 0.00289084],
                                     [0.00717235, 0.00289084, 0.00110059, 0.00041007],
                                     [0.00881285, 0.02083333, 0.02395581, 0.00717235]])
+        info("-------------------------------------------------------------")
+        info("x_grad = np.{}".format(repr(x_grad)))
+        info("x_grad_expected= np.{}".format(repr(expected_x_grad)))
+        info(repr(expected_x_grad/x_grad))
         np.testing.assert_almost_equal(expected_x_grad, x_grad)
 
     def test_relu(self):

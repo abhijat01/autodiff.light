@@ -211,6 +211,13 @@ class MatrixMultiplication(BinaryMatrixOp):
     """
 
     def __init__(self, a_node, b_node, name=None):
+        r"""
+        value is a_node@b_node . Think of a_node as w and b_node as x
+        :param a_node:
+        :param b_node:
+        :param name:
+        :param is_trainable:
+        """
         BinaryMatrixOp.__init__(self, a_node, b_node, name)
 
     def _do_compute(self, var_map):
@@ -255,12 +262,35 @@ class DenseLayer(MComputeNode):
         self.weights_initialized = not ((self.w is None) or (self.b is None))
         self.optimization_storage = {'w': {}, 'b': {}}
 
+    def forward(self, var_map):
+        x = self.input_node.value()
+        if not self.weights_initialized:
+            self._init_weights(x.shape[0])
+        debug("DenseLayer.forward() W=np.{}".format(repr(self.w)))
+        debug("DenseLayer.forward() b=np.{}".format(repr(self.b)))
+        debug("DenseLayer.forward() x=np.{}".format(repr(x)))
+        self.node_value = self.w @ x + self.b
+        self._forward_downstream(var_map)
+
+    def _do_backprop(self, downstream_grad, downstream_node, var_map):
+        x = self.input_node.value()
+        incoming_grad = self.grad_value()
+        incoming_grad = incoming_grad/incoming_grad.size
+        self.b_grad = np.sum(incoming_grad, axis=1).reshape((self.output_dim, 1))
+        self.w_grad = (incoming_grad @ x.T)
+        grad_to_input = self.w.T @ incoming_grad
+        self.input_node.backward(grad_to_input, self, var_map)
+
+    def _optimizer_step(self, optimizer, var_map):
+        self.w = optimizer(self.w, self.w_grad, self.optimization_storage['w'])
+        self.b = optimizer(self.b, self.b_grad, self.optimization_storage['b'])
+
     def clear_optimization_storage(self):
         self.optimization_storage = {'w': {}, 'b': {}}
         for node in self.upstream_nodes.values():
             node.clear_optimization_storage()
 
-    def init_weights(self, input_dim):
+    def _init_weights(self, input_dim):
         r"""
 
         :param var_map:
@@ -271,23 +301,6 @@ class DenseLayer(MComputeNode):
         self.w = np.random.rand(self.output_dim, input_dim)
         self.b = np.random.rand(self.output_dim).reshape((self.output_dim, 1))
         self.weights_initialized = True
-
-    def forward(self, var_map):
-        x = self.input_node.value()
-        if not self.weights_initialized:
-            self.init_weights(x.shape[0])
-        debug("DenseLayer.forward() W=np.{}".format(repr(self.w)))
-        debug("DenseLayer.forward() b=np.{}".format(repr(self.b)))
-        debug("DenseLayer.forward() x=np.{}".format(repr(x)))
-        self.node_value = self.w @ x + self.b
-        self._forward_downstream(var_map)
-
-    def get_component_grads(self):
-        r"""
-
-        :return: a dictionary  with 'w' containing the w gradient and 'b' containing b gradient
-        """
-        return {'w': self.w_grad, 'b': self.b_grad}
 
     def get_w_grad(self):
         return self.w_grad
@@ -300,20 +313,6 @@ class DenseLayer(MComputeNode):
 
     def get_b(self):
         return self.b
-
-    def _do_backprop(self, downstream_grad, downstream_node, var_map):
-        x = self.input_node.value()
-        incoming_grad = self.grad_value()
-        self.b_grad = np.sum(incoming_grad, axis=1).reshape((self.output_dim, 1))
-        #self.b_grad = self.b_grad/incoming_grad.shape[1]
-
-        self.w_grad = (incoming_grad @ x.T) #/ self.node_value.shape[1]
-        input_grad = self.w.T @ incoming_grad
-        self.input_node.backward(input_grad, self, var_map)
-
-    def _optimizer_step(self, optimizer, var_map):
-        self.w = optimizer(self.w, self.w_grad, self.optimization_storage['w'])
-        self.b = optimizer(self.b, self.b_grad, self.optimization_storage['b'])
 
 
 class MatrixAddition(BinaryMatrixOp):

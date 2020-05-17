@@ -22,8 +22,8 @@ class L2DistanceSquaredNorm(BinaryMatrixOp):
         y_pred = self.a_node.value()
         y_act = self.b_node.value()
         y_del = 2 * (y_pred - y_act)
-        y_pred_grad = (y_del * self._grad_value)/y_pred.size
-        y_act_grad = -(y_del * self._grad_value)/y_pred.size
+        y_pred_grad = (y_del * self._grad_value) # /y_pred.size
+        y_act_grad = -(y_del * self._grad_value) #/y_pred.size
         self.a_node.backward(y_pred_grad, self, var_map)
         self.b_node.backward(y_act_grad, self, var_map)
 

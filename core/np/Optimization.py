@@ -19,6 +19,14 @@ class WeightUpdater:
         raise Exception("Subclass responsibility")
 
 
+class SGDOptimizer(WeightUpdater):
+    def __init__(self, lr=0.001):
+        self.lr = lr
+
+    def step(self, w, grad_w, node_local_store: dict):
+        return w - self.lr*grad_w
+
+
 class AdamOptimizer(WeightUpdater):
     r"""
     Ref: ADAM: A method for stochastic optimization, Kingma, Lei Ba (2017)
@@ -45,8 +53,6 @@ class AdamOptimizer(WeightUpdater):
 
         mt_prime = mt_p_1 / (1 - np.power(self.beta1, self.t))
         vt_prime = vt_p_1 / (1 - np.power(self.beta2, self.t))
-
-        #info(" AdapOptimizer.step()  vt = np.{}".format(repr(vt)))
 
         node_local_store['vt'] = vt_p_1
         node_local_store['mt'] = mt_p_1
