@@ -78,7 +78,7 @@ class OptimizerIterator:
         self.start_nodes = start_nodes
         self.end_node = end_node_with_loss
 
-    def step(self, var_map, incoming_grad):
+    def step(self, var_map, incoming_grad=1.0):
         r"""
         Will reset the network, do forward and backward prop and then update gradient.
         The loss returned is before the gradient update

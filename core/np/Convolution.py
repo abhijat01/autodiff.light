@@ -207,35 +207,3 @@ class MaxPool2D(node.MComputeNode):
                     max_i, max_j = i, j
         return max_i, max_j
 
-
-class Convolution2DAggregate(node.MComputeNode):
-    def __init__(self, input_node, input_shape, num_channels, kern_size=2, name=None):
-        r"""
-        if
-        :param input_node:
-        :param input_shape: required. Should be the expected image size
-        :param kern_size:  ignored if kernel is provided.
-        :param kernel:
-        :param name:
-        """
-        node.MComputeNode.__init__(self, name, is_trainable=True)
-        self.input_node = input_node
-        self._add_upstream_nodes([input_node])
-        self.m, self.n = input_shape
-        self.size = self.m * self.n
-        self.kernel_size = kern_size
-        self.n_stride = 1
-        self.m_stride = 1
-        self.num_channels = num_channels
-        self.optimization_storage = {'w': {}, 'b': {}}
-        self.aggregates = []
-        for i in range(self.num_channels):
-            channel = Convolution2D(self, input_shape, kern_size, name="Ch-" + str(i))
-            self.aggregates.append(channel)
-
-    def forward(self, var_map):
-        self.node_value = self.input_node.value()
-        self._forward_downstream( var_map)
-
-    def _do_backprop(self, downstream_grad, downstream_node, var_map):
-        self.input_node.backward(self._grad_value, self, var_map)

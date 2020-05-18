@@ -385,6 +385,9 @@ class SingleOutputNetworkEvaluator:
         self.start_nodes = start_nodes
         self.output_node = output_node
 
+    def __call__(self, var_map):
+        return self.at(var_map)
+
     def at(self, var_map):
         for start_node in self.start_nodes:
             start_node.reset_network_fwd()
