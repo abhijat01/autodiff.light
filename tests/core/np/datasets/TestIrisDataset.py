@@ -1,5 +1,3 @@
-import unittest
-
 import core.np.Optimization
 from core.np.datasets.IrisDataset import Iris
 from core import debug, info, log_at_info
@@ -59,26 +57,26 @@ class IrisDsTest(BaseComputeNodeTest):
         w = reader.get_numpy_array("w")
         b = reader.get_numpy_array("b")
         reader.pop_level()
-        dense = node.DenseLayer(x_node, 16, w, b.reshape(b.shape[0], 1))
+        dense = node.DenseLayer(x_node, 16) #, w, b.reshape(b.shape[0], 1))
         tanh = act.TanhNode(dense)
 
         reader.push_level("layer2")
         w = reader.get_numpy_array("w")
         b = reader.get_numpy_array("b")
         reader.pop_level()
-        dense2 = node.DenseLayer(tanh, 10, w, b.reshape(b.shape[0], 1))
+        dense2 = node.DenseLayer(tanh, 10) #, w, b.reshape(b.shape[0], 1))
         relu = act.RelUNode(dense2)
 
         reader.push_level("layer3")
         w = reader.get_numpy_array("w")
         b = reader.get_numpy_array("b")
         reader.pop_level()
-        dense3 = node.DenseLayer(relu, 3, w, b.reshape(b.shape[0], 1))
+        dense3 = node.DenseLayer(relu, 3) #, w, b.reshape(b.shape[0], 1))
         softmax = act.Softmax(dense3)
 
         cross_entropy = loss.CrossEntropy(softmax, yt_node)
         optimizer_func = core.np.Optimization.AdamOptimizer(lr=0.001)
-        #optimizer_func = core.np.Optimization.SGDOptimizer(lr=0.01)
+        # optimizer_func = core.np.Optimization.SGDOptimizer(lr=0.01)
         optimizer = core.np.Optimization.OptimizerIterator([x_node, yt_node], cross_entropy, optimizer_func)
         log_at_info()
 
@@ -105,4 +103,4 @@ class IrisDsTest(BaseComputeNodeTest):
             print("X:{}, y_pred:{}, Actual={}, Predicted:{}  {}".format(x.T, y_predicted.T, y_actual[0], max_idx, mark))
         percent = correct * 100 / total
         print("Correct= {}%".format(percent))
-        self.assertTrue(percent > 90)
+        self.assertTrue(percent > 95)

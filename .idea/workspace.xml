@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fc7163f-473c-4b51-a488-7b8602a4d407" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/Unittests_in_np.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/np/datasets/Mnist784Dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/core/np/datasets/TestMNist784.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Activations.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Activations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Convolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Convolution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Nodes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Optimization.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Optimization.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/np/datasets/IrisDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/datasets/IrisDataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/py_api.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/py_api.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/toy.models/.ipynb_checkpoints/Iris.Linear.pytorch-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/toy.models/Iris.Linear.pytorch.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/core/np/TestUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestUtils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/core/np/datasets/TestIrisDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/datasets/TestIrisDataset.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +149,7 @@
       <workItem from="1589376207413" duration="149000" />
       <workItem from="1589382392019" duration="15232000" />
       <workItem from="1589414104024" duration="47474000" />
-      <workItem from="1589732423747" duration="26255000" />
+      <workItem from="1589732423747" duration="27289000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit ..">
       <created>1588794612152</created>
@@ -367,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589757545974</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Got Iris multi layer to perform at least as well as PyTorch but only with Adam .. pytorch works just as well with vanilla GD">
+      <created>1589843936135</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1589843936135</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,25 +400,26 @@
     <MESSAGE value="cleaned up backward method, added some documentation" />
     <MESSAGE value="Debugged dense layer  and loss etc.&#10;&#10;Added slightly larger test case in pyunit and corresponding pytorch code for comparison" />
     <MESSAGE value="Just got all test cases to pass. &#10;&#10;I removed scaling of gradient by element size in the loss layer and instead moved it to dense layer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Just got all test cases to pass. &#10;&#10;I removed scaling of gradient by element size in the loss layer and instead moved it to dense layer." />
+    <MESSAGE value="Got Iris multi layer to perform at least as well as PyTorch but only with Adam .. pytorch works just as well with vanilla GD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got Iris multi layer to perform at least as well as PyTorch but only with Adam .. pytorch works just as well with vanilla GD" />
   </component>
   <component name="WindowStateProjectService">
     <state x="547" y="304" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1589763405688">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
     <state x="547" y="304" key="#com.intellij.codeInsight.template.impl.EditVariableDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589763405688" />
-    <state x="441" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589840894317">
+    <state x="441" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589844644158">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state x="441" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589840894317" />
+    <state x="441" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589844644158" />
     <state x="798" y="418" width="314" height="512" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1589471258780">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
     <state x="798" y="418" width="314" height="512" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589471258780" />
-    <state x="650" y="120" key="CommitChangelistDialog2" timestamp="1589757543340">
+    <state x="530" y="93" key="CommitChangelistDialog2" timestamp="1589843932631">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state x="650" y="120" key="CommitChangelistDialog2/80.0.1840.1080@80.0.1840.1080" timestamp="1589757543340" />
+    <state x="530" y="93" key="CommitChangelistDialog2/80.0.1840.1080@80.0.1840.1080" timestamp="1589843932631" />
     <state x="284" y="131" width="1482" height="839" key="DiffContextDialog" timestamp="1589414429579">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
@@ -433,50 +428,50 @@
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
     <state x="601" y="283" key="FileChooserDialogImpl/80.0.1840.1080@80.0.1840.1080" timestamp="1589840887877" />
-    <state width="627" height="718" key="GridCell.Tab.0.bottom" timestamp="1589843348939">
+    <state width="1703" height="90" key="GridCell.Tab.0.bottom" timestamp="1589844612677">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state width="627" height="718" key="GridCell.Tab.0.bottom/80.0.1840.1080@80.0.1840.1080" timestamp="1589843348939" />
-    <state width="627" height="718" key="GridCell.Tab.0.center" timestamp="1589843348939">
+    <state width="1703" height="90" key="GridCell.Tab.0.bottom/80.0.1840.1080@80.0.1840.1080" timestamp="1589844612677" />
+    <state width="1703" height="90" key="GridCell.Tab.0.center" timestamp="1589844612677">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state width="627" height="718" key="GridCell.Tab.0.center/80.0.1840.1080@80.0.1840.1080" timestamp="1589843348939" />
-    <state width="627" height="718" key="GridCell.Tab.0.left" timestamp="1589843348939">
+    <state width="1703" height="90" key="GridCell.Tab.0.center/80.0.1840.1080@80.0.1840.1080" timestamp="1589844612677" />
+    <state width="1703" height="90" key="GridCell.Tab.0.left" timestamp="1589844612676">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state width="627" height="718" key="GridCell.Tab.0.left/80.0.1840.1080@80.0.1840.1080" timestamp="1589843348939" />
-    <state width="627" height="718" key="GridCell.Tab.0.right" timestamp="1589843348939">
+    <state width="1703" height="90" key="GridCell.Tab.0.left/80.0.1840.1080@80.0.1840.1080" timestamp="1589844612676" />
+    <state width="1703" height="90" key="GridCell.Tab.0.right" timestamp="1589844612677">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state width="627" height="718" key="GridCell.Tab.0.right/80.0.1840.1080@80.0.1840.1080" timestamp="1589843348939" />
-    <state width="1703" height="310" key="GridCell.Tab.1.bottom" timestamp="1589815683084">
+    <state width="1703" height="90" key="GridCell.Tab.0.right/80.0.1840.1080@80.0.1840.1080" timestamp="1589844612677" />
+    <state width="1703" height="90" key="GridCell.Tab.1.bottom" timestamp="1589844616127">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state width="1703" height="310" key="GridCell.Tab.1.bottom/80.0.1840.1080@80.0.1840.1080" timestamp="1589815683084" />
-    <state width="1703" height="310" key="GridCell.Tab.1.center" timestamp="1589815683084">
+    <state width="1703" height="90" key="GridCell.Tab.1.bottom/80.0.1840.1080@80.0.1840.1080" timestamp="1589844616127" />
+    <state width="1703" height="90" key="GridCell.Tab.1.center" timestamp="1589844616127">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state width="1703" height="310" key="GridCell.Tab.1.center/80.0.1840.1080@80.0.1840.1080" timestamp="1589815683084" />
-    <state width="1703" height="310" key="GridCell.Tab.1.left" timestamp="1589815683084">
+    <state width="1703" height="90" key="GridCell.Tab.1.center/80.0.1840.1080@80.0.1840.1080" timestamp="1589844616127" />
+    <state width="1703" height="90" key="GridCell.Tab.1.left" timestamp="1589844616127">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state width="1703" height="310" key="GridCell.Tab.1.left/80.0.1840.1080@80.0.1840.1080" timestamp="1589815683084" />
-    <state width="1703" height="310" key="GridCell.Tab.1.right" timestamp="1589815683084">
+    <state width="1703" height="90" key="GridCell.Tab.1.left/80.0.1840.1080@80.0.1840.1080" timestamp="1589844616127" />
+    <state width="1703" height="90" key="GridCell.Tab.1.right" timestamp="1589844616127">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state width="1703" height="310" key="GridCell.Tab.1.right/80.0.1840.1080@80.0.1840.1080" timestamp="1589815683084" />
-    <state x="898" y="241" key="RollbackChangesDialog" timestamp="1589414419039">
+    <state width="1703" height="90" key="GridCell.Tab.1.right/80.0.1840.1080@80.0.1840.1080" timestamp="1589844616127" />
+    <state x="898" y="241" key="RollbackChangesDialog" timestamp="1589843873309">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state x="898" y="241" key="RollbackChangesDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589414419039" />
+    <state x="898" y="241" key="RollbackChangesDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589843873309" />
     <state x="407" y="117" key="SettingsEditor" timestamp="1589763410006">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
     <state x="407" y="117" key="SettingsEditor/80.0.1840.1080@80.0.1840.1080" timestamp="1589763410006" />
-    <state x="679" y="313" key="Vcs.Push.Dialog.v2" timestamp="1589757549478">
+    <state x="679" y="313" key="Vcs.Push.Dialog.v2" timestamp="1589843938429">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
-    <state x="679" y="313" key="Vcs.Push.Dialog.v2/80.0.1840.1080@80.0.1840.1080" timestamp="1589757549478" />
+    <state x="679" y="313" key="Vcs.Push.Dialog.v2/80.0.1840.1080@80.0.1840.1080" timestamp="1589843938429" />
     <state x="721" y="75" width="585" height="888" key="find.popup" timestamp="1589384434274">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
@@ -509,9 +504,9 @@
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/np/datasets/IrisDataset.py</url>
-          <line>46</line>
-          <option name="timeStamp" value="28" />
+          <url>file://$PROJECT_DIR$/tests/core/np/datasets/TestIrisDataset.py</url>
+          <line>50</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -529,7 +524,7 @@
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_compare_optimizations.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_compare_optimizations Coverage Results" MODIFIED="1589494191973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestFullNetwork_FullNetworkWithSigmoid_test_transform1.coverage" NAME="Unittests for TestFullNetwork.FullNetworkWithSigmoid.test_transform1 Coverage Results" MODIFIED="1589143749213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestBasicNetwork_BasicNetworkSigmoid.coverage" NAME="Unittests for np.TestBasicNetwork.BasicNetworkSigmoid Coverage Results" MODIFIED="1589683284482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
-    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestIrisDataset_IrisDsTest_test_multi_layer.coverage" NAME="Unittests for TestIrisDataset.IrisDsTest.test_multi_layer Coverage Results" MODIFIED="1589843348931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestIrisDataset_IrisDsTest_test_multi_layer.coverage" NAME="Unittests for TestIrisDataset.IrisDsTest.test_multi_layer Coverage Results" MODIFIED="1589844612536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_tests_core_np_TestDenseLayer_DenseLayerStandAlone_test_basic_op.coverage" NAME="Unittests for tests.core.np.TestDenseLayer.DenseLayerStandAlone.test_basic_op Coverage Results" MODIFIED="1589670856943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestActivations_SimpleActivationTests_test_sigmoid_grad.coverage" NAME="Unittests for np.TestActivations.SimpleActivationTests.test_sigmoid_grad Coverage Results" MODIFIED="1589324645925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestFullNetwork_FullNetworkWithSigmoid.coverage" NAME="Unittests for np.TestFullNetwork.FullNetworkWithSigmoid Coverage Results" MODIFIED="1589212866816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />

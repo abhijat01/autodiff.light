@@ -35,16 +35,12 @@ class Iris:
 
         for epoch in range(epochs):
             row_indexes = np.random.choice(self.train_idx, batch_size, replace=False)
-            x = np.zeros((self.data.shape[1], batch_size))
-            for j, row_index in enumerate(row_indexes):
-                x[:, j] = self.data[row_index].T
-            x_targets = self.targets[row_indexes]
-            if one_hot:
-                y = to_one_hot(x_targets, self.max_cat_num)
-            else:
-                y = x_targets
-            #debug("x_targets = np.{}".format(repr(x_targets)))
-            yield x, y
+            yield self.make_data(row_indexes, batch_size, one_hot)
+
+    def test_iterator(self, num_tests, one_hot=True):
+        for count in range(num_tests):
+            row_indexes = np.random.choice(self.test_idx, 1, replace=False)
+            yield self.make_data(row_indexes, 1, one_hot)
 
     def make_data(self, row_indexes, batch_size, one_hot=True):
         x = np.zeros((self.data.shape[1], batch_size))
@@ -55,21 +51,5 @@ class Iris:
             y = to_one_hot(x_targets, self.max_cat_num)
         else:
             y = x_targets
-        return x,y
-
-    def test_iterator(self, num_tests, one_hot=True):
-        for count in range(num_tests):
-            row_indexes = np.random.choice(self.test_idx, 1, replace=False)
-            x = np.zeros((self.data.shape[1], 1))
-            for j, row_index in enumerate(row_indexes):
-                x[:, j] = self.data[row_index].T
-            x_targets = self.targets[row_indexes]
-            if one_hot:
-                y = to_one_hot(x_targets, self.max_cat_num)
-            else:
-                y = x_targets
-            #debug("x_targets = np.{}".format(repr(x_targets)))
-            yield x, y
-
-
+        return x, y
 
