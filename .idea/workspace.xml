@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fc7163f-473c-4b51-a488-7b8602a4d407" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/np/Specialized.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/core/np/TestBatchNormalization.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/pyapi/TestResourceLoading.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/autodiff.light.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/autodiff.light.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Activations.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Activations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Convolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Convolution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Nodes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Optimization.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Optimization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/datasets/IrisDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/datasets/IrisDataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/datasets/Mnist784Dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/datasets/Mnist784Dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tex/grads/implementation.tex" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tex/grads/implementation.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/linear.with.act/MNist784.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/linear.with.act/MNist784.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/py_api.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/py_api.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/core/np/TestActivations.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestActivations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/core/np/datasets/TestMNist784.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/datasets/TestMNist784.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +188,7 @@
       <workItem from="1589382392019" duration="15232000" />
       <workItem from="1589414104024" duration="47474000" />
       <workItem from="1589732423747" duration="52611000" />
-      <workItem from="1590070296003" duration="33735000" />
+      <workItem from="1590070296003" duration="35086000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit ..">
       <created>1588794612152</created>
@@ -424,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589844739786</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Minor refactoring, removed use of saved weights.">
+      <created>1590177482029</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1590177482029</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,13 +467,18 @@
     </state>
     <state x="427" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1590174973314" />
     <state x="441" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1590102848241" />
+    <state x="853" y="393" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590177422887">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="853" y="393" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1590177422887" />
     <state x="798" y="418" width="314" height="512" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1589471258780">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
     <state x="798" y="418" width="314" height="512" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589471258780" />
-    <state x="530" y="93" key="CommitChangelistDialog2" timestamp="1589844736704">
-      <screen x="80" y="0" width="1840" height="1080" />
+    <state x="516" y="93" key="CommitChangelistDialog2" timestamp="1590177478813">
+      <screen x="62" y="0" width="1858" height="1080" />
     </state>
+    <state x="516" y="93" key="CommitChangelistDialog2/62.0.1858.1080@62.0.1858.1080" timestamp="1590177478813" />
     <state x="530" y="93" key="CommitChangelistDialog2/80.0.1840.1080@80.0.1840.1080" timestamp="1589844736704" />
     <state x="284" y="131" width="1482" height="839" key="DiffContextDialog" timestamp="1589414429579">
       <screen x="80" y="0" width="1840" height="1080" />
@@ -539,9 +534,10 @@
     </state>
     <state x="609" y="134" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1590174894752" />
     <state x="407" y="117" key="SettingsEditor/80.0.1840.1080@80.0.1840.1080" timestamp="1590114751828" />
-    <state x="679" y="313" key="Vcs.Push.Dialog.v2" timestamp="1589844742125">
-      <screen x="80" y="0" width="1840" height="1080" />
+    <state x="667" y="313" key="Vcs.Push.Dialog.v2" timestamp="1590177483916">
+      <screen x="62" y="0" width="1858" height="1080" />
     </state>
+    <state x="667" y="313" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1590177483916" />
     <state x="679" y="313" key="Vcs.Push.Dialog.v2/80.0.1840.1080@80.0.1840.1080" timestamp="1589844742125" />
     <state x="721" y="75" width="585" height="888" key="find.popup" timestamp="1589384434274">
       <screen x="80" y="0" width="1840" height="1080" />

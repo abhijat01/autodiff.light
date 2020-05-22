@@ -5,6 +5,8 @@ uses computational primitives e.g., additions and multiplication, to build the g
 for forward computation and back propagation. It results in  a slighlty more verbose 
 code while setting up the network but everything also becomes very explicit, hence easy to understand. 
 
+I am   
+
 # Code 
 ## Main code 
 Main code is in core and core.np packages. core.np package contains code that works with 
