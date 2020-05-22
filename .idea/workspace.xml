@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fc7163f-473c-4b51-a488-7b8602a4d407" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +30,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/sphinx" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -44,6 +43,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light" />
       <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\tests\core\np\datasets" />
       <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\test.data" />
       <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\docs\tex\grads" />
@@ -187,7 +187,7 @@
       <workItem from="1589382392019" duration="15232000" />
       <workItem from="1589414104024" duration="47474000" />
       <workItem from="1589732423747" duration="52611000" />
-      <workItem from="1590070296003" duration="35605000" />
+      <workItem from="1590070296003" duration="35888000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit ..">
       <created>1588794612152</created>
@@ -434,7 +434,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590180295360</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="using nojakyll option">
+      <created>1590180559084</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1590180559084</updated>
+    </task>
+    <task id="LOCAL-00037" summary="using nojakyll option">
+      <created>1590180627317</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1590180627317</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +465,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added basic documentation and requirements file" />
     <MESSAGE value="Dense layer working now. Added code, pyunit core, and notebook with pytorch testing code." />
     <MESSAGE value="Adding documentation" />
     <MESSAGE value="Convolution almost working. Forward works and is exactly in agreement with pytorch. &#10;&#10;Backprop gradients are off. I wonder if thats because I am summing up gradient contributions to the kernel" />
@@ -476,7 +489,8 @@
     <MESSAGE value="Minor refactoring, removed use of saved weights." />
     <MESSAGE value="Deleting index.html will replaces with link" />
     <MESSAGE value="Link does not work as expected" />
-    <option name="LAST_COMMIT_MESSAGE" value="Link does not work as expected" />
+    <MESSAGE value="using nojakyll option" />
+    <option name="LAST_COMMIT_MESSAGE" value="using nojakyll option" />
   </component>
   <component name="WindowStateProjectService">
     <state x="547" y="304" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1590114750466">
@@ -488,18 +502,18 @@
     </state>
     <state x="427" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1590174973314" />
     <state x="441" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1590102848241" />
-    <state x="853" y="393" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590177422887">
+    <state x="853" y="393" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590180535040">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="853" y="393" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1590177422887" />
+    <state x="853" y="393" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1590180535040" />
     <state x="798" y="418" width="314" height="512" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1589471258780">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
     <state x="798" y="418" width="314" height="512" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589471258780" />
-    <state x="516" y="93" key="CommitChangelistDialog2" timestamp="1590180293687">
+    <state x="516" y="93" key="CommitChangelistDialog2" timestamp="1590180625590">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="516" y="93" key="CommitChangelistDialog2/62.0.1858.1080@62.0.1858.1080" timestamp="1590180293687" />
+    <state x="516" y="93" key="CommitChangelistDialog2/62.0.1858.1080@62.0.1858.1080" timestamp="1590180625590" />
     <state x="530" y="93" key="CommitChangelistDialog2/80.0.1840.1080@80.0.1840.1080" timestamp="1589844736704" />
     <state x="284" y="131" width="1482" height="839" key="DiffContextDialog" timestamp="1589414429579">
       <screen x="80" y="0" width="1840" height="1080" />
@@ -555,10 +569,10 @@
     </state>
     <state x="609" y="134" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1590174894752" />
     <state x="407" y="117" key="SettingsEditor/80.0.1840.1080@80.0.1840.1080" timestamp="1590114751828" />
-    <state x="667" y="313" key="Vcs.Push.Dialog.v2" timestamp="1590180303751">
+    <state x="667" y="313" key="Vcs.Push.Dialog.v2" timestamp="1590180628845">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="667" y="313" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1590180303751" />
+    <state x="667" y="313" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1590180628845" />
     <state x="679" y="313" key="Vcs.Push.Dialog.v2/80.0.1840.1080@80.0.1840.1080" timestamp="1589844742125" />
     <state x="721" y="75" width="585" height="888" key="find.popup" timestamp="1589384434274">
       <screen x="80" y="0" width="1840" height="1080" />
