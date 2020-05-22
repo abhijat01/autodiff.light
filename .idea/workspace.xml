@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fc7163f-473c-4b51-a488-7b8602a4d407" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="0fc7163f-473c-4b51-a488-7b8602a4d407" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,7 +184,7 @@
       <workItem from="1589382392019" duration="15232000" />
       <workItem from="1589414104024" duration="47474000" />
       <workItem from="1589732423747" duration="52611000" />
-      <workItem from="1590070296003" duration="35086000" />
+      <workItem from="1590070296003" duration="35433000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit ..">
       <created>1588794612152</created>
@@ -414,7 +410,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590177482029</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Minor refactoring, removed use of saved weights.">
+      <created>1590179925718</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1590179925718</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Deleting index.html will replaces with link">
+      <created>1590180103748</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1590180103748</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +465,8 @@
     <MESSAGE value="Just got all test cases to pass. &#10;&#10;I removed scaling of gradient by element size in the loss layer and instead moved it to dense layer." />
     <MESSAGE value="Got Iris multi layer to perform at least as well as PyTorch but only with Adam .. pytorch works just as well with vanilla GD" />
     <MESSAGE value="Minor refactoring, removed use of saved weights." />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor refactoring, removed use of saved weights." />
+    <MESSAGE value="Deleting index.html will replaces with link" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleting index.html will replaces with link" />
   </component>
   <component name="WindowStateProjectService">
     <state x="547" y="304" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1590114750466">
@@ -475,10 +486,10 @@
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
     <state x="798" y="418" width="314" height="512" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589471258780" />
-    <state x="516" y="93" key="CommitChangelistDialog2" timestamp="1590177478813">
+    <state x="516" y="93" key="CommitChangelistDialog2" timestamp="1590180101832">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="516" y="93" key="CommitChangelistDialog2/62.0.1858.1080@62.0.1858.1080" timestamp="1590177478813" />
+    <state x="516" y="93" key="CommitChangelistDialog2/62.0.1858.1080@62.0.1858.1080" timestamp="1590180101832" />
     <state x="530" y="93" key="CommitChangelistDialog2/80.0.1840.1080@80.0.1840.1080" timestamp="1589844736704" />
     <state x="284" y="131" width="1482" height="839" key="DiffContextDialog" timestamp="1589414429579">
       <screen x="80" y="0" width="1840" height="1080" />
@@ -534,10 +545,10 @@
     </state>
     <state x="609" y="134" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1590174894752" />
     <state x="407" y="117" key="SettingsEditor/80.0.1840.1080@80.0.1840.1080" timestamp="1590114751828" />
-    <state x="667" y="313" key="Vcs.Push.Dialog.v2" timestamp="1590177483916">
+    <state x="667" y="313" key="Vcs.Push.Dialog.v2" timestamp="1590180105330">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="667" y="313" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1590177483916" />
+    <state x="667" y="313" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1590180105330" />
     <state x="679" y="313" key="Vcs.Push.Dialog.v2/80.0.1840.1080@80.0.1840.1080" timestamp="1589844742125" />
     <state x="721" y="75" width="585" height="888" key="find.popup" timestamp="1589384434274">
       <screen x="80" y="0" width="1840" height="1080" />
