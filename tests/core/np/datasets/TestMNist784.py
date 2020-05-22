@@ -47,7 +47,7 @@ class Mnist784DsTest(BaseComputeNodeTest):
         total_time = time.time()
         for epoch in range(epochs):
             epoch_time = time.time()
-            for x, y in iterate_over_minibatches(x_train, y_train, batch_size=batch_size, shuffle=False):
+            for x, y in iterate_over_minibatches(x_train, y_train, batch_size=batch_size):
                 input_x = x.T
                 y_target = to_one_hot(y, max_cat_num=9)
                 var_map = {'x': input_x, 'yt': y_target}

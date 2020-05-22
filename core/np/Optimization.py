@@ -1,5 +1,11 @@
+r"""
+This module contains gradient update classes. You will typically start with a subclass of
+WeightUpdter class and pass it to OptimizerIterator constructor.
+"""
+
 import numpy as np
 from core import debug, info
+import core.np.Nodes as node
 
 def default_optimizer_function(w, grad, node_local_storage={}):
     r"""
@@ -63,14 +69,17 @@ class AdamOptimizer(WeightUpdater):
 
 
 class OptimizerIterator:
-    def __init__(self, start_nodes, end_node_with_loss, optimizer_function=default_optimizer_function):
+    def __init__(self, start_nodes, end_node_with_loss:node.MComputeNode,
+                 optimizer_function=default_optimizer_function):
         r"""
 
-        :param start_nodes:
-        :param end_node_with_loss:
+        :param start_nodes: Nodes that should be sent "forward" message for network to be evaluated in the
+        forward direction.
+        :param end_node_with_loss: this is the node to send the "backward" message to for the network to
+        propagate gadients backward.
         :param optimizer_function: either a function that takes three variables, weight, gradient of the
         weight and a dictionary used for storing intermediate values
-        or it can be an instance of WeightUpdater
+        or an instance of WeightUpdater
         """
         if isinstance(optimizer_function, WeightUpdater):
             self.optimizer_function = optimizer_function.step

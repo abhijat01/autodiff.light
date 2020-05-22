@@ -23,6 +23,7 @@ You should start with the Nodes module.
    :maxdepth: 2
    :caption: Contents:
 
+   usage/index
    modules
 
 
