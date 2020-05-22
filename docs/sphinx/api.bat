@@ -1,0 +1,2 @@
+sphinx-apidoc -o  .  ..\..  ..\..\tests
+

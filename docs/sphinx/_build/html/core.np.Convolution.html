@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; LightWeight AutoDiff 4 Neural Nets 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="core.np.Loss.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="core.np.Activations.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LightWeight AutoDiff 4 Neural Nets
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Light weight Autodiff</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LightWeight AutoDiff 4 Neural Nets</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">Light weight Autodiff</a> &raquo;</li>
+        
+          <li><a href="core.html">core package</a> &raquo;</li>
+        
+          <li><a href="core.np.html">core.np package</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/core.np.Convolution.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-core.np.Convolution"></span><dl class="py class">
+<dt id="core.np.Convolution.ConvContributionTracker">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Convolution.</code><code class="sig-name descname">ConvContributionTracker</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shape</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.ConvContributionTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.np.Convolution.ConvContributionTracker.add_contribution">
+<code class="sig-name descname">add_contribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i</span></em>, <em class="sig-param"><span class="n">j</span></em>, <em class="sig-param"><span class="n">w_tuple</span></em>, <em class="sig-param"><span class="n">y_tuple</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.ConvContributionTracker.add_contribution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.ConvContributionTracker.get_contributions">
+<code class="sig-name descname">get_contributions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i</span></em>, <em class="sig-param"><span class="n">j</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.ConvContributionTracker.get_contributions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Convolution.Convolution2D">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Convolution.</code><code class="sig-name descname">Convolution2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_node</span></em>, <em class="sig-param"><span class="n">input_shape</span></em>, <em class="sig-param"><span class="n">kern_size</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="core.np.Nodes.html#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<p>Lets start with simple square kernels and stride of 1</p>
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.clear_optimization_storage">
+<code class="sig-name descname">clear_optimization_storage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.clear_optimization_storage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.get_bias">
+<code class="sig-name descname">get_bias</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.get_bias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.get_bias_grad">
+<code class="sig-name descname">get_bias_grad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.get_bias_grad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.get_kernel">
+<code class="sig-name descname">get_kernel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.get_kernel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.get_kernel_grad">
+<code class="sig-name descname">get_kernel_grad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.get_kernel_grad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Convolution.MaxPool2D">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Convolution.</code><code class="sig-name descname">MaxPool2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_node</span></em>, <em class="sig-param"><span class="n">pool_size</span><span class="o">=</span><span class="default_value">2, 2</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.MaxPool2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="core.np.Nodes.html#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<p>Simple max pool with 1 stride only</p>
+<dl class="py method">
+<dt id="core.np.Convolution.MaxPool2D.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.MaxPool2D.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.MaxPool2D.get_max_idx_in_window">
+<code class="sig-name descname">get_max_idx_in_window</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i_start</span></em>, <em class="sig-param"><span class="n">j_start</span></em>, <em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.MaxPool2D.get_max_idx_in_window" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="core.np.Loss.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="core.np.Activations.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Abhijat Vatsyayan
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

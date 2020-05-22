@@ -1,0 +1,4 @@
+.. automodule:: tests.core.np.TestConvolutionStandalone
+   :members:
+   :undoc-members:
+   :show-inheritance:

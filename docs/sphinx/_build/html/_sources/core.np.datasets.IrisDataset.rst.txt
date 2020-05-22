@@ -1,0 +1,4 @@
+.. automodule:: core.np.datasets.IrisDataset
+   :members:
+   :undoc-members:
+   :show-inheritance:

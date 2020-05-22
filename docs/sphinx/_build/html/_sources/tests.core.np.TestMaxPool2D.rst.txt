@@ -1,0 +1,4 @@
+.. automodule:: tests.core.np.TestMaxPool2D
+   :members:
+   :undoc-members:
+   :show-inheritance:

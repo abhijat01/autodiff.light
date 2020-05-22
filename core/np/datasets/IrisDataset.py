@@ -10,7 +10,7 @@ class Iris:
         self.targets = self.iris.target
         self.max_cat_num = np.max(self.targets)
         self.train_idx = None
-        self.test_idx = None
+        self.test_set_indexes = None
         self.train_fraction = train_fraction
         if split_now:
             self.split_test_train()
@@ -19,8 +19,8 @@ class Iris:
         num_data_points = len(self.targets)
         num_train = int(num_data_points * self.train_fraction)
         self.train_idx = np.random.choice(range(num_data_points), num_train, replace=False)
-        self.test_idx = set(range(num_data_points)) - set(self.train_idx)
-        self.test_idx = list(self.test_idx)
+        self.test_set_indexes = set(range(num_data_points)) - set(self.train_idx)
+        self.test_set_indexes = list(self.test_set_indexes)
 
     def train_iterator(self, epochs, batch_size=1, one_hot=True):
         r"""
@@ -38,9 +38,10 @@ class Iris:
             yield self.make_data(row_indexes, batch_size, one_hot)
 
     def test_iterator(self, num_tests, one_hot=True):
+        batch_size = 1
         for count in range(num_tests):
-            row_indexes = np.random.choice(self.test_idx, 1, replace=False)
-            yield self.make_data(row_indexes, 1, one_hot)
+            row_indexes = np.random.choice(self.test_set_indexes, batch_size, replace=False)
+            yield self.make_data(row_indexes, batch_size, one_hot)
 
     def make_data(self, row_indexes, batch_size, one_hot=True):
         x = np.zeros((self.data.shape[1], batch_size))

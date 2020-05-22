@@ -1,0 +1,793 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>core.np package &mdash; LightWeight AutoDiff 4 Neural Nets 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="core.np.datasets package" href="core.np.datasets.html" />
+    <link rel="prev" title="core package" href="core.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LightWeight AutoDiff 4 Neural Nets
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Light weight Autodiff</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="core.html">core package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="core.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">core.np package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#module-core.ForwardAutoDiffOneD">core.ForwardAutoDiffOneD module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#module-core.ReverseModeAutoDiff">core.ReverseModeAutoDiff module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#module-core.log">core.log module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#module-core">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LightWeight AutoDiff 4 Neural Nets</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">Light weight Autodiff</a> &raquo;</li>
+        
+          <li><a href="core.html">core package</a> &raquo;</li>
+        
+      <li>core.np package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/core.np.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="core-np-package">
+<h1>core.np package<a class="headerlink" href="#core-np-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core.np.datasets.html">core.np.datasets package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core.np.datasets.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.np.datasets.html#module-core.np.datasets.IrisDataset">core.np.datasets.IrisDataset module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.np.datasets.html#module-core.np.datasets.Mnist784Dataset">core.np.datasets.Mnist784Dataset module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.np.datasets.html#module-core.np.datasets">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-core.np.Activations">
+<span id="core-np-activations-module"></span><h2>core.np.Activations module<a class="headerlink" href="#module-core.np.Activations" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="core.np.Activations.RelUNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Activations.</code><code class="sig-name descname">RelUNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">upstream_node</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Activations.RelUNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.Activations.RelUNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Activations.RelUNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Activations.SigmoidNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Activations.</code><code class="sig-name descname">SigmoidNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">upstream_node</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Activations.SigmoidNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.Activations.SigmoidNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Activations.SigmoidNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Activations.Softmax">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Activations.</code><code class="sig-name descname">Softmax</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_node</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Activations.Softmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.Activations.Softmax.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Activations.Softmax.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Activations.TanhNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Activations.</code><code class="sig-name descname">TanhNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">upstream_node</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Activations.TanhNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.Activations.TanhNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Activations.TanhNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.np.Convolution">
+<span id="core-np-convolution-module"></span><h2>core.np.Convolution module<a class="headerlink" href="#module-core.np.Convolution" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="core.np.Convolution.ConvContributionTracker">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Convolution.</code><code class="sig-name descname">ConvContributionTracker</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shape</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.ConvContributionTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.np.Convolution.ConvContributionTracker.add_contribution">
+<code class="sig-name descname">add_contribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i</span></em>, <em class="sig-param"><span class="n">j</span></em>, <em class="sig-param"><span class="n">w_tuple</span></em>, <em class="sig-param"><span class="n">y_tuple</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.ConvContributionTracker.add_contribution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.ConvContributionTracker.get_contributions">
+<code class="sig-name descname">get_contributions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i</span></em>, <em class="sig-param"><span class="n">j</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.ConvContributionTracker.get_contributions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Convolution.Convolution2D">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Convolution.</code><code class="sig-name descname">Convolution2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_node</span></em>, <em class="sig-param"><span class="n">input_shape</span></em>, <em class="sig-param"><span class="n">kern_size</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<p>Lets start with simple square kernels and stride of 1</p>
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.clear_optimization_storage">
+<code class="sig-name descname">clear_optimization_storage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.clear_optimization_storage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.get_bias">
+<code class="sig-name descname">get_bias</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.get_bias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.get_bias_grad">
+<code class="sig-name descname">get_bias_grad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.get_bias_grad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.get_kernel">
+<code class="sig-name descname">get_kernel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.get_kernel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.Convolution2D.get_kernel_grad">
+<code class="sig-name descname">get_kernel_grad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.Convolution2D.get_kernel_grad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Convolution.MaxPool2D">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Convolution.</code><code class="sig-name descname">MaxPool2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_node</span></em>, <em class="sig-param"><span class="n">pool_size</span><span class="o">=</span><span class="default_value">2, 2</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.MaxPool2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<p>Simple max pool with 1 stride only</p>
+<dl class="py method">
+<dt id="core.np.Convolution.MaxPool2D.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.MaxPool2D.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Convolution.MaxPool2D.get_max_idx_in_window">
+<code class="sig-name descname">get_max_idx_in_window</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i_start</span></em>, <em class="sig-param"><span class="n">j_start</span></em>, <em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Convolution.MaxPool2D.get_max_idx_in_window" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.np.Loss">
+<span id="core-np-loss-module"></span><h2>core.np.Loss module<a class="headerlink" href="#module-core.np.Loss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="core.np.Loss.CrossEntropy">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Loss.</code><code class="sig-name descname">CrossEntropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predicted</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Loss.CrossEntropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.Loss.CrossEntropy.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Loss.CrossEntropy.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Loss.L2DistanceSquaredNorm">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Loss.</code><code class="sig-name descname">L2DistanceSquaredNorm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y_predicted</span></em>, <em class="sig-param"><span class="n">y_actual</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Loss.L2DistanceSquaredNorm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.BinaryMatrixOp" title="core.np.Nodes.BinaryMatrixOp"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.BinaryMatrixOp</span></code></a></p>
+<p>y_pre and y_actual should both be N x 1 matrices but there are no
+checks at present</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Loss.LogitsCrossEntropy">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Loss.</code><code class="sig-name descname">LogitsCrossEntropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predicted</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode">core.np.Nodes.MComputeNode</a></span></em>, <em class="sig-param"><span class="n">target</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode">core.np.Nodes.MComputeNode</a></span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Loss.LogitsCrossEntropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<p>Send the output of dense layer directly to this instead of passing
+through softmax</p>
+<dl class="py method">
+<dt id="core.np.Loss.LogitsCrossEntropy.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Loss.LogitsCrossEntropy.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.np.NetworkViz">
+<span id="core-np-networkviz-module"></span><h2>core.np.NetworkViz module<a class="headerlink" href="#module-core.np.NetworkViz" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="core.np.NetworkViz.NodeAccumlatorVisitor">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.NetworkViz.</code><code class="sig-name descname">NodeAccumlatorVisitor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.NetworkViz.NodeAccumlatorVisitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.INodeVisitor" title="core.np.Nodes.INodeVisitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.INodeVisitor</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.NetworkViz.NodeAccumlatorVisitor.connect_upstream">
+<code class="sig-name descname">connect_upstream</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">x1</span></em>, <em class="sig-param"><span class="n">x2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.NetworkViz.NodeAccumlatorVisitor.connect_upstream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.NetworkViz.NodeAccumlatorVisitor.finish">
+<code class="sig-name descname">finish</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.NetworkViz.NodeAccumlatorVisitor.finish" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.NetworkViz.NodeAccumlatorVisitor.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.NetworkViz.NodeAccumlatorVisitor.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.NetworkViz.NodeAccumlatorVisitor.visit">
+<code class="sig-name descname">visit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">compute_node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.NetworkViz.NodeAccumlatorVisitor.visit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.np.Nodes">
+<span id="core-np-nodes-module"></span><h2>core.np.Nodes module<a class="headerlink" href="#module-core.np.Nodes" title="Permalink to this headline">¶</a></h2>
+<p>This module contains many of the building blocks, in particular the common node
+class, propagation code, dense layer etc.</p>
+<dl class="py class">
+<dt id="core.np.Nodes.BinaryMatrixOp">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">BinaryMatrixOp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a_node</span></em>, <em class="sig-param"><span class="n">b_node</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.BinaryMatrixOp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.Nodes.BinaryMatrixOp.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.BinaryMatrixOp.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Nodes.DenseLayer">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">DenseLayer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_node</span></em>, <em class="sig-param"><span class="n">output_dim</span></em>, <em class="sig-param"><span class="n">initial_w</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">initial_b</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight_scale</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<p>A direct implementation of dense layer without the full compute graph
+Designed to represent Wx +b  where W is output_dim x input_dim, X is input_dim X batch_size
+and b is output_dim x 1</p>
+<dl class="py method">
+<dt id="core.np.Nodes.DenseLayer.clear_optimization_storage">
+<code class="sig-name descname">clear_optimization_storage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.clear_optimization_storage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.DenseLayer.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.DenseLayer.get_b">
+<code class="sig-name descname">get_b</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.get_b" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.DenseLayer.get_b_grad">
+<code class="sig-name descname">get_b_grad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.get_b_grad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.DenseLayer.get_w">
+<code class="sig-name descname">get_w</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.get_w" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.DenseLayer.get_w_grad">
+<code class="sig-name descname">get_w_grad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.get_w_grad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Nodes.INodeVisitor">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">INodeVisitor</code><a class="headerlink" href="#core.np.Nodes.INodeVisitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.np.Nodes.INodeVisitor.visit">
+<code class="sig-name descname">visit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">computeNode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.INodeVisitor.visit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Nodes.MComputeNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">MComputeNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_trainable</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.np.Nodes.MComputeNode.accept">
+<code class="sig-name descname">accept</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">visitor</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode.accept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.MComputeNode.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">downstream_grad</span></em>, <em class="sig-param"><span class="n">downstream_node</span></em>, <em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>This implements some of the common processing needed for backprop to work properly.
+:param downstream_grad:   gradient coming from downstream. probably not needed. We should make
+sure that this is achieved through calling grad_value() on the node
+:param downstream_node: downstream node that invoked backward
+:param var_map:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.MComputeNode.can_go_fwd">
+<code class="sig-name descname">can_go_fwd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode.can_go_fwd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.MComputeNode.clear_optimization_storage">
+<code class="sig-name descname">clear_optimization_storage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode.clear_optimization_storage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.MComputeNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.MComputeNode.grad_value">
+<code class="sig-name descname">grad_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode.grad_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.MComputeNode.optimizer_step">
+<code class="sig-name descname">optimizer_step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">optimizer</span></em>, <em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode.optimizer_step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.MComputeNode.reset_network_back">
+<code class="sig-name descname">reset_network_back</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode.reset_network_back" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.MComputeNode.reset_network_fwd">
+<code class="sig-name descname">reset_network_fwd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode.reset_network_fwd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.MComputeNode.simple_name">
+<code class="sig-name descname">simple_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode.simple_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.MComputeNode.value">
+<code class="sig-name descname">value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MComputeNode.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Must return last computed value or None
+:return:</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Nodes.MatrixAddition">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">MatrixAddition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a_node</span></em>, <em class="sig-param"><span class="n">b_node</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MatrixAddition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.BinaryMatrixOp" title="core.np.Nodes.BinaryMatrixOp"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.BinaryMatrixOp</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Nodes.MatrixMultiplication">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">MatrixMultiplication</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a_node</span></em>, <em class="sig-param"><span class="n">b_node</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MatrixMultiplication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.BinaryMatrixOp" title="core.np.Nodes.BinaryMatrixOp"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.BinaryMatrixOp</span></code></a></p>
+<p>Linear transform from R^n space to R^m
+Represents Wx</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Nodes.MatrixSubtraction">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">MatrixSubtraction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a_node</span></em>, <em class="sig-param"><span class="n">b_node</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.MatrixSubtraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.BinaryMatrixOp" title="core.np.Nodes.BinaryMatrixOp"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.BinaryMatrixOp</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Nodes.SingleOutputNetworkEvaluator">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">SingleOutputNetworkEvaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_nodes</span></em>, <em class="sig-param"><span class="n">output_node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.SingleOutputNetworkEvaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.np.Nodes.SingleOutputNetworkEvaluator.at">
+<code class="sig-name descname">at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.SingleOutputNetworkEvaluator.at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.SingleOutputNetworkEvaluator.simple_name">
+<code class="sig-name descname">simple_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.SingleOutputNetworkEvaluator.simple_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Nodes.VarNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">VarNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span></em>, <em class="sig-param"><span class="n">is_trainable</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.VarNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.Nodes.VarNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.VarNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="core.np.Nodes.make_evaluator">
+<code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">make_evaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_node_list</span></em>, <em class="sig-param"><span class="n">output_node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.make_evaluator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-core.np.Optimization">
+<span id="core-np-optimization-module"></span><h2>core.np.Optimization module<a class="headerlink" href="#module-core.np.Optimization" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="core.np.Optimization.AdamOptimizer">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Optimization.</code><code class="sig-name descname">AdamOptimizer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">beta1</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">beta2</span><span class="o">=</span><span class="default_value">0.999</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Optimization.AdamOptimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Optimization.WeightUpdater" title="core.np.Optimization.WeightUpdater"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Optimization.WeightUpdater</span></code></a></p>
+<p>Ref: ADAM: A method for stochastic optimization, Kingma, Lei Ba (2017)</p>
+<dl class="py method">
+<dt id="core.np.Optimization.AdamOptimizer.step">
+<code class="sig-name descname">step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theta</span></em>, <em class="sig-param"><span class="n">grad_theta</span></em>, <em class="sig-param"><span class="n">node_local_store</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Optimization.AdamOptimizer.step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Optimization.OptimizerIterator">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Optimization.</code><code class="sig-name descname">OptimizerIterator</code><span class="sig-paren">(</span><em class="sig-param">start_nodes</em>, <em class="sig-param">end_node_with_loss</em>, <em class="sig-param">optimizer_function=&lt;function default_optimizer_function&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Optimization.OptimizerIterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.np.Optimization.OptimizerIterator.simple_name">
+<code class="sig-name descname">simple_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Optimization.OptimizerIterator.simple_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Optimization.OptimizerIterator.step">
+<code class="sig-name descname">step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em>, <em class="sig-param"><span class="n">incoming_grad</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Optimization.OptimizerIterator.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will reset the network, do forward and backward prop and then update gradient.
+The loss returned is before the gradient update
+:param var_map:
+:param incoming_grad: Starting grad, typically ones
+:return: loss before the reset and gradient updates.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Optimization.SGDOptimizer">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Optimization.</code><code class="sig-name descname">SGDOptimizer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">0.001</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Optimization.SGDOptimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Optimization.WeightUpdater" title="core.np.Optimization.WeightUpdater"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Optimization.WeightUpdater</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.Optimization.SGDOptimizer.step">
+<code class="sig-name descname">step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w</span></em>, <em class="sig-param"><span class="n">grad_w</span></em>, <em class="sig-param"><span class="n">node_local_store</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Optimization.SGDOptimizer.step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Optimization.WeightUpdater">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Optimization.</code><code class="sig-name descname">WeightUpdater</code><a class="headerlink" href="#core.np.Optimization.WeightUpdater" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.np.Optimization.WeightUpdater.step">
+<code class="sig-name descname">step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w</span></em>, <em class="sig-param"><span class="n">grad_w</span></em>, <em class="sig-param"><span class="n">node_local_store</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Optimization.WeightUpdater.step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="core.np.Optimization.default_optimizer_function">
+<code class="sig-prename descclassname">core.np.Optimization.</code><code class="sig-name descname">default_optimizer_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w</span></em>, <em class="sig-param"><span class="n">grad</span></em>, <em class="sig-param"><span class="n">node_local_storage</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Optimization.default_optimizer_function" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>w</strong> – </p></li>
+<li><p><strong>grad</strong> – </p></li>
+<li><p><strong>lr</strong> – </p></li>
+<li><p><strong>node_local_storage</strong> – an optional dictionary that stores optimization information local to the</p></li>
+</ul>
+</dd>
+</dl>
+<p>node. Useful when implementing algorithms that make use of past gradient and momentum information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.np.Specialized">
+<span id="core-np-specialized-module"></span><h2>core.np.Specialized module<a class="headerlink" href="#module-core.np.Specialized" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="core.np.Specialized.BatchNormalization">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Specialized.</code><code class="sig-name descname">BatchNormalization</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_node</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode">core.np.Nodes.MComputeNode</a></span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Specialized.BatchNormalization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.Specialized.BatchNormalization.clear_optimization_storage">
+<code class="sig-name descname">clear_optimization_storage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Specialized.BatchNormalization.clear_optimization_storage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Specialized.BatchNormalization.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Specialized.BatchNormalization.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.np.utils">
+<span id="core-np-utils-module"></span><h2>core.np.utils module<a class="headerlink" href="#module-core.np.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="core.np.utils.FilePersistenceHelper">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.utils.</code><code class="sig-name descname">FilePersistenceHelper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_part</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">qualifier</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.utils.FilePersistenceHelper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.np.utils.FilePersistenceHelper.get_numpy_array">
+<code class="sig-name descname">get_numpy_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">array_name</span></em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="headerlink" href="#core.np.utils.FilePersistenceHelper.get_numpy_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.utils.FilePersistenceHelper.pop_level">
+<code class="sig-name descname">pop_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.utils.FilePersistenceHelper.pop_level" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.utils.FilePersistenceHelper.push_level">
+<code class="sig-name descname">push_level</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">level_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.utils.FilePersistenceHelper.push_level" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.utils.FilePersistenceHelper.read_from_file">
+<em class="property">static </em><code class="sig-name descname">read_from_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">qualifier</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.utils.FilePersistenceHelper.read_from_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.utils.FilePersistenceHelper.save_to_file">
+<code class="sig-name descname">save_to_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#core.np.utils.FilePersistenceHelper.save_to_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.utils.FilePersistenceHelper.set_numpy_array">
+<code class="sig-name descname">set_numpy_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">np_array</span></em>, <em class="sig-param"><span class="n">array_name</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#core.np.utils.FilePersistenceHelper.set_numpy_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.utils.LocalDataCache">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.utils.</code><code class="sig-name descname">LocalDataCache</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cache_dir</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.utils.LocalDataCache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.np.utils.LocalDataCache.get_subdir">
+<code class="sig-name descname">get_subdir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.utils.LocalDataCache.get_subdir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="core.np.utils.to_one_hot">
+<code class="sig-prename descclassname">core.np.utils.</code><code class="sig-name descname">to_one_hot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correct_cats</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em class="sig-param"><span class="n">max_cat_num</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="headerlink" href="#core.np.utils.to_one_hot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a vector of correct categories, it returns a 2D matrix
+containing one-hot encoded vectors.</p>
+<p>This method assumes that categories start from 0.
+For example:</p>
+<p>cats =  np.array([3, 2])
+one_hot =  to_one_hot(cats, 7)
+one_hot_exp = np.array([[0., 0.],</p>
+<blockquote>
+<div><p>[0., 0.],
+[0., 1.],
+[1., 0.],
+[0., 0.],
+[0., 0.],
+[0., 0.],
+[0., 0.]])</p>
+</div></blockquote>
+<p>np.testing.assert_array_almost_equal(one_hot_exp, one_hot)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>correct_cats</strong> – vector or 1D matrix containing correct categories</p></li>
+<li><p><strong>max_cat_num</strong> – if set, it will not use max value as the max category number.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Useful all categories  may not be present in the input (in particular the max
+category)
+:return: a 2D matrix of dimensions max_cat+1 X correct_cats.size</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.np">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-core.np" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="core.np.datasets.html" class="btn btn-neutral float-right" title="core.np.datasets package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="core.html" class="btn btn-neutral float-left" title="core package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Abhijat Vatsyayan
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

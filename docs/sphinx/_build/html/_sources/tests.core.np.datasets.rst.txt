@@ -1,0 +1,17 @@
+tests.core.np.datasets package
+==============================
+
+.. automodule:: tests.core.np.datasets
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   tests.core.np.datasets.TestIrisDataset
+   tests.core.np.datasets.TestMNist784
+   tests.core.np.datasets.mnist

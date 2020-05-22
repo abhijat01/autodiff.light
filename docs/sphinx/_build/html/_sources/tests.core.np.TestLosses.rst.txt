@@ -1,0 +1,4 @@
+.. automodule:: tests.core.np.TestLosses
+   :members:
+   :undoc-members:
+   :show-inheritance:

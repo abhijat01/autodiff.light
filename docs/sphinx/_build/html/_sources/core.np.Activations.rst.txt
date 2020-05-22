@@ -1,0 +1,4 @@
+.. automodule:: core.np.Activations
+   :members:
+   :undoc-members:
+   :show-inheritance:

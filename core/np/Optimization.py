@@ -9,6 +9,7 @@ def default_optimizer_function(w, grad, node_local_storage={}):
     :param lr:
     :param node_local_storage: an optional dictionary that stores optimization information local to the
     node. Useful when implementing algorithms that make use of past gradient and momentum information.
+
     :return:
     """
     return w - 0.01 * grad

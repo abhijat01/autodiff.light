@@ -2,9 +2,6 @@ from . import Nodes as node
 import numpy as np
 
 
-# from core import debug, info
-
-
 class Convolution2D(node.MComputeNode):
     r"""
     Lets start with simple square kernels and stride of 1

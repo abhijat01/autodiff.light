@@ -1,0 +1,4 @@
+.. automodule:: tests.core.TestFwdModeOneDim
+   :members:
+   :undoc-members:
+   :show-inheritance:

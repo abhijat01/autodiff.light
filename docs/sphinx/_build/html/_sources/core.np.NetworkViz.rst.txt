@@ -1,0 +1,4 @@
+.. automodule:: core.np.NetworkViz
+   :members:
+   :undoc-members:
+   :show-inheritance:

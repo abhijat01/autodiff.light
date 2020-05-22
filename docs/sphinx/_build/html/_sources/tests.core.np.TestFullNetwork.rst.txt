@@ -1,0 +1,4 @@
+.. automodule:: tests.core.np.TestFullNetwork
+   :members:
+   :undoc-members:
+   :show-inheritance:

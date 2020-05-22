@@ -1,0 +1,4 @@
+.. automodule:: tests.pyapi.TestResourceLoading
+   :members:
+   :undoc-members:
+   :show-inheritance:

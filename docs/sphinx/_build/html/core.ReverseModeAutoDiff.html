@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; LightWeight AutoDiff 4 Neural Nets 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="core.log.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="core.ForwardAutoDiffOneD.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LightWeight AutoDiff 4 Neural Nets
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Light weight Autodiff</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LightWeight AutoDiff 4 Neural Nets</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">Light weight Autodiff</a> &raquo;</li>
+        
+          <li><a href="core.html">core package</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/core.ReverseModeAutoDiff.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-core.ReverseModeAutoDiff"></span><dl class="py class">
+<dt id="core.ReverseModeAutoDiff.BinaryOpNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.ReverseModeAutoDiff.</code><code class="sig-name descname">BinaryOpNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n1</span></em>, <em class="sig-param"><span class="n">n2</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.BinaryOpNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ReverseModeAutoDiff.ComputeNode" title="core.ReverseModeAutoDiff.ComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ReverseModeAutoDiff.ComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.BinaryOpNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">last_value</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.BinaryOpNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.BinaryOpNode.reset_fwd">
+<code class="sig-name descname">reset_fwd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.BinaryOpNode.reset_fwd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.BinaryOpNode.should_go_fwd">
+<code class="sig-name descname">should_go_fwd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.BinaryOpNode.should_go_fwd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.BinaryOpNode.value">
+<code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_value_dicts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.BinaryOpNode.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ReverseModeAutoDiff.ComputeNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.ReverseModeAutoDiff.</code><code class="sig-name descname">ComputeNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ComputeNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ComputeNode.add_downstream_node">
+<code class="sig-name descname">add_downstream_node</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ComputeNode.add_downstream_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ComputeNode.add_upstream_nodes">
+<code class="sig-name descname">add_upstream_nodes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nodes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ComputeNode.add_upstream_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ComputeNode.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">downstream_grad</span></em>, <em class="sig-param"><span class="n">downstream_calling_node</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em>, <em class="sig-param"><span class="n">tab</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ComputeNode.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>designed with debugging, illustrating how backprop works in mind
+:param downstream_grad: gradient coming from the node after this
+:param downstream_calling_node: node that sent the gradient back (upstream)
+:param var_values_dict: value of variables
+:param tab: used for pretty printing debugging statements  .. for debugging
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ComputeNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">last_value</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ComputeNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ComputeNode.get_simple_name">
+<code class="sig-name descname">get_simple_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ComputeNode.get_simple_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ComputeNode.grad_value">
+<code class="sig-name descname">grad_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_values_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ComputeNode.grad_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ComputeNode.reset_back">
+<code class="sig-name descname">reset_back</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ComputeNode.reset_back" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ComputeNode.should_go_back">
+<code class="sig-name descname">should_go_back</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ComputeNode.should_go_back" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ComputeNode.value">
+<code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_values_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ComputeNode.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ReverseModeAutoDiff.ConstantOpNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.ReverseModeAutoDiff.</code><code class="sig-name descname">ConstantOpNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">constant_value</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ConstantOpNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ReverseModeAutoDiff.ComputeNode" title="core.ReverseModeAutoDiff.ComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ReverseModeAutoDiff.ComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ConstantOpNode.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">downstream_grad</span></em>, <em class="sig-param"><span class="n">downstream_calling_node</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em>, <em class="sig-param"><span class="n">tab</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ConstantOpNode.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>designed with debugging, illustrating how backprop works in mind
+:param downstream_grad: gradient coming from the node after this
+:param downstream_calling_node: node that sent the gradient back (upstream)
+:param var_values_dict: value of variables
+:param tab: used for pretty printing debugging statements  .. for debugging
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ConstantOpNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">last_value</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ConstantOpNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ConstantOpNode.value">
+<code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_value_dicts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ConstantOpNode.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ReverseModeAutoDiff.DiffNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.ReverseModeAutoDiff.</code><code class="sig-name descname">DiffNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n1</span></em>, <em class="sig-param"><span class="n">n2</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.DiffNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ReverseModeAutoDiff.BinaryOpNode" title="core.ReverseModeAutoDiff.BinaryOpNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ReverseModeAutoDiff.BinaryOpNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.DiffNode.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">downstream_grad</span></em>, <em class="sig-param"><span class="n">downstream_calling_node</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em>, <em class="sig-param"><span class="n">tab</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.DiffNode.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>designed with debugging, illustrating how backprop works in mind
+:param downstream_grad: gradient coming from the node after this
+:param downstream_calling_node: node that sent the gradient back (upstream)
+:param var_values_dict: value of variables
+:param tab: used for pretty printing debugging statements  .. for debugging
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.DiffNode.do_compute">
+<code class="sig-name descname">do_compute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_value_dicts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.DiffNode.do_compute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ReverseModeAutoDiff.EndValueCollectorNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.ReverseModeAutoDiff.</code><code class="sig-name descname">EndValueCollectorNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'Term'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.EndValueCollectorNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ReverseModeAutoDiff.ComputeNode" title="core.ReverseModeAutoDiff.ComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ReverseModeAutoDiff.ComputeNode</span></code></a></p>
+<p>Not sure if this is needed. Should look into removing this or replacing with a unit op node
+which will make more sense</p>
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.EndValueCollectorNode.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">downstream_grad</span></em>, <em class="sig-param"><span class="n">downstream_calling_node</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em>, <em class="sig-param"><span class="n">tab</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.EndValueCollectorNode.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>designed with debugging, illustrating how backprop works in mind
+:param downstream_grad: gradient coming from the node after this
+:param downstream_calling_node: node that sent the gradient back (upstream)
+:param var_values_dict: value of variables
+:param tab: used for pretty printing debugging statements  .. for debugging
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.EndValueCollectorNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">last_value</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.EndValueCollectorNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.EndValueCollectorNode.value">
+<code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_values_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.EndValueCollectorNode.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ReverseModeAutoDiff.LogNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.ReverseModeAutoDiff.</code><code class="sig-name descname">LogNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.LogNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ReverseModeAutoDiff.ComputeNode" title="core.ReverseModeAutoDiff.ComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ReverseModeAutoDiff.ComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.LogNode.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">downstream_grad</span></em>, <em class="sig-param"><span class="n">downstream_calling_node</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em>, <em class="sig-param"><span class="n">tab</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.LogNode.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>designed with debugging, illustrating how backprop works in mind
+:param downstream_grad: gradient coming from the node after this
+:param downstream_calling_node: node that sent the gradient back (upstream)
+:param var_values_dict: value of variables
+:param tab: used for pretty printing debugging statements  .. for debugging
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.LogNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">last_value</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.LogNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.LogNode.value">
+<code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_value_dicts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.LogNode.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ReverseModeAutoDiff.ProdNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.ReverseModeAutoDiff.</code><code class="sig-name descname">ProdNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n1</span></em>, <em class="sig-param"><span class="n">n2</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ProdNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ReverseModeAutoDiff.BinaryOpNode" title="core.ReverseModeAutoDiff.BinaryOpNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ReverseModeAutoDiff.BinaryOpNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ProdNode.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">downstream_grad</span></em>, <em class="sig-param"><span class="n">downstream_calling_node</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em>, <em class="sig-param"><span class="n">tab</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ProdNode.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>designed with debugging, illustrating how backprop works in mind
+:param downstream_grad: gradient coming from the node after this
+:param downstream_calling_node: node that sent the gradient back (upstream)
+:param var_values_dict: value of variables
+:param tab: used for pretty printing debugging statements  .. for debugging
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.ProdNode.do_compute">
+<code class="sig-name descname">do_compute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_value_dicts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.ProdNode.do_compute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ReverseModeAutoDiff.SinNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.ReverseModeAutoDiff.</code><code class="sig-name descname">SinNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.SinNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ReverseModeAutoDiff.ComputeNode" title="core.ReverseModeAutoDiff.ComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ReverseModeAutoDiff.ComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.SinNode.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">downstream_grad</span></em>, <em class="sig-param"><span class="n">downstream_calling_node</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em>, <em class="sig-param"><span class="n">tab</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.SinNode.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>designed with debugging, illustrating how backprop works in mind
+:param downstream_grad: gradient coming from the node after this
+:param downstream_calling_node: node that sent the gradient back (upstream)
+:param var_values_dict: value of variables
+:param tab: used for pretty printing debugging statements  .. for debugging
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.SinNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">last_value</span></em>, <em class="sig-param"><span class="n">var_value_dicts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.SinNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.SinNode.value">
+<code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_value_dicts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.SinNode.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ReverseModeAutoDiff.SumNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.ReverseModeAutoDiff.</code><code class="sig-name descname">SumNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n1</span></em>, <em class="sig-param"><span class="n">n2</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.SumNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ReverseModeAutoDiff.BinaryOpNode" title="core.ReverseModeAutoDiff.BinaryOpNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ReverseModeAutoDiff.BinaryOpNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.SumNode.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">downstream_grad</span></em>, <em class="sig-param"><span class="n">downstream_calling_node</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em>, <em class="sig-param"><span class="n">tab</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.SumNode.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>designed with debugging, illustrating how backprop works in mind
+:param downstream_grad: gradient coming from the node after this
+:param downstream_calling_node: node that sent the gradient back (upstream)
+:param var_values_dict: value of variables
+:param tab: used for pretty printing debugging statements  .. for debugging
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.SumNode.do_compute">
+<code class="sig-name descname">do_compute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_value_dicts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.SumNode.do_compute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ReverseModeAutoDiff.VarNode">
+<em class="property">class </em><code class="sig-prename descclassname">core.ReverseModeAutoDiff.</code><code class="sig-name descname">VarNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.VarNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ReverseModeAutoDiff.ComputeNode" title="core.ReverseModeAutoDiff.ComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ReverseModeAutoDiff.ComputeNode</span></code></a></p>
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.VarNode.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">downstream_grad</span></em>, <em class="sig-param"><span class="n">downstream_calling_node</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em>, <em class="sig-param"><span class="n">tab</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.VarNode.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>designed with debugging, illustrating how backprop works in mind
+:param downstream_grad: gradient coming from the node after this
+:param downstream_calling_node: node that sent the gradient back (upstream)
+:param var_values_dict: value of variables
+:param tab: used for pretty printing debugging statements  .. for debugging
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.VarNode.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">last_value</span></em>, <em class="sig-param"><span class="n">var_values_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.VarNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ReverseModeAutoDiff.VarNode.value">
+<code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_value_dicts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ReverseModeAutoDiff.VarNode.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="core.ReverseModeAutoDiff.compute_node_list">
+<code class="sig-prename descclassname">core.ReverseModeAutoDiff.</code><code class="sig-name descname">compute_node_list</code><em class="property"> = []</em><a class="headerlink" href="#core.ReverseModeAutoDiff.compute_node_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>A–&gt;B–&gt;C 
+A is start, C is end  
+for B, A is upstream , C is downstream 
+Idea being regular flow is up to down or start to finish</p>
+</dd></dl>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="core.log.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="core.ForwardAutoDiffOneD.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Abhijat Vatsyayan
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

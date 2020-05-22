@@ -1,0 +1,4 @@
+.. automodule:: core.np.Optimization
+   :members:
+   :undoc-members:
+   :show-inheritance:

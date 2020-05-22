@@ -1,0 +1,4 @@
+.. automodule:: tests.core.np.TestDenseLayer
+   :members:
+   :undoc-members:
+   :show-inheritance:

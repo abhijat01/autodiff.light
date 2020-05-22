@@ -1,0 +1,4 @@
+.. automodule:: core.np.Convolution
+   :members:
+   :undoc-members:
+   :show-inheritance:

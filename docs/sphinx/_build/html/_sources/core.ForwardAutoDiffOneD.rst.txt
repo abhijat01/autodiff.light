@@ -1,0 +1,4 @@
+.. automodule:: core.ForwardAutoDiffOneD
+   :members:
+   :undoc-members:
+   :show-inheritance:

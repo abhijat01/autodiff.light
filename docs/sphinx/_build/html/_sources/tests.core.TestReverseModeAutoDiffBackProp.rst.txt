@@ -1,0 +1,4 @@
+.. automodule:: tests.core.TestReverseModeAutoDiffBackProp
+   :members:
+   :undoc-members:
+   :show-inheritance:

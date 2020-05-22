@@ -1,5 +1,6 @@
 import numpy as np
 import json
+import os
 
 
 class FilePersistenceHelper:
@@ -67,6 +68,7 @@ class FilePersistenceHelper:
 
 
 def to_one_hot(correct_cats: np.array, max_cat_num=None) -> np.array:
+
     r"""
     Given a vector of correct categories, it returns a 2D matrix
     containing one-hot encoded vectors.
@@ -94,6 +96,7 @@ def to_one_hot(correct_cats: np.array, max_cat_num=None) -> np.array:
     category)
     :return: a 2D matrix of dimensions max_cat+1 X correct_cats.size
     """
+
     if max_cat_num is None:
         # Assume starting from 0
         max_value = np.max(correct_cats)
@@ -103,3 +106,22 @@ def to_one_hot(correct_cats: np.array, max_cat_num=None) -> np.array:
     one_hot = np.zeros((max_value + 1, correct_cats.size,))
     one_hot[correct_cats, np.arange(correct_cats.size)] = 1
     return one_hot
+
+
+class LocalDataCache:
+    def __init__(self, cache_dir=None):
+        self.data_dir = cache_dir
+        if self.data_dir is None:
+            self.data_dir = os.path.expanduser("~")
+            self.data_dir = os.path.join(self.data_dir, ".autodiff.light")
+            if not os.path.isdir(self.data_dir):
+                os.makedirs(self.data_dir)
+                if not os.path.isdir(self.data_dir):
+                    raise Exception("Could not create data dir:{}".format(self.data_dir))
+
+    def get_subdir(self, data_name):
+        data_dir = os.path.join(self.data_dir, data_name)
+        if not os.path.isdir(data_dir):
+            os.mkdir(data_dir)
+        return data_dir
+

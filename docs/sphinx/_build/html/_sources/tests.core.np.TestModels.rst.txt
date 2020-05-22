@@ -1,0 +1,4 @@
+.. automodule:: tests.core.np.TestModels
+   :members:
+   :undoc-members:
+   :show-inheritance:

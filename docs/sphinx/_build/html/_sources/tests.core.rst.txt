@@ -1,0 +1,25 @@
+tests.core package
+==================
+
+.. automodule:: tests.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   tests.core.np
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   tests.core.TestFwdModeOneDim
+   tests.core.TestReverseModeAutoDiffBackProp
+   tests.core.TestReverseModeAutoDiffFwdProp

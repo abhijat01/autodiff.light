@@ -1,0 +1,16 @@
+tests.pyapi package
+===================
+
+.. automodule:: tests.pyapi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   tests.pyapi.TestDecorators
+   tests.pyapi.TestResourceLoading

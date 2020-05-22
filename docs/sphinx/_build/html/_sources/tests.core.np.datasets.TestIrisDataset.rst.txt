@@ -1,0 +1,4 @@
+.. automodule:: tests.core.np.datasets.TestIrisDataset
+   :members:
+   :undoc-members:
+   :show-inheritance:

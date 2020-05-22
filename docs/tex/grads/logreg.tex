@@ -1,0 +1,18 @@
+\section{Logistic regression} 
+For a single output,  probability of $y=1$  given a weight vector $w$ and input vector $x$  is defined as 
+\begin{equation}
+	\begin{aligned}
+		P(y=1)&=\frac{1}{1+e^{-<w,x>}} 	\\
+		 & = \frac{1}{1+exp(-{\sum\limits_{i=1}^{i=m} w_ix_i})}
+	\end{aligned} \\
+\end{equation}
+Setting $a=-{\sum\limits_{i=1}^{i=m} w_ix_i}$ and using a slightly simplified notation, 
+\begin{equation}
+\begin{aligned}
+P&=\frac{1}{1+e^a}  \\
+\frac{\partial P}{\partial a} &= -\frac{e^a}{(1+e^a)^2}  \\
+ &=-P^2e^a \\
+\end{aligned} \\
+\end{equation}
+
+

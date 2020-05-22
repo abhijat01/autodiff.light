@@ -1,0 +1,4 @@
+.. automodule:: core.np.datasets.Mnist784Dataset
+   :members:
+   :undoc-members:
+   :show-inheritance:

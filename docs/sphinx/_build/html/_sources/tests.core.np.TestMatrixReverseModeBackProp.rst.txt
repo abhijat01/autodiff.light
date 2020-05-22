@@ -1,0 +1,4 @@
+.. automodule:: tests.core.np.TestMatrixReverseModeBackProp
+   :members:
+   :undoc-members:
+   :show-inheritance:

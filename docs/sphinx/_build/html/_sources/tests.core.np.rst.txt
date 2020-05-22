@@ -1,0 +1,37 @@
+tests.core.np package
+=====================
+
+.. automodule:: tests.core.np
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   tests.core.np.datasets
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   tests.core.np.BaseTests
+   tests.core.np.TestActivations
+   tests.core.np.TestBasicBatchProcess
+   tests.core.np.TestBasicNetwork
+   tests.core.np.TestBatchNormalization
+   tests.core.np.TestConvolutionStandalone
+   tests.core.np.TestDenseLayer
+   tests.core.np.TestFullNetwork
+   tests.core.np.TestLosses
+   tests.core.np.TestMatrixReverseModeBackProp
+   tests.core.np.TestMatrixReverseModeFwdProp
+   tests.core.np.TestMaxPool2D
+   tests.core.np.TestModels
+   tests.core.np.TestNetworkViz
+   tests.core.np.TestUtils

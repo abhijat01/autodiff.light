@@ -1,0 +1,4 @@
+.. automodule:: core.np.Specialized
+   :members:
+   :undoc-members:
+   :show-inheritance:

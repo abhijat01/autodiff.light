@@ -1,0 +1,4 @@
+.. automodule:: core.ReverseModeAutoDiff
+   :members:
+   :undoc-members:
+   :show-inheritance:

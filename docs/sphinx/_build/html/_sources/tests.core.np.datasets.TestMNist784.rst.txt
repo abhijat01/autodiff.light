@@ -1,0 +1,4 @@
+.. automodule:: tests.core.np.datasets.TestMNist784
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; LightWeight AutoDiff 4 Neural Nets 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="core.ReverseModeAutoDiff.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="core.np.utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LightWeight AutoDiff 4 Neural Nets
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Light weight Autodiff</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LightWeight AutoDiff 4 Neural Nets</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">Light weight Autodiff</a> &raquo;</li>
+        
+          <li><a href="core.html">core package</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/core.ForwardAutoDiffOneD.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-core.ForwardAutoDiffOneD"></span><dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.Const">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">Const</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">c</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Const" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ForwardAutoDiffOneD.Func" title="core.ForwardAutoDiffOneD.Func"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ForwardAutoDiffOneD.Func</span></code></a></p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Const.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Const.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Const.symbolic_deriv">
+<code class="sig-name descname">symbolic_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Const.symbolic_deriv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Const.symbolic_value">
+<code class="sig-name descname">symbolic_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Const.symbolic_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Const.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Const.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.Exp">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">Exp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Exp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ForwardAutoDiffOneD.Func" title="core.ForwardAutoDiffOneD.Func"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ForwardAutoDiffOneD.Func</span></code></a></p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Exp.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Exp.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Exp.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Exp.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.Func">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">Func</code><a class="headerlink" href="#core.ForwardAutoDiffOneD.Func" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Func.derivative">
+<code class="sig-name descname">derivative</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Func.derivative" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Func.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Func.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Func.dim">
+<code class="sig-name descname">dim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Func.dim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Func.symbolic_deriv">
+<code class="sig-name descname">symbolic_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Func.symbolic_deriv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Func.symbolic_value">
+<code class="sig-name descname">symbolic_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Func.symbolic_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Func.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Func.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.Negative">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">Negative</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Negative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ForwardAutoDiffOneD.Func" title="core.ForwardAutoDiffOneD.Func"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ForwardAutoDiffOneD.Func</span></code></a></p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Negative.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Negative.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Negative.symbolic_deriv">
+<code class="sig-name descname">symbolic_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Negative.symbolic_deriv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>var_name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Negative.symbolic_value">
+<code class="sig-name descname">symbolic_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Negative.symbolic_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Negative.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Negative.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.PolynomialTerm">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">PolynomialTerm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coeff</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.PolynomialTerm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ForwardAutoDiffOneD.Func" title="core.ForwardAutoDiffOneD.Func"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ForwardAutoDiffOneD.Func</span></code></a></p>
+<p>Represents a.(x^n)</p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.PolynomialTerm.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.PolynomialTerm.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.PolynomialTerm.symbolic_deriv">
+<code class="sig-name descname">symbolic_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.PolynomialTerm.symbolic_deriv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.PolynomialTerm.symbolic_value">
+<code class="sig-name descname">symbolic_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.PolynomialTerm.symbolic_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.PolynomialTerm.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.PolynomialTerm.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.Pow">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">Pow</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Pow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ForwardAutoDiffOneD.Func" title="core.ForwardAutoDiffOneD.Func"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ForwardAutoDiffOneD.Func</span></code></a></p>
+<p>represents g(x) = (f(x))^n
+Does not work as a composite.</p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Pow.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Pow.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Pow.symbolic_deriv">
+<code class="sig-name descname">symbolic_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Pow.symbolic_deriv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Pow.symbolic_value">
+<code class="sig-name descname">symbolic_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Pow.symbolic_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Pow.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Pow.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.Product">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">Product</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">funcs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ForwardAutoDiffOneD.Func" title="core.ForwardAutoDiffOneD.Func"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ForwardAutoDiffOneD.Func</span></code></a></p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Product.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Product.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Product.symbolic_deriv">
+<code class="sig-name descname">symbolic_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Product.symbolic_deriv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Product.symbolic_value">
+<code class="sig-name descname">symbolic_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Product.symbolic_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Product.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Product.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.Reciprocal">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">Reciprocal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Reciprocal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ForwardAutoDiffOneD.Func" title="core.ForwardAutoDiffOneD.Func"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ForwardAutoDiffOneD.Func</span></code></a></p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Reciprocal.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Reciprocal.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Reciprocal.symbolic_deriv">
+<code class="sig-name descname">symbolic_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Reciprocal.symbolic_deriv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Reciprocal.symbolic_value">
+<code class="sig-name descname">symbolic_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Reciprocal.symbolic_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Reciprocal.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Reciprocal.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.SimpleComposite">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">SimpleComposite</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">g</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.SimpleComposite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ForwardAutoDiffOneD.Func" title="core.ForwardAutoDiffOneD.Func"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ForwardAutoDiffOneD.Func</span></code></a></p>
+<p>Represents f(g(x))</p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.SimpleComposite.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.SimpleComposite.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.SimpleComposite.symbolic_deriv">
+<code class="sig-name descname">symbolic_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.SimpleComposite.symbolic_deriv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.SimpleComposite.symbolic_value">
+<code class="sig-name descname">symbolic_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.SimpleComposite.symbolic_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.SimpleComposite.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.SimpleComposite.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.Sine">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">Sine</code><a class="headerlink" href="#core.ForwardAutoDiffOneD.Sine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ForwardAutoDiffOneD.Func" title="core.ForwardAutoDiffOneD.Func"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ForwardAutoDiffOneD.Func</span></code></a></p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Sine.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Sine.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Sine.symbolic_deriv">
+<code class="sig-name descname">symbolic_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Sine.symbolic_deriv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Sine.symbolic_value">
+<code class="sig-name descname">symbolic_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Sine.symbolic_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Sine.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Sine.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.Sum">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">Sum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">funcs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ForwardAutoDiffOneD.Func" title="core.ForwardAutoDiffOneD.Func"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ForwardAutoDiffOneD.Func</span></code></a></p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Sum.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Sum.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Sum.symbolic_deriv">
+<code class="sig-name descname">symbolic_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Sum.symbolic_deriv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Sum.symbolic_value">
+<code class="sig-name descname">symbolic_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Sum.symbolic_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.Sum.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.Sum.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.ForwardAutoDiffOneD.X">
+<em class="property">class </em><code class="sig-prename descclassname">core.ForwardAutoDiffOneD.</code><code class="sig-name descname">X</code><a class="headerlink" href="#core.ForwardAutoDiffOneD.X" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.ForwardAutoDiffOneD.Func" title="core.ForwardAutoDiffOneD.Func"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ForwardAutoDiffOneD.Func</span></code></a></p>
+<p>represents f(x) = x</p>
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.X.derivative_at">
+<code class="sig-name descname">derivative_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.X.derivative_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.X.symbolic_deriv">
+<code class="sig-name descname">symbolic_deriv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.X.symbolic_deriv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.X.symbolic_value">
+<code class="sig-name descname">symbolic_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">'x'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.X.symbolic_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.ForwardAutoDiffOneD.X.value_at">
+<code class="sig-name descname">value_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.ForwardAutoDiffOneD.X.value_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="core.ReverseModeAutoDiff.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="core.np.utils.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Abhijat Vatsyayan
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,6 +1,13 @@
+r"""
+
+This module contains many of the building blocks, in particular the common node
+class, propagation code, dense layer etc.
+"""
+
+
 import numpy as np
 
-from .. import debug
+from core import  debug, is_debug_on
 
 compute_node_list = []
 
@@ -19,7 +26,7 @@ class MComputeNode:
         if name:
             self.name = name + "-" + str(idx)
         else:
-            self.name = "$Node-" + str(idx)
+            self.name = self.__class__.__name__ + str(idx)
         debug("Created Node named:{}".format(self.name))
         self.upstream_nodes = {}
         self.downstream_nodes = {}
@@ -79,15 +86,17 @@ class MComputeNode:
             grad_shape = downstream_grad.shape
         else:
             grad_shape = "(float)"
-        debug("Backprop@{} from:{} downstream grad shape:{}, value shape:{}".format( self.simple_name(),
-                                                                                      calling_node_name,
-                                                                                      grad_shape,
-                                                                                      _value.shape
-                                                                                      ))
-        debug("Downstream grad received:")
-        debug(repr(downstream_grad))
-        debug("Value:")
-        debug(repr(_value))
+        if is_debug_on():
+            debug("Backprop@{} from:{} downstream grad shape:{}, value shape:{}".format(self.simple_name(),
+                                                                                        calling_node_name,
+                                                                                        grad_shape,
+                                                                                        _value.shape
+                                                                                        ))
+            debug("Downstream grad received:")
+            debug(repr(downstream_grad))
+            debug("Value:")
+            debug(repr(_value))
+
 
         should_continue = self._process_backprop(downstream_grad)
         if not should_continue:
@@ -140,7 +149,7 @@ class MComputeNode:
             raise Exception("Downstream node <{}> added multiple times".format(name))
         self.downstream_nodes[name] = downstream_node
 
-    def _forward_downstream(self,  var_map):
+    def _forward_downstream(self, var_map):
         r"""
         Node should invoke forward after it is done processing ..
         :param var_map:
@@ -180,6 +189,9 @@ class MComputeNode:
     def _optimizer_step(self, optimizer, var_map):
         raise Exception("No implemented. Subclass responsibility")
 
+    def __repr__(self):
+        return "[{}::{}]".format(self.name, self.__class__.__name__)
+
 
 class BinaryMatrixOp(MComputeNode):
     def __init__(self, a_node, b_node, name=None):
@@ -193,7 +205,7 @@ class BinaryMatrixOp(MComputeNode):
         if not self.can_go_fwd():
             return
         self.node_value = self._do_compute(var_map)
-        self._forward_downstream( var_map)
+        self._forward_downstream(var_map)
 
     def _do_compute(self, var_map):
         r"""
@@ -238,11 +250,11 @@ class MatrixMultiplication(BinaryMatrixOp):
 class DenseLayer(MComputeNode):
     r"""
     A direct implementation of dense layer without the full compute graph
-    Designed to represent Wx +b  where W is output_dim x N and X is N X 1
+    Designed to represent Wx +b  where W is output_dim x input_dim, X is input_dim X batch_size
     and b is output_dim x 1
     """
 
-    def __init__(self, input_node, output_dim, initial_w=None, initial_b=None, name=None):
+    def __init__(self, input_node, output_dim, initial_w=None, initial_b=None, name=None, weight_scale=1.0):
         r"""
 
         :param input_node: source of "x" also used to determine "N" of the weight matrix
@@ -250,6 +262,7 @@ class DenseLayer(MComputeNode):
         :param initial_w: for custom initialization, testing, persistence etc.
         :param initial_b: for custom initialization, testing, persistence etc.
         :param name: easy to track name. This is appended by an ID to make sure names are unique
+        :param weight_scale: layer weight will be scaled (multiplied) by the this factor at the initialization time
         """
         MComputeNode.__init__(self, name, is_trainable=True)
         self._add_upstream_nodes([input_node])
@@ -259,6 +272,7 @@ class DenseLayer(MComputeNode):
         self.b = initial_b
         self.w_grad = None
         self.b_grad = None
+        self.w_init_scale = weight_scale
         self.weights_initialized = not ((self.w is None) or (self.b is None))
         self.optimization_storage = {'w': {}, 'b': {}}
 
@@ -266,16 +280,16 @@ class DenseLayer(MComputeNode):
         x = self.input_node.value()
         if not self.weights_initialized:
             self._init_weights(x.shape[0])
-        debug("DenseLayer.forward() W=np.{}".format(repr(self.w)))
-        debug("DenseLayer.forward() b=np.{}".format(repr(self.b)))
-        debug("DenseLayer.forward() x=np.{}".format(repr(x)))
+        if is_debug_on():
+            debug("[{}] DenseLayer.forward() W=np.{}".format(self.simple_name(), repr(self.w)))
+            debug("[{}] DenseLayer.forward() b=np.{}".format(self.simple_name(), repr(self.b)))
+            debug("[{}] DenseLayer.forward() x=np.{}".format(self.simple_name(), repr(x)))
         self.node_value = self.w @ x + self.b
         self._forward_downstream(var_map)
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
         x = self.input_node.value()
         incoming_grad = self.grad_value()
-        incoming_grad = incoming_grad/incoming_grad.size
         self.b_grad = np.sum(incoming_grad, axis=1).reshape((self.output_dim, 1))
         self.w_grad = (incoming_grad @ x.T)
         grad_to_input = self.w.T @ incoming_grad
@@ -298,7 +312,7 @@ class DenseLayer(MComputeNode):
         vector
         :return:
         """
-        self.w = np.random.rand(self.output_dim, input_dim)
+        self.w = np.random.rand(self.output_dim, input_dim)*self.w_init_scale
         self.b = np.random.rand(self.output_dim).reshape((self.output_dim, 1))
         self.weights_initialized = True
 
