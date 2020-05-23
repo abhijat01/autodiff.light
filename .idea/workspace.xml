@@ -151,13 +151,13 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Unittests in np" />
       <item itemvalue="Python tests.Unittests for TestIrisDataset.IrisDsTest.test_linear_fit" />
-      <item itemvalue="Python tests.Unittests for TestMNist784.Mnist784DsTest.test_linear_training" />
-      <item itemvalue="Python tests.Unittests for np.TestActivations.SimpleActivationTests.test_logit_cross_entropy" />
       <item itemvalue="Python tests.Unittests for TestLogitCrossEntropy.LogitCrossEntropyTests.test_logit_cross_entropy" />
-      <item itemvalue="Python tests.Unittests for np.TestActivations.SimpleActivationTests" />
       <item itemvalue="Python tests.Unittests for TestMNist784.Mnist784DsTest.test_ds" />
+      <item itemvalue="Python tests.Unittests for TestMNist784.Mnist784DsTest.test_linear_training" />
+      <item itemvalue="Python tests.Unittests for np.TestActivations.SimpleActivationTests" />
+      <item itemvalue="Python tests.Unittests for np.TestActivations.SimpleActivationTests.test_logit_cross_entropy" />
+      <item itemvalue="Python tests.Unittests in np" />
     </list>
     <recent_temporary>
       <list>
