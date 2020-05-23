@@ -1,3 +1,4 @@
 *.log
 g.html
 test.*.json
+__pycache__

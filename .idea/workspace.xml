@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fc7163f-473c-4b51-a488-7b8602a4d407" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Nodes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/core/np/datasets/TestMNist784.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/datasets/TestMNist784.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,13 +149,13 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Unittests for TestIrisDataset.IrisDsTest.test_linear_fit" />
-      <item itemvalue="Python tests.Unittests for TestLogitCrossEntropy.LogitCrossEntropyTests.test_logit_cross_entropy" />
-      <item itemvalue="Python tests.Unittests for TestMNist784.Mnist784DsTest.test_ds" />
-      <item itemvalue="Python tests.Unittests for TestMNist784.Mnist784DsTest.test_linear_training" />
-      <item itemvalue="Python tests.Unittests for np.TestActivations.SimpleActivationTests" />
-      <item itemvalue="Python tests.Unittests for np.TestActivations.SimpleActivationTests.test_logit_cross_entropy" />
       <item itemvalue="Python tests.Unittests in np" />
+      <item itemvalue="Python tests.Unittests for TestIrisDataset.IrisDsTest.test_linear_fit" />
+      <item itemvalue="Python tests.Unittests for TestMNist784.Mnist784DsTest.test_linear_training" />
+      <item itemvalue="Python tests.Unittests for np.TestActivations.SimpleActivationTests.test_logit_cross_entropy" />
+      <item itemvalue="Python tests.Unittests for TestLogitCrossEntropy.LogitCrossEntropyTests.test_logit_cross_entropy" />
+      <item itemvalue="Python tests.Unittests for np.TestActivations.SimpleActivationTests" />
+      <item itemvalue="Python tests.Unittests for TestMNist784.Mnist784DsTest.test_ds" />
     </list>
     <recent_temporary>
       <list>
@@ -190,6 +188,7 @@
       <workItem from="1589414104024" duration="47474000" />
       <workItem from="1589732423747" duration="52611000" />
       <workItem from="1590070296003" duration="43866000" />
+      <workItem from="1590263344881" duration="326000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit ..">
       <created>1588794612152</created>
