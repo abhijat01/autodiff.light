@@ -4,10 +4,11 @@ This module contains many of the building blocks, in particular the common node
 class, propagation code, dense layer etc.
 """
 
-
+from __future__ import annotations
 import numpy as np
-
 from core import  debug, is_debug_on
+import math
+
 
 compute_node_list = []
 
@@ -15,6 +16,39 @@ compute_node_list = []
 class INodeVisitor:
     def visit(self, computeNode):
         pass
+
+
+class ExtendedDict(dict):
+    def __init__(self, initial_dict={}):
+        for key, value in initial_dict.items():
+            self['key'] = value
+
+
+class ComputeContext:
+    def __init__(self, initial_dict={}):
+        self.var_map = initial_dict
+        self.nodes = []
+
+    def register_node(self, base_layer: MComputeNode):
+        if not (base_layer in self.nodes):
+            self.nodes.append(base_layer)
+
+    def __len__(self):
+        return len(self.var_map)
+
+    def __getitem__(self, key):
+        if not (key in self.var_map):
+            return None
+        return self.var_map[key]
+
+    def __setitem__(self, key, value):
+        self.var_map[key] = value
+
+    def __delitem__(self, key):
+        del self.var_map[key]
+
+    def __contains__(self, item):
+        return item in self.var_map
 
 
 class MComputeNode:
@@ -235,7 +269,6 @@ class MatrixMultiplication(BinaryMatrixOp):
     def _do_compute(self, var_map):
         a_matrix = self.a_node.value()
         b_matrix = self.b_node.value()
-        # info("a_matrix shape:{}, b_matrix_shape:{}".format(a_matrix.shape, b_matrix.shape))
         return a_matrix @ b_matrix
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
@@ -254,7 +287,9 @@ class DenseLayer(MComputeNode):
     and b is output_dim x 1
     """
 
-    def __init__(self, input_node, output_dim, initial_w=None, initial_b=None, name=None, weight_scale=1.0):
+    def __init__(self, input_node, output_dim,
+                 initial_w=None, initial_b=None,
+                 name=None, weight_scale=1.0):
         r"""
 
         :param input_node: source of "x" also used to determine "N" of the weight matrix
@@ -279,7 +314,8 @@ class DenseLayer(MComputeNode):
     def forward(self, var_map):
         x = self.input_node.value()
         if not self.weights_initialized:
-            self._init_weights(x.shape[0])
+            #self._init_weights(x.shape[0])
+            self._init_xavier(x.shape[0])
         if is_debug_on():
             debug("[{}] DenseLayer.forward() W=np.{}".format(self.simple_name(), repr(self.w)))
             debug("[{}] DenseLayer.forward() b=np.{}".format(self.simple_name(), repr(self.b)))
@@ -303,6 +339,13 @@ class DenseLayer(MComputeNode):
         self.optimization_storage = {'w': {}, 'b': {}}
         for node in self.upstream_nodes.values():
             node.clear_optimization_storage()
+
+    def _init_xavier(self, input_dim):
+        xavier_scale = math.sqrt(6.0/(self.output_dim+input_dim))
+
+        self.w = np.random.uniform(-1,1, (self.output_dim, input_dim))*xavier_scale
+        self.b = np.random.rand( self.output_dim).reshape(self.output_dim, 1)
+        self.weights_initialized = True
 
     def _init_weights(self, input_dim):
         r"""
