@@ -81,6 +81,7 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage/index.html">API Description</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Light weight Autodiff</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="core.html">core package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="core.html#subpackages">Subpackages</a><ul class="current">
@@ -233,18 +234,23 @@
 
 <dl class="py method">
 <dt id="core.np.datasets.Mnist784Dataset.Mnist784.test_iterator">
-<code class="sig-name descname">test_iterator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_tests</span></em>, <em class="sig-param"><span class="n">one_hot</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.datasets.Mnist784Dataset.Mnist784.test_iterator" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">test_iterator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_tests</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">one_hot</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.datasets.Mnist784Dataset.Mnist784.test_iterator" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="core.np.datasets.Mnist784Dataset.Mnist784.train_iterator">
-<code class="sig-name descname">train_iterator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">epochs</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">one_hot</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.datasets.Mnist784Dataset.Mnist784.train_iterator" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">train_iterator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">number_times</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">one_hot</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.datasets.Mnist784Dataset.Mnist784.train_iterator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Will by default return one_hot encoded vectors
-:param epochs:
+:param number_times:
 :param batch_size:
 :param one_hot:
 :return:</p>
 </dd></dl>
+
+<dl class="py method">
+<dt id="core.np.datasets.Mnist784Dataset.Mnist784.train_iterator_seq">
+<code class="sig-name descname">train_iterator_seq</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch_size</span></em>, <em class="sig-param"><span class="n">one_hot</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.datasets.Mnist784Dataset.Mnist784.train_iterator_seq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 

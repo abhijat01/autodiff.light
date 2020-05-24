@@ -385,11 +385,42 @@ class, propagation code, dense layer etc.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt id="core.np.Nodes.ComputeContext">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">ComputeContext</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">initial_dict</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">weight_initializer</span><span class="o">=</span><span class="default_value">'xavier'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.ComputeContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<dl class="py method">
+<dt id="core.np.Nodes.ComputeContext.initialize_layer">
+<code class="sig-name descname">initialize_layer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode">core.np.Nodes.MComputeNode</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.ComputeContext.initialize_layer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Nodes.DefaultDenseLayerWeightInitializer">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">DefaultDenseLayerWeightInitializer</code><a class="headerlink" href="#core.np.Nodes.DefaultDenseLayerWeightInitializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.Initializer" title="core.np.Nodes.Initializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.Initializer</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.Nodes.DefaultDenseLayerWeightInitializer.get_weights">
+<code class="sig-name descname">get_weights</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_dim</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">output_dim</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DefaultDenseLayerWeightInitializer.get_weights" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.DefaultDenseLayerWeightInitializer.initialize">
+<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode">core.np.Nodes.MComputeNode</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DefaultDenseLayerWeightInitializer.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to initializer a layer possibly using information from the node
+object.
+:param node:
+:return:</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt id="core.np.Nodes.DenseLayer">
-<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">DenseLayer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_node</span></em>, <em class="sig-param"><span class="n">output_dim</span></em>, <em class="sig-param"><span class="n">initial_w</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">initial_b</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight_scale</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">DenseLayer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_node</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">output_dim</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">initial_w</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>numpy.array<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">initial_b</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>numpy.array<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
 <p>A direct implementation of dense layer without the full compute graph
-Designed to represent Wx +b  where W is output_dim x input_dim, X is input_dim X batch_size
+Designed to represent $Wx +b$  where W is output_dim x input_dim, X is input_dim X batch_size
 and b is output_dim x 1</p>
 <dl class="py method">
 <dt id="core.np.Nodes.DenseLayer.clear_optimization_storage">
@@ -398,7 +429,7 @@ and b is output_dim x 1</p>
 
 <dl class="py method">
 <dt id="core.np.Nodes.DenseLayer.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.forward" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#core.np.Nodes.ComputeContext" title="core.np.Nodes.ComputeContext">core.np.Nodes.ComputeContext</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.forward" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -412,6 +443,16 @@ and b is output_dim x 1</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="core.np.Nodes.DenseLayer.get_dimension">
+<code class="sig-name descname">get_dimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.get_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>will return tuple (input_dim, output_dim)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="core.np.Nodes.DenseLayer.get_w">
 <code class="sig-name descname">get_w</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.get_w" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -419,6 +460,11 @@ and b is output_dim x 1</p>
 <dl class="py method">
 <dt id="core.np.Nodes.DenseLayer.get_w_grad">
 <code class="sig-name descname">get_w_grad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.get_w_grad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="core.np.Nodes.DenseLayer.init_params">
+<code class="sig-name descname">init_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">weight</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.DenseLayer.init_params" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -431,6 +477,21 @@ and b is output_dim x 1</p>
 <dt id="core.np.Nodes.INodeVisitor.visit">
 <code class="sig-name descname">visit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">computeNode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.INodeVisitor.visit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Nodes.Initializer">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">Initializer</code><a class="headerlink" href="#core.np.Nodes.Initializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="core.np.Nodes.Initializer.initialize">
+<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode">core.np.Nodes.MComputeNode</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.Initializer.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to initializer a layer possibly using information from the node
+object.
+:param node:
+:return:</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -546,6 +607,17 @@ Represents Wx</p>
 <dl class="py method">
 <dt id="core.np.Nodes.VarNode.forward">
 <code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.VarNode.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.np.Nodes.XavierInitializer">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.Nodes.</code><code class="sig-name descname">XavierInitializer</code><a class="headerlink" href="#core.np.Nodes.XavierInitializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.DefaultDenseLayerWeightInitializer" title="core.np.Nodes.DefaultDenseLayerWeightInitializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.DefaultDenseLayerWeightInitializer</span></code></a></p>
+<dl class="py method">
+<dt id="core.np.Nodes.XavierInitializer.get_weights">
+<code class="sig-name descname">get_weights</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_dim</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">output_dim</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Nodes.XavierInitializer.get_weights" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
