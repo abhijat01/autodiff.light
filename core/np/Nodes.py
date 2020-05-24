@@ -6,9 +6,8 @@ class, propagation code, dense layer etc.
 
 from __future__ import annotations
 import numpy as np
-from core import  debug, is_debug_on
+from core import debug, is_debug_on, info
 import math
-
 
 compute_node_list = []
 
@@ -18,37 +17,60 @@ class INodeVisitor:
         pass
 
 
-class ExtendedDict(dict):
-    def __init__(self, initial_dict={}):
+class Initializer:
+    def initialize(self, node: MComputeNode):
+        r"""
+        Used to initializer a layer possibly using information from the node
+        object.
+        :param node:
+        :return:
+        """
+        raise Exception("Subclass responsibility")
+
+
+class DefaultDenseLayerWeightInitializer(Initializer):
+    def initialize(self, node: MComputeNode):
+        if not issubclass(node.__class__, DenseLayer):
+            raise Exception("Only dense layer supported at present")
+
+        input_dim, output_dim = node.get_dimension()
+        w, b = self.get_weights(input_dim, output_dim)
+        node.init_params(weight=w, bias=b)
+
+    def get_weights(self, input_dim: int, output_dim: int):
+        w = np.random.rand(output_dim, input_dim)
+        b = np.random.rand(output_dim).reshape((output_dim, 1))
+        return w, b
+
+
+class XavierInitializer(DefaultDenseLayerWeightInitializer):
+    def get_weights(self, input_dim: int, output_dim: int):
+        xavier_scale = math.sqrt(6.0 / (output_dim + input_dim))
+        w = np.random.uniform(-1, 1, (output_dim, input_dim)) * xavier_scale
+        b = np.random.rand(output_dim).reshape(output_dim, 1)
+        return w, b
+
+
+class ComputeContext(dict):
+    def __init__(self, initial_dict={}, weight_initializer='xavier'):
         for key, value in initial_dict.items():
             self['key'] = value
+        self.weight_init = weight_initializer
+        self.initializers = {}
+        dense_layer_name = DenseLayer.__name__
+        if self.weight_init == 'xavier':
+            self.initializers[dense_layer_name]= XavierInitializer()
+        else:
+            self.initializers[dense_layer_name]= DefaultDenseLayerWeightInitializer()
 
-
-class ComputeContext:
-    def __init__(self, initial_dict={}):
-        self.var_map = initial_dict
-        self.nodes = []
-
-    def register_node(self, base_layer: MComputeNode):
-        if not (base_layer in self.nodes):
-            self.nodes.append(base_layer)
-
-    def __len__(self):
-        return len(self.var_map)
-
-    def __getitem__(self, key):
-        if not (key in self.var_map):
-            return None
-        return self.var_map[key]
-
-    def __setitem__(self, key, value):
-        self.var_map[key] = value
-
-    def __delitem__(self, key):
-        del self.var_map[key]
-
-    def __contains__(self, item):
-        return item in self.var_map
+    def initialize_layer(self, node: MComputeNode):
+        class_name = node.__class__.__name__
+        if not (class_name in self.initializers):
+            info("[ComputeContext.initialize_layer()]  "
+                 "No initializer for: {}".format(class_name))
+            return
+        initializer = self.initializers[class_name]
+        initializer.initialize(node)
 
 
 class MComputeNode:
@@ -130,7 +152,6 @@ class MComputeNode:
             debug(repr(downstream_grad))
             debug("Value:")
             debug(repr(_value))
-
 
         should_continue = self._process_backprop(downstream_grad)
         if not should_continue:
@@ -229,7 +250,7 @@ class MComputeNode:
 
 class BinaryMatrixOp(MComputeNode):
     def __init__(self, a_node, b_node, name=None):
-        MComputeNode.__init__(self, name)
+        MComputeNode.__init__(self, name, is_trainable=False)
         self.a_node = a_node
         self.b_node = b_node
         self._add_upstream_nodes([a_node, b_node])
@@ -262,7 +283,6 @@ class MatrixMultiplication(BinaryMatrixOp):
         :param a_node:
         :param b_node:
         :param name:
-        :param is_trainable:
         """
         BinaryMatrixOp.__init__(self, a_node, b_node, name)
 
@@ -283,14 +303,17 @@ class MatrixMultiplication(BinaryMatrixOp):
 class DenseLayer(MComputeNode):
     r"""
     A direct implementation of dense layer without the full compute graph
-    Designed to represent Wx +b  where W is output_dim x input_dim, X is input_dim X batch_size
+    Designed to represent $Wx +b$  where W is output_dim x input_dim, X is input_dim X batch_size
     and b is output_dim x 1
     """
 
-    def __init__(self, input_node, output_dim,
-                 initial_w=None, initial_b=None,
-                 name=None, weight_scale=1.0):
+    def __init__(self, input_node: int, output_dim: int,
+                 initial_w: np.array = None, initial_b: np.array = None,
+                 name: str = None):
         r"""
+        Note that since the input dimension is determined at the first invocation of
+        forward, this object does not yet know the input dimension and hecne cannot be
+        initialized.
 
         :param input_node: source of "x" also used to determine "N" of the weight matrix
         :param output_dim: dimensionality of the output vector
@@ -303,19 +326,20 @@ class DenseLayer(MComputeNode):
         self._add_upstream_nodes([input_node])
         self.input_node = input_node
         self.output_dim = output_dim
+        self.input_dim = None
         self.w = initial_w
         self.b = initial_b
         self.w_grad = None
         self.b_grad = None
-        self.w_init_scale = weight_scale
-        self.weights_initialized = not ((self.w is None) or (self.b is None))
+        self.weights_initialized = not ((self.w is None) and (self.b is None))
         self.optimization_storage = {'w': {}, 'b': {}}
 
-    def forward(self, var_map):
+    def forward(self, var_map:ComputeContext):
         x = self.input_node.value()
         if not self.weights_initialized:
-            #self._init_weights(x.shape[0])
-            self._init_xavier(x.shape[0])
+            self.input_dim = x.shape[0]
+            var_map.initialize_layer(self)
+
         if is_debug_on():
             debug("[{}] DenseLayer.forward() W=np.{}".format(self.simple_name(), repr(self.w)))
             debug("[{}] DenseLayer.forward() b=np.{}".format(self.simple_name(), repr(self.b)))
@@ -331,6 +355,11 @@ class DenseLayer(MComputeNode):
         grad_to_input = self.w.T @ incoming_grad
         self.input_node.backward(grad_to_input, self, var_map)
 
+    def init_params(self, weight=None, bias=None):
+        self.w = weight
+        self.b = bias
+        self.weights_initialized = True
+
     def _optimizer_step(self, optimizer, var_map):
         self.w = optimizer(self.w, self.w_grad, self.optimization_storage['w'])
         self.b = optimizer(self.b, self.b_grad, self.optimization_storage['b'])
@@ -339,25 +368,6 @@ class DenseLayer(MComputeNode):
         self.optimization_storage = {'w': {}, 'b': {}}
         for node in self.upstream_nodes.values():
             node.clear_optimization_storage()
-
-    def _init_xavier(self, input_dim):
-        xavier_scale = math.sqrt(6.0/(self.output_dim+input_dim))
-
-        self.w = np.random.uniform(-1,1, (self.output_dim, input_dim))*xavier_scale
-        self.b = np.random.rand( self.output_dim).reshape(self.output_dim, 1)
-        self.weights_initialized = True
-
-    def _init_weights(self, input_dim):
-        r"""
-
-        :param var_map:
-        :param input_dim:  number of rows in the input - dimensionality of the input
-        vector
-        :return:
-        """
-        self.w = np.random.rand(self.output_dim, input_dim)*self.w_init_scale
-        self.b = np.random.rand(self.output_dim).reshape((self.output_dim, 1))
-        self.weights_initialized = True
 
     def get_w_grad(self):
         return self.w_grad
@@ -370,6 +380,13 @@ class DenseLayer(MComputeNode):
 
     def get_b(self):
         return self.b
+
+    def get_dimension(self):
+        r"""
+
+        :return: will return tuple (input_dim, output_dim)
+        """
+        return self.input_dim, self.output_dim
 
 
 class MatrixAddition(BinaryMatrixOp):

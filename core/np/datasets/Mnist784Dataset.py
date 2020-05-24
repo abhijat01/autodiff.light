@@ -3,10 +3,12 @@ import numpy as np
 from core.np.utils import to_one_hot, LocalDataCache
 from core import info
 import os
+import time
+import math
 
 
 class Mnist784:
-    def __init__(self,  train_fraction=0.7, load_cache=True):
+    def __init__(self, train_fraction=0.7, load_cache=True):
         self.train_fraction = train_fraction
         if not load_cache:
             self.data, y = fetch_openml('mnist_784', version=1, return_X_y=True)
@@ -54,24 +56,57 @@ class Mnist784:
         self.test_set_indexes = set(range(num_data_points)) - set(self.training_set_indexes)
         self.test_set_indexes = list(self.test_set_indexes)
 
-    def train_iterator(self, epochs, batch_size=1, one_hot=True):
+    def train_iterator_seq(self, batch_size, one_hot=True):
+        t_max = len(self.training_set_indexes)
+        range_v = math.ceil(t_max/batch_size)
+        for i in range(range_v):
+            start_idx = i*batch_size
+            end_idx = (i+1)*batch_size
+            if end_idx>range_v:
+                end_idx = t_max
+            indexes_to_use = self.training_set_indexes[start_idx:end_idx]
+            x = self.data[indexes_to_use,:].T
+            y = self.targets[indexes_to_use]
+            if one_hot:
+                y = to_one_hot(y, self.max_cat_num)
+            yield x, y
+
+
+    def train_iterator(self, number_times, batch_size=1, one_hot=True):
         r"""
         Will by default return one_hot encoded vectors
-        :param epochs:
+        :param number_times:
         :param batch_size:
         :param one_hot:
         :return:
         """
-        if batch_size >= len(self.training_set_indexes):
-            raise Exception("Batch size {} too large for train list of size:{}".format(batch_size, len(self.training_set_indexes)))
-        for epoch in range(epochs):
-            row_indexes = np.random.choice(self.training_set_indexes, batch_size, replace=False)
-            yield self.make_data(row_indexes, batch_size, one_hot)
 
-    def test_iterator(self, num_tests, one_hot=True):
+        if batch_size >= len(self.training_set_indexes):
+            raise Exception(
+                "Batch size {} too large for train list of size:{}".format(batch_size, len(self.training_set_indexes)))
+        for epoch in range(number_times):
+            tt = time.time()
+            row_indexes = np.random.choice(self.training_set_indexes, batch_size, replace=False)
+            x, y = self.make_data(row_indexes, batch_size, one_hot)
+            tt = time.time()-tt
+            info(" [Mnist784.train_iterator()]  time:{:3.6f}".format(tt))
+            yield epoch, x, y
+
+    def test_iterator(self, num_tests, batch_size=1, one_hot=True):
+        batch_size_to_use = batch_size
+        if batch_size == -1:
+            batch_size_to_use = len(self.test_set_indexes)
+            x = self.data[self.test_set_indexes,:]
+            y = self.targets[self.test_set_indexes]
+            if one_hot:
+                y = to_one_hot(y, self.max_cat_num)
+            return -1, x.T, y
+
         for count in range(num_tests):
-            row_indexes = np.random.choice(self.test_set_indexes, 1, replace=False)
-            yield self.make_data(row_indexes, 1, one_hot)
+            row_indexes = np.random.choice(self.test_set_indexes, batch_size=batch_size_to_use,
+                                           replace=False)
+            x, y = self.make_data(row_indexes, batch_size, one_hot)
+            return count, x, y
 
     def make_data(self, row_indexes, batch_size, one_hot=True):
         x = np.zeros((self.data.shape[1], batch_size))
