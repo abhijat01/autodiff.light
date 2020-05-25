@@ -217,6 +217,22 @@ class DenseLayerStandAlone(BaseComputeNodeTest):
         plt.plot(av_np[:, 0], av_np[:, 1], 'r')
         plt.show()
 
+    def test_single_step(self):
+        model_w = np.array([[1, 3, -1], [0, -4, 2.]])
+        model_b = np.array([-3, 2.]).reshape((2, 1))
+        x_node = node.VarNode('x')
+        dense = node.DenseLayer(x_node, output_dim=2, initial_w=model_w, initial_b=model_b)
+        x = np.array([[1, -1], [2, 3], [-1, -2.]])
+        ctx = node.ComputeContext({'x':x})
+        x_node.forward(ctx) 
+        output = dense.value() 
+        info("[DenseLayerStandAlone.test_single_step()] output = np.{}".format(repr(output)))
+        dense.backward(np.ones_like(output), self, ctx)
+        w_grad = dense.get_w_grad()
+        info("[DenseLayerStandAlone.test_single_step()] w_grad = np.{}".format(repr(w_grad)))
+        b_grad = dense.get_b_grad()
+        info("[DenseLayerStandAlone.test_single_step()] b_grad = np.{}".format(repr(b_grad)))
+
 
 if __name__ == '__main__':
     unittest.main()

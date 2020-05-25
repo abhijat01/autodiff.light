@@ -54,7 +54,7 @@ class XavierInitializer(DefaultDenseLayerWeightInitializer):
 class ComputeContext(dict):
     def __init__(self, initial_dict={}, weight_initializer='xavier'):
         for key, value in initial_dict.items():
-            self['key'] = value
+            self[key] = value
         self.weight_init = weight_initializer
         self.initializers = {}
         dense_layer_name = DenseLayer.__name__

@@ -14,7 +14,7 @@ class BatchNormalization(node.MComputeNode):
         self.x_norm = None
         self.gamma = None
         self.beta = None
-        self.epsilon = 1e-10
+        self.epsilon = 1e-5
         self.beta_grad = None
         self.gamma_grad = None
 
@@ -28,7 +28,7 @@ class BatchNormalization(node.MComputeNode):
         dim, m = input_value.shape
         if self.gamma is None:
             self.gamma = np.ones((dim, 1))
-            self.beta = np.random.rand(dim,m)
+            self.beta = np.zeros((dim, 1))
         self.mu = np.mean(input_value, axis=1).reshape(dim, 1)
         del_mu = input_value - self.mu
         del_mu_square = np.square(del_mu)
@@ -39,25 +39,39 @@ class BatchNormalization(node.MComputeNode):
         self._forward_downstream(var_map)
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
-        dim, m = self._grad_value.shape
+        dim, batch_size = self._grad_value.shape
         self.beta_grad = np.sum(self._grad_value, axis=1).reshape(dim, 1)
         self.gamma_grad = self._grad_value * self.x_norm
         self.gamma_grad = np.sum(self.gamma_grad, axis=1).reshape(dim, 1)
         dxhat = self.node_value * self.gamma
-        p1 = m*dxhat
-        p2 = np.sum(dxhat, axis=1).reshape(dim,1)
-        #p3 = np.sum(dxhat*self.x_norm, axis=1)
-        p3 = self.x_norm*dxhat
-        p3 = np.sum(p3, axis=1).reshape(dim,1)
-        p4 = self.x_norm*p3
-        grad_to_input = (1./m) * self.sig_sqrt_inv * (p1 - p2 - p4)
+        p1 = batch_size * dxhat
+        p2 = np.sum(dxhat, axis=1).reshape(dim, 1)
+        # p3 = np.sum(dxhat*self.x_norm, axis=1)
+        p3 = self.x_norm * dxhat
+        p3 = np.sum(p3, axis=1).reshape(dim, 1)
+        p4 = self.x_norm * p3
+        grad_to_input = (1. / batch_size) * self.sig_sqrt_inv * (p1 - p2 - p4)
         # grad_to_input = (1. / m) * self.sig_sqrt_inv * (m * dxhat -
         #                                                 np.sum(dxhat, axis=1) -
         #                                                  self.x_norm * np.sum(dxhat * self.x_norm, axis=1))
-        self.input_node.backward(grad_to_input, self, var_map )
-
+        self.input_node.backward(grad_to_input, self, var_map)
 
     def _optimizer_step(self, optimizer, var_map):
         self.beta = optimizer(self.beta, self.beta_grad, self.optimization_storage['beta'])
         self.gamma = optimizer(self.gamma, self.gamma_grad, self.optimization_storage['gamma'])
 
+
+def batchnorm_backward(dout, cache):
+    batch_size, dim = dout.shape
+    x_mu, inv_var, x_hat, gamma = cache
+
+    # intermediate partial derivatives
+    dxhat = dout * gamma
+
+    # final partial derivatives
+    dx = (1. / batch_size) * inv_var * (batch_size * dxhat - np.sum(dxhat, axis=0)
+                                        - x_hat * np.sum(dxhat * x_hat, axis=0))
+    dbeta = np.sum(dout, axis=0)
+    dgamma = np.sum(x_hat * dout, axis=0)
+
+    return dx, dgamma, dbeta

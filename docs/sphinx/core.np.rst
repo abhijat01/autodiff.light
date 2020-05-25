@@ -60,10 +60,10 @@ core.np.Optimization module
    :undoc-members:
    :show-inheritance:
 
-core.np.Specialized module
---------------------------
+core.np.normalization module
+----------------------------
 
-.. automodule:: core.np.Specialized
+.. automodule:: core.np.normalization
    :members:
    :undoc-members:
    :show-inheritance:

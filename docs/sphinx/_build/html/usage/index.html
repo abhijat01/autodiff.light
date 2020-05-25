@@ -84,10 +84,12 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Description</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#varnode">VarNode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dense-node-and-other-nodes">Dense node (and other nodes)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#optimizer">Optimizer</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">Light weight Autodiff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_notes.html">Jupyer notebook with pytorch code</a></li>
 </ul>
 
             
@@ -154,18 +156,84 @@
             
   <div class="section" id="api-description">
 <h1>API Description<a class="headerlink" href="#api-description" title="Permalink to this headline">¶</a></h1>
-<p>The API uses a network of nodes. The base class for all nodes is
+<p>The API uses a network of nodes. Base class for all nodes is
 MComputeNode. It contains forward and backward methods for evaluating the
 network value in forward direction and propagating gradients back. Input
-to the network is provided as numpy arrays set in dict objects that
-the network passes along.</p>
+to the network is provided as numpy arrays set in dict objects
+(<a class="reference internal" href="../core.np.html#core.np.Nodes.ComputeContext" title="core.np.Nodes.ComputeContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.ComputeContext</span></code></a>) that the network passes along.</p>
 <div class="section" id="varnode">
 <h2>VarNode<a class="headerlink" href="#varnode" title="Permalink to this headline">¶</a></h2>
-<p>A VarNode is a node that makes it value available by reading it from the dict
-object passed through the network in forward and backward evaluation steps.</p>
+<p>A VarNode  extracts its value  by reading it from the dict
+object (<a class="reference internal" href="../core.np.html#core.np.Nodes.ComputeContext" title="core.np.Nodes.ComputeContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.ComputeContext</span></code></a> object) passed through the
+network in forward and backward evaluation steps. In the following code,
+when you print the value first time, you will get None, printing after
+the forward call will print the value contained in the key ‘x’ of the
+ctx object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">core.np.Nodes</span> <span class="k">as</span> <span class="nn">node</span>
+<span class="n">x_node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">VarNode</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">x_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">.</span><span class="mi">9</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-.</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">ctx</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">ComputeContext</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="n">x_value</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_node</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="p">)</span>
+<span class="n">x_node</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_node</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The output should be something like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+<span class="p">[[</span> <span class="mf">1.</span>   <span class="mf">3.</span>   <span class="mf">0.9</span><span class="p">]</span>
+<span class="p">[</span> <span class="mf">3.</span>   <span class="mf">6.</span>  <span class="o">-</span><span class="mf">0.2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dense-node-and-other-nodes">
+<h2>Dense node (and other nodes)<a class="headerlink" href="#dense-node-and-other-nodes" title="Permalink to this headline">¶</a></h2>
+<p>The following code creates a network of three dense layers
+connected by two RelU layers and Log loss.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x_node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">VarNode</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">yt_node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">VarNode</span><span class="p">(</span><span class="s1">&#39;yt&#39;</span><span class="p">)</span>
+<span class="n">linear1</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">(</span><span class="n">x_node</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Dense-First&quot;</span><span class="p">)</span>
+<span class="n">relu1</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">RelUNode</span><span class="p">(</span><span class="n">linear1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;RelU-First&quot;</span><span class="p">)</span>
+<span class="n">linear2</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">(</span><span class="n">relu1</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Dense-Second&quot;</span><span class="p">)</span>
+<span class="n">relu2</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">RelUNode</span><span class="p">(</span><span class="n">linear2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;RelU-Second&quot;</span><span class="p">)</span>
+<span class="n">linear3</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">(</span><span class="n">relu2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Dense-Third&quot;</span><span class="p">)</span>
+<span class="n">loss_node</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">LogitsCrossEntropy</span><span class="p">(</span><span class="n">linear3</span><span class="p">,</span> <span class="n">yt_node</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;XEnt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This network, we have two nodes that initiate the forward computation which
+ends at the loss_node node. A forward pass will look something like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ctx</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">ComputeContext</span><span class="p">()</span>
+<span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get_from_train_set</span><span class="p">()</span>
+<span class="n">ctx</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">ctx</span><span class="p">[</span><span class="s1">&#39;yt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">to_one_hot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">max_cat_num</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">x_node</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">yt_node</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>At this point, the network will forward the computation all the way to the cross_entropy
+node. You can get the value using <code class="docutils literal notranslate"><span class="pre">loss_node.value()</span></code> . In this case, you will get
+a single number. To calculate  gradients for all the layers, use backward at the
+layer from where you wish to initiate the computation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">incoming_grad</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># since we have a single number as loss.</span>
+<span class="n">loss_node</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">incoming_grad</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">var_map</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, to update gradients, run the optimizer from last layer using an optimizer
+function (not shown here)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loss_node</span><span class="o">.</span><span class="n">optimizer_step</span><span class="p">(</span><span class="n">optimizer_function</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="optimizer">
 <h2>Optimizer<a class="headerlink" href="#optimizer" title="Permalink to this headline">¶</a></h2>
+<p>While the above discussion shows you how you can run the network forward and backward
+and update the gradient, there is an easier way to do this - use an OptimizerIterator
+along with a WeightUpdater as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">weight_updater</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">AdamOptimizer</span><span class="p">()</span>
+<span class="n">start_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_node</span><span class="p">,</span> <span class="n">y_node</span><span class="p">]</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">OptimizerIterator</span><span class="p">(</span><span class="n">start_nodes</span><span class="p">,</span> <span class="n">loss_node</span><span class="p">,</span> <span class="n">weight_updater</span><span class="p">)</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">batch_size</span>
+</pre></div>
+</div>
 </div>
 </div>
 

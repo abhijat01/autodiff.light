@@ -98,6 +98,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="usage/pytorch_notes.html">Jupyer notebook with pytorch code</a></li>
 </ul>
 
             
@@ -709,23 +710,28 @@ The loss returned is before the gradient update
 </dd></dl>
 
 </div>
-<div class="section" id="module-core.np.Specialized">
-<span id="core-np-specialized-module"></span><h2>core.np.Specialized module<a class="headerlink" href="#module-core.np.Specialized" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-core.np.normalization">
+<span id="core-np-normalization-module"></span><h2>core.np.normalization module<a class="headerlink" href="#module-core.np.normalization" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="core.np.Specialized.BatchNormalization">
-<em class="property">class </em><code class="sig-prename descclassname">core.np.Specialized.</code><code class="sig-name descname">BatchNormalization</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_node</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode">core.np.Nodes.MComputeNode</a></span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Specialized.BatchNormalization" title="Permalink to this definition">¶</a></dt>
+<dt id="core.np.normalization.BatchNormalization">
+<em class="property">class </em><code class="sig-prename descclassname">core.np.normalization.</code><code class="sig-name descname">BatchNormalization</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_node</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode">core.np.Nodes.MComputeNode</a></span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.normalization.BatchNormalization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#core.np.Nodes.MComputeNode" title="core.np.Nodes.MComputeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.np.Nodes.MComputeNode</span></code></a></p>
 <dl class="py method">
-<dt id="core.np.Specialized.BatchNormalization.clear_optimization_storage">
-<code class="sig-name descname">clear_optimization_storage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Specialized.BatchNormalization.clear_optimization_storage" title="Permalink to this definition">¶</a></dt>
+<dt id="core.np.normalization.BatchNormalization.clear_optimization_storage">
+<code class="sig-name descname">clear_optimization_storage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.np.normalization.BatchNormalization.clear_optimization_storage" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="core.np.Specialized.BatchNormalization.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.Specialized.BatchNormalization.forward" title="Permalink to this definition">¶</a></dt>
+<dt id="core.np.normalization.BatchNormalization.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_map</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.normalization.BatchNormalization.forward" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
+
+<dl class="py function">
+<dt id="core.np.normalization.batchnorm_backward">
+<code class="sig-prename descclassname">core.np.normalization.</code><code class="sig-name descname">batchnorm_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dout</span></em>, <em class="sig-param"><span class="n">cache</span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.np.normalization.batchnorm_backward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-core.np.utils">

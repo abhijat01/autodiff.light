@@ -5,3 +5,4 @@ Light weight Autodiff
    :maxdepth: 2
 
    core
+   tests
