@@ -231,7 +231,7 @@ class MComputeNode:
         """
         return self.node_value
 
-    def grad_value(self):
+    def total_incoming_gradient(self):
         return self._grad_value
 
     def simple_name(self):
@@ -356,7 +356,7 @@ class DenseLayer(MComputeNode):
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
         x = self.input_node.value()
-        incoming_grad = self.grad_value()
+        incoming_grad = self.total_incoming_gradient()
         self.b_grad = np.sum(incoming_grad, axis=1).reshape((self.output_dim, 1))
         self.w_grad = (incoming_grad @ x.T)
         grad_to_input = self.w.T @ incoming_grad
@@ -450,7 +450,7 @@ class VarNode(MComputeNode):
 
     def _optimizer_step(self, optimizer, var_map):
         var = var_map[self.var_name]
-        new_var = optimizer(var, self.grad_value(), self.optimization_storage)
+        new_var = optimizer(var, self.total_incoming_gradient(), self.optimization_storage)
         var_map[self.var_name] = new_var
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):

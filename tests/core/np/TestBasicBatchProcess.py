@@ -36,7 +36,7 @@ class UnitNetworkBatch(BaseComputeNodeTest):
         l2_node.backward(1.0, self, var_map)
         info(wx_node.value())
         info("grad...")
-        info(wx_node.grad_value())
+        info(wx_node.total_incoming_gradient())
 
 
 if __name__ == '__main__':

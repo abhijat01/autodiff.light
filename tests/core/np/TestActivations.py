@@ -34,7 +34,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         info("L2 Loss:{}".format(loss))
         log_at_info()
         l2loss.backward(1.0, self, var_map)
-        x_grad = x_node.grad_value()
+        x_grad = x_node.total_incoming_gradient()
         expected_x_grad = np.array([[0.28746968, 0.18495609, 0.08606823, 0.03469004],
                                     [0.08606823, 0.03469004, 0.01320712, 0.00492082],
                                     [0.10575419, 0.25, 0.28746968, 0.08606823]])
@@ -55,7 +55,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
 
         ones = np.ones_like(value)
         relu.backward(ones, self, var_map)
-        grad = x_node.grad_value()
+        grad = x_node.total_incoming_gradient()
         expected_grad = np.array([[1, 0, 1, 0], [1, 0, 0, 1]])
         np.testing.assert_almost_equal(expected_grad, grad)
 
@@ -84,7 +84,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         loss_value = l2loss.value()
         debug("Loss = {}".format(loss_value))
         l2loss.backward(1.0, self, var_map)
-        x_grad = x_node.grad_value()
+        x_grad = x_node.total_incoming_gradient()
 
         expected_grad = np.array([[-0.01666096, -0.00003058],
                                   [0.02615019, 0.00072642],
@@ -110,7 +110,7 @@ class SimpleActivationTests(BaseComputeNodeTest):
         debug(" [SimpleActivationTests.test_logit_cross_entropy()] value = {}".format(repr(value)))
         self.assertAlmostEqual(expected, value)
         lx.backward(1.0, self, var_map)
-        grad = pred_node.grad_value()
+        grad = pred_node.total_incoming_gradient()
         debug(" [LogitCrossEntropyTests.test_logit_cross_entropy()] grad = np.{}".format(repr(grad)))
         expected_grad = np.array([[5.67748097e-02, -1.67380882e-01],
                                   [2.08862853e-02, 1.22363735e-01],

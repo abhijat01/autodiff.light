@@ -15,7 +15,7 @@ class SigmoidNode(MComputeNode):
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
         sig_grad = self.node_value * (1 - self.node_value)
-        grad_to_input = sig_grad * self.grad_value()
+        grad_to_input = sig_grad * self.total_incoming_gradient()
         self.input_node.backward(grad_to_input, self, var_map)
 
 
@@ -32,7 +32,7 @@ class TanhNode(MComputeNode):
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
         sig_grad = 1 - np.square(self.node_value)
-        grad_to_input = sig_grad * self.grad_value()
+        grad_to_input = sig_grad * self.total_incoming_gradient()
         self.input_node.backward(grad_to_input, self, var_map)
 
 

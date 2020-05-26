@@ -23,7 +23,7 @@ class SimpleCrossEntryTestCase(BaseComputeNodeTest):
         expected_loss = 6.188115770824936
         self.assertAlmostEqual(expected_loss, loss)
         cross_entropy.backward(1.0, self, var_map)
-        x_grad = predicted_node.grad_value()
+        x_grad = predicted_node.total_incoming_gradient()
         debug("x_grad = np.{}".format(repr(x_grad)))
         # Note that this grad is  1/8 the size reported by pytorch
         # because pytorch does not average out during softmax for CrossEntropy

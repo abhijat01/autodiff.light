@@ -80,7 +80,7 @@ class Dropout(node.MComputeNode):
         self._forward_downstream(var_map)
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
-        grad_to_input = self.grad_value() * self.drop_out_rows
+        grad_to_input = self.total_incoming_gradient() * self.drop_out_rows
         self.input_node.backward(grad_to_input, self, var_map)
 
 
