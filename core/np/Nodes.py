@@ -52,7 +52,7 @@ class XavierInitializer(DefaultDenseLayerWeightInitializer):
 
 
 class ComputeContext(dict):
-    def __init__(self, initial_dict={}, weight_initializer='xavier'):
+    def __init__(self, initial_dict={}, weight_initializer='xavier', is_training=True ):
         for key, value in initial_dict.items():
             self[key] = value
         self.weight_init = weight_initializer
@@ -62,6 +62,7 @@ class ComputeContext(dict):
             self.initializers[dense_layer_name]= XavierInitializer()
         else:
             self.initializers[dense_layer_name]= DefaultDenseLayerWeightInitializer()
+        self.training = is_training
 
     def initialize_layer(self, node: MComputeNode):
         class_name = node.__class__.__name__
@@ -71,6 +72,12 @@ class ComputeContext(dict):
             return
         initializer = self.initializers[class_name]
         initializer.initialize(node)
+
+    def set_is_training(self, is_training):
+        self.training = is_training
+
+    def is_training(self):
+        return self.training
 
 
 class MComputeNode:

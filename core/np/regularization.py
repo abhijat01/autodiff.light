@@ -61,6 +61,29 @@ class BatchNormalization(node.MComputeNode):
         self.gamma = optimizer(self.gamma, self.gamma_grad, self.optimization_storage['gamma'])
 
 
+class Dropout(node.MComputeNode):
+    def __init__(self, input_node: node.MComputeNode, dropout_prob: float = .5, name=""):
+        node.MComputeNode.__init__(self, name)
+        self.input_node = input_node
+        self._add_upstream_nodes([input_node])
+        self.p = dropout_prob
+        self.drop_out_rows = []
+
+    def forward(self, var_map: node.ComputeContext):
+        x = self.input_node.value()
+        if not var_map.is_training():
+            self.node_value = x * self.p
+        else:
+            dim, batch_count = x.shape
+            self.drop_out_rows = np.array([[np.random.binomial(dim, self.p) for _ in range(dim)]]).T
+            self.node_value = x * self.drop_out_rows
+        self._forward_downstream(var_map)
+
+    def _do_backprop(self, downstream_grad, downstream_node, var_map):
+        grad_to_input = self.grad_value() * self.drop_out_rows
+        self.input_node.backward(grad_to_input, self, var_map)
+
+
 def batchnorm_backward(dout, cache):
     batch_size, dim = dout.shape
     x_mu, inv_var, x_hat, gamma = cache

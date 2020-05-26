@@ -2,50 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fc7163f-473c-4b51-a488-7b8602a4d407" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/sphinx/usage/pytorch_notes.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/np/Nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Nodes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/np/Specialized.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/normalization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/doctrees/core.np.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/doctrees/core.np.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/doctrees/modules.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/doctrees/modules.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/doctrees/usage/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/doctrees/usage/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/.buildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/.buildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/_sources/core.np.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/_sources/core.np.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/_sources/index.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/_sources/modules.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/_sources/modules.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/_sources/usage/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/_sources/usage/index.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/_static/pygments.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/_static/pygments.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/core.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/core.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/core.np.datasets.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/core.np.datasets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/core.np.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/core.np.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/modules.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/modules.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/py-modindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/_build/html/usage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/_build/html/usage/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/core.np.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/core.np.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/np/normalization.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/regularization.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/sphinx/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/modules.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/modules.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sphinx/usage/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sphinx/usage/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/BasicNetworkNoActivation.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/BasicNetworkNoActivation.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TestActivations.Sigmoid.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TestActivations.Sigmoid.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TestActivations.Softmax.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TestActivations.Softmax.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TestConvolutionStandalone.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TestConvolutionStandalone.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TestDenseLayer.LinearOpt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TestDenseLayer.LinearOpt.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TestDenseLayerStandalone.test_basic_op.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TestDenseLayerStandalone.test_basic_op.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TestLosses.CrossEntropy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TestLosses.CrossEntropy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TwoLayerSigmoidTransform1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TwoLayerSigmoidTransform1.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jupyter/core.np/py_api.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/py_api.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/core/np/TestBatchNormalization.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestBatchNormalization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/core/np/TestDenseLayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestDenseLayer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/core/np/TestBatchNormalization.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestRegularization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/core/np/datasets/TestMNist784.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/datasets/TestMNist784.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,22 +61,7 @@
       <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\docs\tex" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_single_step">
-    <configuration name="Unittests for TestBatchNormalization.BatchNormalizationTest.test_something" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="autodiff.light" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestBatchNormalization.BatchNormalizationTest.test_something&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittests for TestRegularization.BatchNormalizationTest.test_dropout_simple_input">
     <configuration name="Unittests for TestIrisDataset.IrisDsTest.test_linear_fit" type="tests" factoryName="Unittests" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,18 +77,18 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for TestIrisDataset.IrisDsTest.test_multi_layer" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for TestRegularization.BatchNormalizationTest.test_dropout_simple_input" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np/datasets" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestIrisDataset.IrisDsTest.test_multi_layer&quot;" />
+      <option name="_new_target" value="&quot;TestRegularization.BatchNormalizationTest.test_dropout_simple_input&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -190,22 +138,37 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for tests.core.np.TestRegularization.BatchNormalizationTest.test_something" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="autodiff.light" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.core.np.TestRegularization.BatchNormalizationTest.test_something&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python tests.Unittests in np" />
       <item itemvalue="Python tests.Unittests for TestIrisDataset.IrisDsTest.test_linear_fit" />
-      <item itemvalue="Python tests.Unittests for TestIrisDataset.IrisDsTest.test_multi_layer" />
       <item itemvalue="Python tests.Unittests for tests.core.np.TestDenseLayer.DenseLayerStandAlone.test_basic_op" />
-      <item itemvalue="Python tests.Unittests for TestBatchNormalization.BatchNormalizationTest.test_something" />
       <item itemvalue="Python tests.Unittests for np.TestLosses.SimpleCrossEntryTestCase.test_cross_entropy" />
       <item itemvalue="Python tests.Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_single_step" />
+      <item itemvalue="Python tests.Unittests for tests.core.np.TestRegularization.BatchNormalizationTest.test_something" />
+      <item itemvalue="Python tests.Unittests for TestRegularization.BatchNormalizationTest.test_dropout_simple_input" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for TestRegularization.BatchNormalizationTest.test_dropout_simple_input" />
         <item itemvalue="Python tests.Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_single_step" />
-        <item itemvalue="Python tests.Unittests for TestBatchNormalization.BatchNormalizationTest.test_something" />
+        <item itemvalue="Python tests.Unittests for tests.core.np.TestRegularization.BatchNormalizationTest.test_something" />
         <item itemvalue="Python tests.Unittests for np.TestLosses.SimpleCrossEntryTestCase.test_cross_entropy" />
         <item itemvalue="Python tests.Unittests for tests.core.np.TestDenseLayer.DenseLayerStandAlone.test_basic_op" />
-        <item itemvalue="Python tests.Unittests for TestIrisDataset.IrisDsTest.test_multi_layer" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +193,7 @@
       <workItem from="1589414104024" duration="47474000" />
       <workItem from="1589732423747" duration="52611000" />
       <workItem from="1590070296003" duration="43866000" />
-      <workItem from="1590263344881" duration="30065000" />
+      <workItem from="1590263344881" duration="34698000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit ..">
       <created>1588794612152</created>
@@ -540,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590285136825</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Added documentation , tests. batchNorm still not working">
+      <created>1590446738259</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1590446738259</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Improved pytorch comparison code in jupyter lab" />
     <MESSAGE value="Got test cases running again&#10;&#10;Also added skip testing for long running test, reduced iterations for parabola fitting. Several tests still do not have meaningful asserts." />
     <MESSAGE value="Fixed documentation error on wiki graph image" />
     <MESSAGE value="Refactored, started work on  softmax" />
@@ -582,7 +551,8 @@
     <MESSAGE value="little more documentation structure" />
     <MESSAGE value="Committing several files after refactoring &#10;&#10;Continue working on making all the tests to run - we have regressed significantly &#10;Increase code coverage - again we have gone back &#10;Need to implement the following &#10;* Test BatchNorm calculation against pytorch &#10;* Implement DropOff" />
     <MESSAGE value="Latest sphinx generated documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Latest sphinx generated documentation" />
+    <MESSAGE value="Added documentation , tests. batchNorm still not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added documentation , tests. batchNorm still not working" />
   </component>
   <component name="WindowStateProjectService">
     <state x="534" y="304" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1590339869462">
@@ -607,10 +577,10 @@
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
     <state x="798" y="418" width="314" height="512" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589471258780" />
-    <state x="516" y="93" key="CommitChangelistDialog2" timestamp="1590285135331">
+    <state x="516" y="93" key="CommitChangelistDialog2" timestamp="1590446735619">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="516" y="93" key="CommitChangelistDialog2/62.0.1858.1080@62.0.1858.1080" timestamp="1590285135331" />
+    <state x="516" y="93" key="CommitChangelistDialog2/62.0.1858.1080@62.0.1858.1080" timestamp="1590446735619" />
     <state x="530" y="93" key="CommitChangelistDialog2/80.0.1840.1080@80.0.1840.1080" timestamp="1589844736704" />
     <state x="284" y="131" width="1482" height="839" key="DiffContextDialog" timestamp="1589414429579">
       <screen x="80" y="0" width="1840" height="1080" />
@@ -621,45 +591,45 @@
     </state>
     <state x="588" y="283" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1590174713388" />
     <state x="601" y="283" key="FileChooserDialogImpl/80.0.1840.1080@80.0.1840.1080" timestamp="1590070509047" />
-    <state width="1668" height="160" key="GridCell.Tab.0.bottom" timestamp="1590445837715">
+    <state width="476" height="732" key="GridCell.Tab.0.bottom" timestamp="1590507321490">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1668" height="160" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1590445837715" />
+    <state width="476" height="732" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1590507321490" />
     <state width="588" height="758" key="GridCell.Tab.0.bottom/80.0.1840.1080@80.0.1840.1080" timestamp="1590160220650" />
-    <state width="1668" height="160" key="GridCell.Tab.0.center" timestamp="1590445837715">
+    <state width="476" height="732" key="GridCell.Tab.0.center" timestamp="1590507321490">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1668" height="160" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1590445837715" />
+    <state width="476" height="732" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1590507321490" />
     <state width="588" height="758" key="GridCell.Tab.0.center/80.0.1840.1080@80.0.1840.1080" timestamp="1590160220650" />
-    <state width="1668" height="160" key="GridCell.Tab.0.left" timestamp="1590445837715">
+    <state width="476" height="732" key="GridCell.Tab.0.left" timestamp="1590507321490">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1668" height="160" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1590445837715" />
+    <state width="476" height="732" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1590507321490" />
     <state width="588" height="758" key="GridCell.Tab.0.left/80.0.1840.1080@80.0.1840.1080" timestamp="1590160220650" />
-    <state width="1668" height="160" key="GridCell.Tab.0.right" timestamp="1590445837715">
+    <state width="476" height="732" key="GridCell.Tab.0.right" timestamp="1590507321490">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1668" height="160" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1590445837715" />
+    <state width="476" height="732" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1590507321490" />
     <state width="588" height="758" key="GridCell.Tab.0.right/80.0.1840.1080@80.0.1840.1080" timestamp="1590160220650" />
-    <state width="1668" height="160" key="GridCell.Tab.1.bottom" timestamp="1590445837715">
+    <state width="1502" height="149" key="GridCell.Tab.1.bottom" timestamp="1590507231763">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1668" height="160" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1590445837715" />
+    <state width="1502" height="149" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1590507231763" />
     <state width="1775" height="71" key="GridCell.Tab.1.bottom/80.0.1840.1080@80.0.1840.1080" timestamp="1590152163027" />
-    <state width="1668" height="160" key="GridCell.Tab.1.center" timestamp="1590445837715">
+    <state width="1502" height="149" key="GridCell.Tab.1.center" timestamp="1590507231763">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1668" height="160" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1590445837715" />
+    <state width="1502" height="149" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1590507231763" />
     <state width="1775" height="71" key="GridCell.Tab.1.center/80.0.1840.1080@80.0.1840.1080" timestamp="1590152163027" />
-    <state width="1668" height="160" key="GridCell.Tab.1.left" timestamp="1590445837715">
+    <state width="1502" height="149" key="GridCell.Tab.1.left" timestamp="1590507231763">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1668" height="160" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1590445837715" />
+    <state width="1502" height="149" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1590507231763" />
     <state width="1775" height="71" key="GridCell.Tab.1.left/80.0.1840.1080@80.0.1840.1080" timestamp="1590152163027" />
-    <state width="1668" height="160" key="GridCell.Tab.1.right" timestamp="1590445837715">
+    <state width="1502" height="149" key="GridCell.Tab.1.right" timestamp="1590507231763">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1668" height="160" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1590445837715" />
+    <state width="1502" height="149" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1590507231763" />
     <state width="1775" height="71" key="GridCell.Tab.1.right/80.0.1840.1080@80.0.1840.1080" timestamp="1590152163027" />
     <state x="898" y="241" key="RollbackChangesDialog" timestamp="1589843873309">
       <screen x="80" y="0" width="1840" height="1080" />
@@ -670,10 +640,10 @@
     </state>
     <state x="609" y="134" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1590339872935" />
     <state x="407" y="117" key="SettingsEditor/80.0.1840.1080@80.0.1840.1080" timestamp="1590114751828" />
-    <state x="667" y="313" key="Vcs.Push.Dialog.v2" timestamp="1590285138256">
+    <state x="667" y="313" key="Vcs.Push.Dialog.v2" timestamp="1590446744257">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="667" y="313" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1590285138256" />
+    <state x="667" y="313" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1590446744257" />
     <state x="679" y="313" key="Vcs.Push.Dialog.v2/80.0.1840.1080@80.0.1840.1080" timestamp="1589844742125" />
     <state x="721" y="75" width="585" height="888" key="find.popup" timestamp="1589384434274">
       <screen x="80" y="0" width="1840" height="1080" />
@@ -703,17 +673,17 @@
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/np/normalization.py</url>
+          <url>file://$PROJECT_DIR$/core/np/regularization.py</url>
           <line>38</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/np/normalization.py</url>
+          <url>file://$PROJECT_DIR$/core/np/regularization.py</url>
           <line>31</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/np/normalization.py</url>
+          <url>file://$PROJECT_DIR$/core/np/regularization.py</url>
           <line>41</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
@@ -729,7 +699,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/core/np/Nodes.py</url>
-          <line>346</line>
+          <line>353</line>
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -739,7 +709,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/core/np/Nodes.py</url>
-          <line>340</line>
+          <line>347</line>
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -748,9 +718,9 @@
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/np/Nodes.py</url>
-          <line>56</line>
-          <option name="timeStamp" value="99" />
+          <url>file://$PROJECT_DIR$/core/np/regularization.py</url>
+          <line>78</line>
+          <option name="timeStamp" value="100" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -809,6 +779,7 @@
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestLosses_SimpleCrossEntryTestCase_test_cross_entropy.coverage" NAME="Unittests for np.TestLosses.SimpleCrossEntryTestCase.test_cross_entropy Coverage Results" MODIFIED="1590339786018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_TestFwdModeOneDim_py.coverage" NAME="Unittests in TestFwdModeOneDim.py Coverage Results" MODIFIED="1588797115413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestBasicBatchProcess_UnitNetworkBatch_test_linear_transformation.coverage" NAME="Unittests for TestBasicBatchProcess.UnitNetworkBatch.test_linear_transformation Coverage Results" MODIFIED="1589141338928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestRegularization_BatchNormalizationTest_test_dropout_simple_input.coverage" NAME="Unittests for TestRegularization.BatchNormalizationTest.test_dropout_simple_input Coverage Results" MODIFIED="1590507321482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestMNist784_Mnist784DsTest_test_linear_training_tf.coverage" NAME="Unittests for TestMNist784.Mnist784DsTest.test_linear_training_tf Coverage Results" MODIFIED="1590267841391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_download_mnist.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_download_mnist Coverage Results" MODIFIED="1588963403701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_optimization.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_optimization Coverage Results" MODIFIED="1588872309095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
