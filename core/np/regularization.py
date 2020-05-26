@@ -67,15 +67,17 @@ class Dropout(node.MComputeNode):
         self.input_node = input_node
         self._add_upstream_nodes([input_node])
         self.p = dropout_prob
-        self.drop_out_rows = []
+        self.drop_out_rows = None
 
     def forward(self, var_map: node.ComputeContext):
         x = self.input_node.value()
+        if self.drop_out_rows is None:
+            self.drop_out_rows = np.ones_like(x)
         if not var_map.is_training():
             self.node_value = x * self.p
         else:
             dim, batch_count = x.shape
-            self.drop_out_rows = np.array([[np.random.binomial(dim, self.p) for _ in range(dim)]]).T
+            self.drop_out_rows = np.array([[np.random.binomial(1, self.p) for _ in range(dim)]]).T
             self.node_value = x * self.drop_out_rows
         self._forward_downstream(var_map)
 

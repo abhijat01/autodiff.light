@@ -52,17 +52,20 @@ class XavierInitializer(DefaultDenseLayerWeightInitializer):
 
 
 class ComputeContext(dict):
-    def __init__(self, initial_dict={}, weight_initializer='xavier', is_training=True ):
+    def __init__(self, initial_dict={}, weight_initializer='xavier', is_training=True):
         for key, value in initial_dict.items():
             self[key] = value
         self.weight_init = weight_initializer
         self.initializers = {}
         dense_layer_name = DenseLayer.__name__
         if self.weight_init == 'xavier':
-            self.initializers[dense_layer_name]= XavierInitializer()
+            self.initializers[dense_layer_name] = XavierInitializer()
         else:
-            self.initializers[dense_layer_name]= DefaultDenseLayerWeightInitializer()
+            self.initializers[dense_layer_name] = DefaultDenseLayerWeightInitializer()
         self.training = is_training
+
+    def set_dense_layer_initializer(self, initializer: Initializer):
+        self.initializers[DenseLayer.__name__] = initializer
 
     def initialize_layer(self, node: MComputeNode):
         class_name = node.__class__.__name__
@@ -341,7 +344,7 @@ class DenseLayer(MComputeNode):
         self.weights_initialized = not ((self.w is None) and (self.b is None))
         self.optimization_storage = {'w': {}, 'b': {}}
 
-    def forward(self, var_map:ComputeContext):
+    def forward(self, var_map: ComputeContext):
         x = self.input_node.value()
         if not self.weights_initialized:
             self.input_dim = x.shape[0]

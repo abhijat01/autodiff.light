@@ -9,6 +9,7 @@ import core.np.Nodes as node
 import core.np.Activations as act
 import core.np.Loss as loss
 import core.np.Optimization as autodiff_optim
+import core.np.regularization as reg
 from core.np.utils import to_one_hot
 import tests.core.np.datasets.mnist as mn
 import time
@@ -148,9 +149,12 @@ class Mnist784DsTest(BaseComputeNodeTest):
         x_node = node.VarNode('x')
         yt_node = node.VarNode('yt')
         linear1 = node.DenseLayer(x_node, 100, name="Dense-First")
-        relu1 = act.RelUNode(linear1, name="RelU-First")
+        drop1 = reg.Dropout(linear1, dropout_prob=.8)
+        relu1 = act.RelUNode(drop1, name="RelU-First")
+
         linear2 = node.DenseLayer(relu1, 200, name="Dense-Second")
-        relu2 = act.RelUNode(linear2, name="RelU-Second")
+        drop2 = reg.Dropout(linear2, dropout_prob=.5)
+        relu2 = act.RelUNode(drop2, name="RelU-Second")
         linear3 = node.DenseLayer(relu2, 10, name="Dense-Third")
         cross_entropy = loss.LogitsCrossEntropy(linear3, yt_node, name="XEnt")
 
@@ -169,6 +173,7 @@ class Mnist784DsTest(BaseComputeNodeTest):
         predictor = node.make_evaluator([x_node, yt_node], linear3)
         total_time = time.time()
         ctx = node.ComputeContext({})
+        #ctx.set_is_training(False)
         for epoch in range(epochs):
             epoch_time = time.time()
             for x, y in iterate_over_minibatches(x_train, y_train, batch_size=batch_size):
