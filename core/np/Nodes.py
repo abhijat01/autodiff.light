@@ -4,7 +4,7 @@ This module contains many of the building blocks, in particular the common node
 class, propagation code, dense layer etc.
 """
 
-from __future__ import annotations
+
 import numpy as np
 from core import debug, is_debug_on, info
 import math
@@ -18,7 +18,7 @@ class INodeVisitor:
 
 
 class Initializer:
-    def initialize(self, node: MComputeNode):
+    def initialize(self, node: 'MComputeNode'):
         r"""
         Used to initializer a layer possibly using information from the node
         object.
@@ -29,7 +29,7 @@ class Initializer:
 
 
 class DefaultDenseLayerWeightInitializer(Initializer):
-    def initialize(self, node: MComputeNode):
+    def initialize(self, node: 'MComputeNode'):
         if not issubclass(node.__class__, DenseLayer):
             raise Exception("Only dense layer supported at present")
 
@@ -67,7 +67,7 @@ class ComputeContext(dict):
     def set_dense_layer_initializer(self, initializer: Initializer):
         self.initializers[DenseLayer.__name__] = initializer
 
-    def initialize_layer(self, node: MComputeNode):
+    def initialize_layer(self, node: 'MComputeNode'):
         class_name = node.__class__.__name__
         if not (class_name in self.initializers):
             info("[ComputeContext.initialize_layer()]  "
