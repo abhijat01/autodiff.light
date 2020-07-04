@@ -7,7 +7,7 @@ class Convolution2D(node.MComputeNode):
     Lets start with simple square kernels and stride of 1
     """
 
-    def __init__(self, input_node, input_shape, kern_size=2, kernel=None, bias=0, name=None):
+    def __init__(self, input_node, input_shape, channels=1, kern_size=2, kernel=None, bias=0, name=None):
         r"""
         if
         :param input_node:

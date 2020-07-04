@@ -317,7 +317,7 @@ class DenseLayer(MComputeNode):
     and b is output_dim x 1
     """
 
-    def __init__(self, input_node: int, output_dim: int,
+    def __init__(self, input_node, output_dim: int,
                  initial_w: np.array = None, initial_b: np.array = None,
                  name: str = None):
         r"""
