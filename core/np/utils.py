@@ -125,3 +125,41 @@ class LocalDataCache:
             os.mkdir(data_dir)
         return data_dir
 
+
+def always_filter(dir, name):
+    return True
+
+
+def ext_filter(ends_with_string):
+    def f(dir, name):
+        return name.endswith(ends_with_string)
+    return f
+
+
+def get_file_list(directory: str = ".", return_full_path: bool = True, files_only: bool = True,
+                  filename_filter=always_filter):
+    """
+
+    :param directory:
+    :param return_full_path: if false, only the file name will be returned, otherwise complete path W.R.T to directory
+    will be returned.
+    :param files_only: This setting will always override filter hence filter will
+    never get to see this a directory if this is set to true
+    :param filename_filter: should accept two arguments, the directory and the filename and return True if this file should be
+    included in the listing
+    :return:
+    """
+    file_list = os.listdir(directory)
+    ret_list = []
+    for file_name in file_list:
+        full_path = os.path.join(directory, file_name)
+        if files_only:
+            if not os.path.isdir(full_path):
+                if filename_filter(directory, file_name):
+                    if return_full_path:
+                        ret_list.append(full_path)
+                    else:
+                        ret_list.append(file_name)
+
+    return ret_list
+

@@ -90,16 +90,16 @@ class Convolution2D(node.MComputeNode):
                 for wy_dict in contributions:
                     wi, wj = wy_dict['w']
                     yi, yj = wy_dict['y']
-                    self.gradient_to_x[i][j] += self.kernel[wi, wj] * self._grad_value[yi][yj]
+                    self.gradient_to_x[i][j] += self.kernel[wi, wj] * self._total_incoming_grad_value[yi][yj]
 
         self.kernel_grad = np.zeros((self.kernel_size, self.kernel_size))
-        grad_m, grad_n = self._grad_value.shape
+        grad_m, grad_n = self._total_incoming_grad_value.shape
         for i in range(self.m - grad_m + 1):
             for j in range(self.n - grad_n + 1):
-                x_part = x[i:i + grad_m, j:j + grad_n] * self._grad_value
+                x_part = x[i:i + grad_m, j:j + grad_n] * self._total_incoming_grad_value
                 self.kernel_grad[i, j] = np.sum(x_part) / x_part.size
 
-        self.bias_grad = np.sum(self._grad_value) / self._grad_value.size
+        self.bias_grad = np.sum(self._total_incoming_grad_value) / self._total_incoming_grad_value.size
         self.input_node.backward(self.gradient_to_x, self, var_map)
 
     def _collect_component_grads(self, i, j, x, y_grad):
@@ -185,7 +185,7 @@ class MaxPool2D(node.MComputeNode):
         for i in range(x_m - del_m + 1):
             for j in range(x_n - del_n + 1):
                 max_i, max_j = self.get_max_idx_in_window(i, j, x)
-                self.x_grad[max_i, max_j] += self._grad_value[i, j]
+                self.x_grad[max_i, max_j] += self._total_incoming_grad_value[i, j]
 
         self.input_node.backward(self.x_grad, self, var_map)
 

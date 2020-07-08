@@ -1,6 +1,7 @@
 import numpy as np
+import random
 
-from core.np.Nodes import BinaryMatrixOp, MComputeNode
+from core.np.Nodes import BinaryMatrixOp, MComputeNode,ComputeContext
 
 
 class L2DistanceSquaredNorm(BinaryMatrixOp):
@@ -22,8 +23,8 @@ class L2DistanceSquaredNorm(BinaryMatrixOp):
         y_pred = self.a_node.value()
         y_act = self.b_node.value()
         y_del = 2 * (y_pred - y_act)
-        y_pred_grad = (y_del * self._grad_value)  # /y_pred.size
-        y_act_grad = -(y_del * self._grad_value)  # /y_pred.size
+        y_pred_grad = (y_del * self._total_incoming_grad_value)  # /y_pred.size
+        y_act_grad = -(y_del * self._total_incoming_grad_value)  # /y_pred.size
         self.a_node.backward(y_pred_grad, self, var_map)
         self.b_node.backward(y_act_grad, self, var_map)
 
@@ -54,6 +55,37 @@ class CrossEntropy(MComputeNode):
         grad_to_target = self.predicted_logs
         self.predicted.backward(grad_to_predicted, self, var_map)
         self.target.backward(grad_to_target, self, var_map)
+
+
+class SoftmaxCrossEntropy(MComputeNode):
+
+    def __init__(self, prediction_source:MComputeNode, target_source:MComputeNode,
+                 name:str=None):
+        MComputeNode.__init__(self, name)
+        self.prediction_node = prediction_source
+        self.target_node = target_source
+        self._add_upstream_nodes([prediction_source, target_source])
+        self.probabilities = None
+
+    def forward(self, context_map:ComputeContext):
+        self.fwd_count += 1
+        if not self.can_go_fwd():
+            return
+        predictions = self.prediction_node.value()
+        targets = self.target_node.value()
+        max_value = predictions.max(axis=0)
+        stable_values = predictions - max_value
+        numerator = np.exp(stable_values)
+        denominator = np.sum(numerator, axis=0)+1e-12
+        self.probabilities = (numerator/denominator) + 1e-12
+        logs = np.log(self.probabilities)
+        self.node_value = -np.sum(logs*targets)
+        self._forward_downstream(context_map)
+
+    def _do_backprop(self, downstream_grad, downstream_node, var_map):
+        incoming_gradient = self.total_incoming_gradient()
+        gradient_to_predicted = incoming_gradient*(self.probabilities - self.target_node.value())
+        self.prediction_node.backward(gradient_to_predicted, self, var_map)
 
 
 class LogitsCrossEntropy(MComputeNode):
@@ -99,3 +131,5 @@ class LogitsCrossEntropy(MComputeNode):
         grad_av = (grad_v / yp.shape[1])
         self.predicted.backward(grad_av, self, var_map)
         self.target.backward(0, self, var_map)
+
+

@@ -31,8 +31,8 @@ class TanhNode(MComputeNode):
         self._forward_downstream(var_map)
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
-        sig_grad = 1 - np.square(self.node_value)
-        grad_to_input = sig_grad * self.total_incoming_gradient()
+        t_grad = 1 - np.square(self.node_value)
+        grad_to_input = t_grad * self.total_incoming_gradient()
         self.input_node.backward(grad_to_input, self, var_map)
 
 
@@ -51,7 +51,7 @@ class RelUNode(MComputeNode):
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
         input_value = self.input_node.value()
-        grad_to_input = self._grad_value * (input_value > 0)
+        grad_to_input = self._total_incoming_grad_value * (input_value > 0)
         self.input_node.backward(grad_to_input, self, var_map)
 
 
@@ -84,7 +84,7 @@ class Softmax(MComputeNode):
         return vec / sums
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
-        grad_value_to_use = self._grad_value
+        grad_value_to_use = self._total_incoming_grad_value
         if np.max(grad_value_to_use) > 10:
             grad_value_to_use = self._l2_norm(grad_value_to_use)
 

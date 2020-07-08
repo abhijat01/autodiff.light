@@ -27,7 +27,6 @@ class Initializer:
         """
         raise Exception("Subclass responsibility")
 
-
 class DefaultDenseLayerWeightInitializer(Initializer):
     def initialize(self, node: MComputeNode):
         if not issubclass(node.__class__, DenseLayer):
@@ -100,7 +99,7 @@ class MComputeNode:
         self.fwd_count = 0
         self.back_count = 0
         self.node_value = None
-        self._grad_value = None
+        self._total_incoming_grad_value = None
         self.is_trainable = is_trainable
         self.optimization_storage = {}
 
@@ -120,7 +119,7 @@ class MComputeNode:
             node.reset_network_fwd()
 
     def _reset_back(self):
-        self._grad_value = None
+        self._total_incoming_grad_value = None
         self.back_count = 0
         self.grad_from_downstream = []
 
@@ -140,23 +139,24 @@ class MComputeNode:
     def backward(self, downstream_grad, downstream_node, var_map):
         r"""
         This implements some of the common processing needed for backprop to work properly.
-        :param downstream_grad:   gradient coming from downstream. probably not needed. We should make
-        sure that this is achieved through calling grad_value() on the node
+        :param downstream_grad:   gradient coming from downstream. This should be the
+        gradient flowing upstream from this node. you can also get to it through the
+        downstream_node.total_incoming_gradient() method but this API is still quite fluid
+        so not sure what is the best approach
         :param downstream_node: downstream node that invoked backward
         :param var_map:
         :return:
         """
         calling_node_name = downstream_node.simple_name()
-        _value = self.value()
         if type(downstream_grad).__module__ == np.__name__:
             grad_shape = downstream_grad.shape
         else:
             grad_shape = "(float)"
         if is_debug_on():
-            debug("Backprop@{} from:{} downstream grad shape:{}, value shape:{}".format(self.simple_name(),
+            _value = self.value()
+            debug("Backprop@{} from:{} downstream grad shape:{}".format(self.simple_name(),
                                                                                         calling_node_name,
-                                                                                        grad_shape,
-                                                                                        _value.shape
+                                                                                        grad_shape
                                                                                         ))
             debug("Downstream grad received:")
             debug(repr(downstream_grad))
@@ -178,19 +178,31 @@ class MComputeNode:
         return self.back_count >= len(self.downstream_nodes)
 
     def _collect_grads(self):
-        self._grad_value = None
-        for grad_value in self.grad_from_downstream:
-            if self._grad_value is None:
-                self._grad_value = np.zeros_like(grad_value)
-            self._grad_value += grad_value
+        total_grad = self.grad_from_downstream[0]
+        for grad in self.grad_from_downstream[1:]:
+            total_grad += grad
+        self._set_total_gradient(total_grad)
+
+    def _set_total_gradient(self, total_grad):
+        self._total_incoming_grad_value = total_grad
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
         r"""
-        Before backprop is invoked, this node has already received all contributions
-        from upstream nodes and added them together.
-        :param downstream_grad:
-        :param downstream_node:
+        Before this method is invoked, this node has already received all contributions
+        from upstream nodes and added them together (collect grads). This method's signature will be changed
+        in the future and quite possibly, we will remove all but "var_map" as parameter.
+
+        :param downstream_grad: downstream grad from the last  invocation . This is not the total
+        gradient collected by this node. We should probably remove this and rely on self.total_incoming_gradient()
+        to get the gradient when this method is called since this method will only be invoked after all gradients
+        have been collected. You should hence try not to use this in your code and instead use self.total_incoming_gradient().
+
+        :param downstream_node: The downstream node that last invoked backprop to send it's gradient back to
+        this node. This is also probably not needed and should be removed over time. You should not use this. It
+        is there because of backward compatibility and will be removed in future.
+
         :param var_map:
+
         :return:
         """
         raise Exception("Not implemented. Subclass responsibility")
@@ -235,7 +247,7 @@ class MComputeNode:
         return self.node_value
 
     def total_incoming_gradient(self):
-        return self._grad_value
+        return self._total_incoming_grad_value
 
     def simple_name(self):
         return self.name
@@ -304,8 +316,8 @@ class MatrixMultiplication(BinaryMatrixOp):
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
         w = self.a_node.value()
         x = self.b_node.value()
-        w_grad = self._grad_value @ x.T
-        x_grad = w.T @ self._grad_value
+        w_grad = self._total_incoming_grad_value @ x.T
+        x_grad = w.T @ self._total_incoming_grad_value
         self.a_node.backward(w_grad, self, var_map)
         self.b_node.backward(x_grad, self, var_map)
 
@@ -344,18 +356,18 @@ class DenseLayer(MComputeNode):
         self.weights_initialized = not ((self.w is None) and (self.b is None))
         self.optimization_storage = {'w': {}, 'b': {}}
 
-    def forward(self, var_map: ComputeContext):
+    def forward(self, compute_context: ComputeContext):
         x = self.input_node.value()
         if not self.weights_initialized:
             self.input_dim = x.shape[0]
-            var_map.initialize_layer(self)
+            compute_context.initialize_layer(self)
 
         if is_debug_on():
             debug("[{}] DenseLayer.forward() W=np.{}".format(self.simple_name(), repr(self.w)))
             debug("[{}] DenseLayer.forward() b=np.{}".format(self.simple_name(), repr(self.b)))
             debug("[{}] DenseLayer.forward() x=np.{}".format(self.simple_name(), repr(x)))
         self.node_value = self.w @ x + self.b
-        self._forward_downstream(var_map)
+        self._forward_downstream(compute_context)
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
         x = self.input_node.value()

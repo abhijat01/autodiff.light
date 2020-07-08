@@ -39,9 +39,9 @@ class BatchNormalization(node.MComputeNode):
         self._forward_downstream(var_map)
 
     def _do_backprop(self, downstream_grad, downstream_node, var_map):
-        dim, batch_size = self._grad_value.shape
-        self.beta_grad = np.sum(self._grad_value, axis=1).reshape(dim, 1)
-        self.gamma_grad = self._grad_value * self.x_norm
+        dim, batch_size = self._total_incoming_grad_value.shape
+        self.beta_grad = np.sum(self._total_incoming_grad_value, axis=1).reshape(dim, 1)
+        self.gamma_grad = self._total_incoming_grad_value * self.x_norm
         self.gamma_grad = np.sum(self.gamma_grad, axis=1).reshape(dim, 1)
         dxhat = self.node_value * self.gamma
         p1 = batch_size * dxhat

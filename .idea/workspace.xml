@@ -2,10 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fc7163f-473c-4b51-a488-7b8602a4d407" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/np/Recurrent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/np/rnn/Recurrent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/np/rnn/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/core/np/rnn/NamesDs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/core/np/rnn/RnnCellUnitTests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/core/np/rnn/RnnLayerFullTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/core/np/rnn/RnnLayerIntegrationTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/core/np/rnn/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/core/np/simple_layers/SimpleLossLayers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/core/np/simple_layers/TestSimpleLossLayers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/core/np/simple_layers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/pyapi/TestPythonBasics.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/np/Activations.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Activations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/np/Convolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Convolution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/np/Loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Loss.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/np/Nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/Nodes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/np/Recurrent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/np/regularization.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/regularization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/np/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/np/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TestActivations.Softmax.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TestActivations.Softmax.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jupyter/core.np/TestLosses.CrossEntropy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/core.np/TestLosses.CrossEntropy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/core/np/TestLosses.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/core/np/TestLosses.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/pyapi/TestIntrospection.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pyapi/TestIntrospection.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +52,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/core/np/rnn" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -46,11 +64,6 @@
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\core\np" />
-      <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\tests\core\np\datasets" />
-      <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\docs\tex\grads" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light" />
       <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\tests\core\np\datasets" />
@@ -58,20 +71,26 @@
       <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\docs\tex\grads" />
       <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\docs\tex" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\core\np\rnn" />
+      <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\core\np" />
+      <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\tests\core\np\datasets" />
+      <recent name="C:\Users\vatsyaya\ai-ws\autodiff.light\docs\tex\grads" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for TestIntrospection.MyTestCase.test_something">
-    <configuration name="Unittests for TestIntrospection.MyTestCase.test_something" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Unittests for RnnLayerFullTest.RnnLayerFullTests.test_train">
+    <configuration name="Unittests for RnnLayerFullTest.RnnLayerFullTests.test_train" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/pyapi" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np/rnn" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestIntrospection.MyTestCase.test_something&quot;" />
+      <option name="_new_target" value="&quot;RnnLayerFullTest.RnnLayerFullTests.test_train&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -90,86 +109,87 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for TestMNist784.Mnist784DsTest.test_linear_training_tf_fast" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="autodiff.light" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="C:\Anaconda3\envs\tensorflow\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np/datasets" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_pattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestMNist784.Mnist784DsTest.test_linear_training_tf_fast&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for TestMNist784.Mnist784DsTest.test_with_dropout" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="autodiff.light" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="C:\Anaconda3\envs\tensorflow\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np/datasets" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_pattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestMNist784.Mnist784DsTest.test_with_dropout&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for TestRegularization.BatchNormalizationTest.test_dropout_simple_input" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for TestPythonBasics.TestingPythonDelete.test_delete" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/pyapi" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestRegularization.BatchNormalizationTest.test_dropout_simple_input&quot;" />
+      <option name="_new_target" value="&quot;TestPythonBasics.TestingPythonDelete.test_delete&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for TestRegularization.BatchNormalizationTest.test_dropout_with_dense" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for TestSimpleLossLayers.SoftmaxTestCase.test_batch" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="autodiff.light" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np/simple_layers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestRegularization.BatchNormalizationTest.test_dropout_with_dense&quot;" />
+      <option name="_new_target" value="&quot;TestSimpleLossLayers.SoftmaxTestCase.test_batch&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for TestSimpleLossLayers.SoftmaxTestCase.test_forward" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="autodiff.light" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core/np/simple_layers" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;TestSimpleLossLayers.SoftmaxTestCase.test_forward&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for np.TestLosses.SimpleCrossEntryTestCase.test_softmax_cross_entropy" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="autodiff.light" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/core" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;np.TestLosses.SimpleCrossEntryTestCase.test_softmax_cross_entropy&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python tests.Unittests in np" />
       <item itemvalue="Python tests.Unittests for TestIrisDataset.IrisDsTest.test_linear_fit" />
-      <item itemvalue="Python tests.Unittests for TestRegularization.BatchNormalizationTest.test_dropout_simple_input" />
-      <item itemvalue="Python tests.Unittests for TestRegularization.BatchNormalizationTest.test_dropout_with_dense" />
-      <item itemvalue="Python tests.Unittests for TestMNist784.Mnist784DsTest.test_with_dropout" />
-      <item itemvalue="Python tests.Unittests for TestMNist784.Mnist784DsTest.test_linear_training_tf_fast" />
-      <item itemvalue="Python tests.Unittests for TestIntrospection.MyTestCase.test_something" />
+      <item itemvalue="Python tests.Unittests for RnnLayerFullTest.RnnLayerFullTests.test_train" />
+      <item itemvalue="Python tests.Unittests for TestSimpleLossLayers.SoftmaxTestCase.test_forward" />
+      <item itemvalue="Python tests.Unittests for TestSimpleLossLayers.SoftmaxTestCase.test_batch" />
+      <item itemvalue="Python tests.Unittests for np.TestLosses.SimpleCrossEntryTestCase.test_softmax_cross_entropy" />
+      <item itemvalue="Python tests.Unittests for TestPythonBasics.TestingPythonDelete.test_delete" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for TestIntrospection.MyTestCase.test_something" />
-        <item itemvalue="Python tests.Unittests for TestMNist784.Mnist784DsTest.test_with_dropout" />
-        <item itemvalue="Python tests.Unittests for TestMNist784.Mnist784DsTest.test_linear_training_tf_fast" />
-        <item itemvalue="Python tests.Unittests for TestRegularization.BatchNormalizationTest.test_dropout_with_dense" />
-        <item itemvalue="Python tests.Unittests for TestRegularization.BatchNormalizationTest.test_dropout_simple_input" />
+        <item itemvalue="Python tests.Unittests for RnnLayerFullTest.RnnLayerFullTests.test_train" />
+        <item itemvalue="Python tests.Unittests for TestPythonBasics.TestingPythonDelete.test_delete" />
+        <item itemvalue="Python tests.Unittests for np.TestLosses.SimpleCrossEntryTestCase.test_softmax_cross_entropy" />
+        <item itemvalue="Python tests.Unittests for TestSimpleLossLayers.SoftmaxTestCase.test_batch" />
+        <item itemvalue="Python tests.Unittests for TestSimpleLossLayers.SoftmaxTestCase.test_forward" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -195,7 +215,10 @@
       <workItem from="1590263344881" duration="40928000" />
       <workItem from="1590604681407" duration="614000" />
       <workItem from="1590794202119" duration="708000" />
-      <workItem from="1593820440730" duration="3285000" />
+      <workItem from="1593820440730" duration="6967000" />
+      <workItem from="1593891731664" duration="21111000" />
+      <workItem from="1594064017713" duration="10042000" />
+      <workItem from="1594081948293" duration="26358000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit ..">
       <created>1588794612152</created>
@@ -526,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590512295197</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Work in progress .. started working on Recurrent networks. Will finish Convolution later - not working on it anyway at present.">
+      <created>1593828654792</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1593828654792</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +573,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed documentation error on wiki graph image" />
     <MESSAGE value="Refactored, started work on  softmax" />
     <MESSAGE value="Added Softmax layer, corresponding test cases and pytorch test code" />
     <MESSAGE value="Added cross entropy - backprop not yet working" />
@@ -568,7 +597,8 @@
     <MESSAGE value="Latest sphinx generated documentation" />
     <MESSAGE value="Added documentation , tests. batchNorm still not working" />
     <MESSAGE value="Finished testcases for dropout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished testcases for dropout" />
+    <MESSAGE value="Work in progress .. started working on Recurrent networks. Will finish Convolution later - not working on it anyway at present." />
+    <option name="LAST_COMMIT_MESSAGE" value="Work in progress .. started working on Recurrent networks. Will finish Convolution later - not working on it anyway at present." />
   </component>
   <component name="WindowStateProjectService">
     <state x="534" y="304" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1590339869462">
@@ -593,67 +623,77 @@
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
     <state x="798" y="418" width="314" height="512" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589471258780" />
-    <state x="516" y="93" key="CommitChangelistDialog2" timestamp="1590512293648">
-      <screen x="62" y="0" width="1858" height="1080" />
+    <state x="526" y="93" key="CommitChangelistDialog2" timestamp="1593828652285">
+      <screen x="75" y="0" width="1845" height="1080" />
     </state>
     <state x="516" y="93" key="CommitChangelistDialog2/62.0.1858.1080@62.0.1858.1080" timestamp="1590512293648" />
+    <state x="526" y="93" key="CommitChangelistDialog2/75.0.1845.1080@75.0.1845.1080" timestamp="1593828652285" />
     <state x="530" y="93" key="CommitChangelistDialog2/80.0.1840.1080@80.0.1840.1080" timestamp="1589844736704" />
     <state x="284" y="131" width="1482" height="839" key="DiffContextDialog" timestamp="1589414429579">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
     <state x="284" y="131" width="1482" height="839" key="DiffContextDialog/80.0.1840.1080@80.0.1840.1080" timestamp="1589414429579" />
-    <state x="588" y="283" key="FileChooserDialogImpl" timestamp="1590940745878">
-      <screen x="62" y="0" width="1858" height="1080" />
+    <state x="597" y="283" key="FileChooserDialogImpl" timestamp="1593904748191">
+      <screen x="75" y="0" width="1845" height="1080" />
     </state>
     <state x="588" y="283" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1590940745878" />
+    <state x="597" y="283" key="FileChooserDialogImpl/75.0.1845.1080@75.0.1845.1080" timestamp="1593904748191" />
     <state x="601" y="283" key="FileChooserDialogImpl/80.0.1840.1080@80.0.1840.1080" timestamp="1590070509047" />
-    <state width="1482" height="543" key="GridCell.Tab.0.bottom" timestamp="1593825813436">
-      <screen x="75" y="0" width="1845" height="1080" />
+    <state width="1735" height="190" key="GridCell.Tab.0.bottom" timestamp="1594220416992">
+      <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state width="661" height="603" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1590515814142" />
-    <state width="1482" height="543" key="GridCell.Tab.0.bottom/75.0.1845.1080@75.0.1845.1080" timestamp="1593825813436" />
+    <state width="1735" height="190" key="GridCell.Tab.0.bottom/74.0.1846.1080@74.0.1846.1080" timestamp="1594220416992" />
+    <state width="1639" height="296" key="GridCell.Tab.0.bottom/75.0.1845.1080@75.0.1845.1080" timestamp="1594072889618" />
     <state width="588" height="758" key="GridCell.Tab.0.bottom/80.0.1840.1080@80.0.1840.1080" timestamp="1590160220650" />
-    <state width="1482" height="543" key="GridCell.Tab.0.center" timestamp="1593825813436">
-      <screen x="75" y="0" width="1845" height="1080" />
+    <state width="1735" height="190" key="GridCell.Tab.0.center" timestamp="1594220416992">
+      <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state width="661" height="603" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1590515814142" />
-    <state width="1482" height="543" key="GridCell.Tab.0.center/75.0.1845.1080@75.0.1845.1080" timestamp="1593825813436" />
+    <state width="1735" height="190" key="GridCell.Tab.0.center/74.0.1846.1080@74.0.1846.1080" timestamp="1594220416992" />
+    <state width="1639" height="296" key="GridCell.Tab.0.center/75.0.1845.1080@75.0.1845.1080" timestamp="1594072889617" />
     <state width="588" height="758" key="GridCell.Tab.0.center/80.0.1840.1080@80.0.1840.1080" timestamp="1590160220650" />
-    <state width="1482" height="543" key="GridCell.Tab.0.left" timestamp="1593825813436">
-      <screen x="75" y="0" width="1845" height="1080" />
+    <state width="1735" height="190" key="GridCell.Tab.0.left" timestamp="1594220416992">
+      <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state width="661" height="603" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1590515814142" />
-    <state width="1482" height="543" key="GridCell.Tab.0.left/75.0.1845.1080@75.0.1845.1080" timestamp="1593825813436" />
+    <state width="1735" height="190" key="GridCell.Tab.0.left/74.0.1846.1080@74.0.1846.1080" timestamp="1594220416992" />
+    <state width="1639" height="296" key="GridCell.Tab.0.left/75.0.1845.1080@75.0.1845.1080" timestamp="1594072889617" />
     <state width="588" height="758" key="GridCell.Tab.0.left/80.0.1840.1080@80.0.1840.1080" timestamp="1590160220650" />
-    <state width="1482" height="543" key="GridCell.Tab.0.right" timestamp="1593825813436">
-      <screen x="75" y="0" width="1845" height="1080" />
+    <state width="1735" height="190" key="GridCell.Tab.0.right" timestamp="1594220416992">
+      <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state width="661" height="603" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1590515814142" />
-    <state width="1482" height="543" key="GridCell.Tab.0.right/75.0.1845.1080@75.0.1845.1080" timestamp="1593825813436" />
+    <state width="1735" height="190" key="GridCell.Tab.0.right/74.0.1846.1080@74.0.1846.1080" timestamp="1594220416992" />
+    <state width="1639" height="296" key="GridCell.Tab.0.right/75.0.1845.1080@75.0.1845.1080" timestamp="1594072889618" />
     <state width="588" height="758" key="GridCell.Tab.0.right/80.0.1840.1080@80.0.1840.1080" timestamp="1590160220650" />
-    <state width="1482" height="543" key="GridCell.Tab.1.bottom" timestamp="1593825815183">
-      <screen x="75" y="0" width="1845" height="1080" />
+    <state width="1735" height="190" key="GridCell.Tab.1.bottom" timestamp="1594220419424">
+      <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state width="1712" height="153" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1590515719105" />
-    <state width="1482" height="543" key="GridCell.Tab.1.bottom/75.0.1845.1080@75.0.1845.1080" timestamp="1593825815183" />
+    <state width="1735" height="190" key="GridCell.Tab.1.bottom/74.0.1846.1080@74.0.1846.1080" timestamp="1594220419424" />
+    <state width="1639" height="296" key="GridCell.Tab.1.bottom/75.0.1845.1080@75.0.1845.1080" timestamp="1594072891878" />
     <state width="1775" height="71" key="GridCell.Tab.1.bottom/80.0.1840.1080@80.0.1840.1080" timestamp="1590152163027" />
-    <state width="1482" height="543" key="GridCell.Tab.1.center" timestamp="1593825815183">
-      <screen x="75" y="0" width="1845" height="1080" />
+    <state width="1735" height="190" key="GridCell.Tab.1.center" timestamp="1594220419424">
+      <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state width="1712" height="153" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1590515719105" />
-    <state width="1482" height="543" key="GridCell.Tab.1.center/75.0.1845.1080@75.0.1845.1080" timestamp="1593825815183" />
+    <state width="1735" height="190" key="GridCell.Tab.1.center/74.0.1846.1080@74.0.1846.1080" timestamp="1594220419424" />
+    <state width="1639" height="296" key="GridCell.Tab.1.center/75.0.1845.1080@75.0.1845.1080" timestamp="1594072891878" />
     <state width="1775" height="71" key="GridCell.Tab.1.center/80.0.1840.1080@80.0.1840.1080" timestamp="1590152163027" />
-    <state width="1482" height="543" key="GridCell.Tab.1.left" timestamp="1593825815183">
-      <screen x="75" y="0" width="1845" height="1080" />
+    <state width="1735" height="190" key="GridCell.Tab.1.left" timestamp="1594220419424">
+      <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state width="1712" height="153" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1590515719105" />
-    <state width="1482" height="543" key="GridCell.Tab.1.left/75.0.1845.1080@75.0.1845.1080" timestamp="1593825815183" />
+    <state width="1735" height="190" key="GridCell.Tab.1.left/74.0.1846.1080@74.0.1846.1080" timestamp="1594220419424" />
+    <state width="1639" height="296" key="GridCell.Tab.1.left/75.0.1845.1080@75.0.1845.1080" timestamp="1594072891878" />
     <state width="1775" height="71" key="GridCell.Tab.1.left/80.0.1840.1080@80.0.1840.1080" timestamp="1590152163027" />
-    <state width="1482" height="543" key="GridCell.Tab.1.right" timestamp="1593825815183">
-      <screen x="75" y="0" width="1845" height="1080" />
+    <state width="1735" height="190" key="GridCell.Tab.1.right" timestamp="1594220419424">
+      <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state width="1712" height="153" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1590515719105" />
-    <state width="1482" height="543" key="GridCell.Tab.1.right/75.0.1845.1080@75.0.1845.1080" timestamp="1593825815183" />
+    <state width="1735" height="190" key="GridCell.Tab.1.right/74.0.1846.1080@74.0.1846.1080" timestamp="1594220419424" />
+    <state width="1639" height="296" key="GridCell.Tab.1.right/75.0.1845.1080@75.0.1845.1080" timestamp="1594072891878" />
     <state width="1775" height="71" key="GridCell.Tab.1.right/80.0.1840.1080@80.0.1840.1080" timestamp="1590152163027" />
     <state x="898" y="241" key="RollbackChangesDialog" timestamp="1589843873309">
       <screen x="80" y="0" width="1840" height="1080" />
@@ -664,11 +704,21 @@
     </state>
     <state x="609" y="134" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1590339872935" />
     <state x="407" y="117" key="SettingsEditor/80.0.1840.1080@80.0.1840.1080" timestamp="1590114751828" />
-    <state x="667" y="313" key="Vcs.Push.Dialog.v2" timestamp="1590512296680">
-      <screen x="62" y="0" width="1858" height="1080" />
+    <state x="676" y="313" key="Vcs.Push.Dialog.v2" timestamp="1593828656921">
+      <screen x="75" y="0" width="1845" height="1080" />
     </state>
     <state x="667" y="313" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1590512296680" />
+    <state x="676" y="313" key="Vcs.Push.Dialog.v2/75.0.1845.1080@75.0.1845.1080" timestamp="1593828656921" />
     <state x="679" y="313" key="Vcs.Push.Dialog.v2/80.0.1840.1080@80.0.1840.1080" timestamp="1589844742125" />
+    <state width="850" height="511" key="XDebugger.FullValuePopup" timestamp="1594214179846">
+      <screen x="74" y="0" width="1846" height="1080" />
+    </state>
+    <state width="850" height="511" key="XDebugger.FullValuePopup/74.0.1846.1080@74.0.1846.1080" timestamp="1594214179846" />
+    <state width="849" height="511" key="XDebugger.FullValuePopup/75.0.1845.1080@75.0.1845.1080" timestamp="1594072609735" />
+    <state x="865" y="549" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594157239536">
+      <screen x="74" y="0" width="1846" height="1080" />
+    </state>
+    <state x="865" y="549" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/74.0.1846.1080@74.0.1846.1080" timestamp="1594157239536" />
     <state x="721" y="75" width="585" height="888" key="find.popup" timestamp="1589384434274">
       <screen x="80" y="0" width="1840" height="1080" />
     </state>
@@ -722,19 +772,44 @@
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/np/Loss.py</url>
-          <line>84</line>
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/core/np/regularization.py</url>
           <line>80</line>
           <option name="timeStamp" value="104" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tests/pyapi/TestIntrospection.py</url>
-          <line>17</line>
+          <line>32</line>
           <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/core/np/Nodes.py</url>
+          <line>110</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/core/np/Nodes.py</url>
+          <line>71</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/core/np/Loss.py</url>
+          <line>118</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/core/np/simple_layers/SimpleLossLayers.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/core/np/simple_layers/SimpleLossLayers.py</url>
+          <line>79</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/core/np/Activations.py</url>
+          <line>29</line>
+          <option name="timeStamp" value="128" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -745,6 +820,7 @@
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_tests_core_np_datasets_TestIrisDataset_IrisDsTest_test_multi_layer.coverage" NAME="Unittests for tests.core.np.datasets.TestIrisDataset.IrisDsTest.test_multi_layer Coverage Results" MODIFIED="1590284230394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestBatchNormalization_BatchNormalizationTest_test_something.coverage" NAME="Unittests for TestBatchNormalization.BatchNormalizationTest.test_something Coverage Results" MODIFIED="1590362570108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestBasicNetwork_BasicNetworkNoActivation.coverage" NAME="Unittests for np.TestBasicNetwork.BasicNetworkNoActivation Coverage Results" MODIFIED="1589683272518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_RnnLayerFullTest_RnnLayerFullTests_test_train.coverage" NAME="Unittests for RnnLayerFullTest.RnnLayerFullTests.test_train Coverage Results" MODIFIED="1594220416882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/rnn" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestMaxPool2D_MaxPool2DUnitTests_test_backprop.coverage" NAME="Unittests for np.TestMaxPool2D.MaxPool2DUnitTests.test_backprop Coverage Results" MODIFIED="1589221175977" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_small.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_small Coverage Results" MODIFIED="1589150486993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_single_step.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_single_step Coverage Results" MODIFIED="1590424013591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
@@ -754,9 +830,11 @@
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestActivations_SimpleActivationTests_test_logit_cross_entropy.coverage" NAME="Unittests for np.TestActivations.SimpleActivationTests.test_logit_cross_entropy Coverage Results" MODIFIED="1590093398687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestMNist784_Mnist784DsTest.coverage" NAME="Unittests for TestMNist784.Mnist784DsTest Coverage Results" MODIFIED="1589770662790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_compare_optimizations.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_compare_optimizations Coverage Results" MODIFIED="1589494191973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestRnnCell_SimpleRnnCellTests_test_rnn_var_node.coverage" NAME="Unittests for TestRnnCell.SimpleRnnCellTests.test_rnn_var_node Coverage Results" MODIFIED="1594071851923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/rnn" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestFullNetwork_FullNetworkWithSigmoid_test_transform1.coverage" NAME="Unittests for TestFullNetwork.FullNetworkWithSigmoid.test_transform1 Coverage Results" MODIFIED="1589143749213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestBasicNetwork_BasicNetworkSigmoid.coverage" NAME="Unittests for np.TestBasicNetwork.BasicNetworkSigmoid Coverage Results" MODIFIED="1589683284482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestIrisDataset_IrisDsTest_test_multi_layer.coverage" NAME="Unittests for TestIrisDataset.IrisDsTest.test_multi_layer Coverage Results" MODIFIED="1590284373617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestLosses_SimpleCrossEntryTestCase_test_softmax_cross_entropy.coverage" NAME="Unittests for np.TestLosses.SimpleCrossEntryTestCase.test_softmax_cross_entropy Coverage Results" MODIFIED="1594159310671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_tests_core_np_TestDenseLayer_DenseLayerStandAlone_test_basic_op.coverage" NAME="Unittests for tests.core.np.TestDenseLayer.DenseLayerStandAlone.test_basic_op Coverage Results" MODIFIED="1590284937306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestActivations_SimpleActivationTests_test_sigmoid_grad.coverage" NAME="Unittests for np.TestActivations.SimpleActivationTests.test_sigmoid_grad Coverage Results" MODIFIED="1589324645925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestFullNetwork_FullNetworkWithSigmoid.coverage" NAME="Unittests for np.TestFullNetwork.FullNetworkWithSigmoid Coverage Results" MODIFIED="1589212866816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
@@ -770,14 +848,18 @@
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestFullNetwork_FullNetworkWithSigmoid_test_parabola.coverage" NAME="Unittests for TestFullNetwork.FullNetworkWithSigmoid.test_parabola Coverage Results" MODIFIED="1588805895746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestMatrixReverseModeBackProp_BinaryOpBackProp.coverage" NAME="Unittests for TestMatrixReverseModeBackProp.BinaryOpBackProp Coverage Results" MODIFIED="1589143958498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_tests_core_np_TestBasicNetwork_BasicNetworkNoActivation_test_network_optimizer.coverage" NAME="Unittests for tests.core.np.TestBasicNetwork.BasicNetworkNoActivation.test_network_optimizer Coverage Results" MODIFIED="1589683203574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_RnnLayerIntegrationTest_RnnLayerIntegrationTests_test_rnn_layer.coverage" NAME="Unittests for RnnLayerIntegrationTest.RnnLayerIntegrationTests.test_rnn_layer Coverage Results" MODIFIED="1594075970419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/rnn" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_np.coverage" NAME="Unittests in np Coverage Results" MODIFIED="1590284797387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestPythonBasics_TestingPythonDelete_test_delete.coverage" NAME="Unittests for TestPythonBasics.TestingPythonDelete.test_delete Coverage Results" MODIFIED="1594213099395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/pyapi" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestMaxPool2D_MaxPool2DUnitTests_test_forward.coverage" NAME="Unittests for np.TestMaxPool2D.MaxPool2DUnitTests.test_forward Coverage Results" MODIFIED="1589221156594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestDenseLayer_DenseLayerStandAlone_test_something.coverage" NAME="Unittests for TestDenseLayer.DenseLayerStandAlone.test_something Coverage Results" MODIFIED="1588812253093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestBasicNetwork_BasicNetworkNoActivation_test_optimizer_step.coverage" NAME="Unittests for np.TestBasicNetwork.BasicNetworkNoActivation.test_optimizer_step Coverage Results" MODIFIED="1589680066765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestRnnCell_SimpleRnnCellTests_test_2_seq_rnn.coverage" NAME="Unittests for TestRnnCell.SimpleRnnCellTests.test_2_seq_rnn Coverage Results" MODIFIED="1594072889489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/rnn" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestBasicBatchProcess_UnitNetworkBatch.coverage" NAME="Unittests for np.TestBasicBatchProcess.UnitNetworkBatch Coverage Results" MODIFIED="1589210908556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestLogitCrossEntropy_LogitCrossEntropyTests_test_logit_cross_entropy.coverage" NAME="Unittests for TestLogitCrossEntropy.LogitCrossEntropyTests.test_logit_cross_entropy Coverage Results" MODIFIED="1590095988905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestActivations_SimpleActivationTests_test_softmax.coverage" NAME="Unittests for np.TestActivations.SimpleActivationTests.test_softmax Coverage Results" MODIFIED="1589856760031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestActivations_SimpleActivationTests.coverage" NAME="Unittests for np.TestActivations.SimpleActivationTests Coverage Results" MODIFIED="1590096133506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_RnnLayerFullTest_RnnLayerFullTests_test_rnn_layer.coverage" NAME="Unittests for RnnLayerFullTest.RnnLayerFullTests.test_rnn_layer Coverage Results" MODIFIED="1594087656797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/rnn" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestIrisDataset_IrisDsTest_test_two_layer.coverage" NAME="Unittests for TestIrisDataset.IrisDsTest.test_two_layer Coverage Results" MODIFIED="1589496102754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_tests_core_np_TestMaxPool2D_MaxPool2DUnitTests_test_backprop.coverage" NAME="Unittests for tests.core.np.TestMaxPool2D.MaxPool2DUnitTests.test_backprop Coverage Results" MODIFIED="1589221147939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestIrisDataset_IrisDsTest_test_mult_layer.coverage" NAME="Unittests for TestIrisDataset.IrisDsTest.test_mult_layer Coverage Results" MODIFIED="1589841931405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
@@ -791,10 +873,13 @@
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_basic_op.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_basic_op Coverage Results" MODIFIED="1589598317650" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestActivations_SigmoidActivationTest_test_sigmoid.coverage" NAME="Unittests for np.TestActivations.SigmoidActivationTest.test_sigmoid Coverage Results" MODIFIED="1589224272968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestLosses_SimpleCrossEntryTestCase_test_cross_entropy.coverage" NAME="Unittests for np.TestLosses.SimpleCrossEntryTestCase.test_cross_entropy Coverage Results" MODIFIED="1590339786018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestIntrospection_MyTestCase_test_field_access.coverage" NAME="Unittests for TestIntrospection.MyTestCase.test_field_access Coverage Results" MODIFIED="1593999188986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/pyapi" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_in_TestFwdModeOneDim_py.coverage" NAME="Unittests in TestFwdModeOneDim.py Coverage Results" MODIFIED="1588797115413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestBasicBatchProcess_UnitNetworkBatch_test_linear_transformation.coverage" NAME="Unittests for TestBasicBatchProcess.UnitNetworkBatch.test_linear_transformation Coverage Results" MODIFIED="1589141338928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestSimpleLossLayers_SoftmaxTestCase_test_batch.coverage" NAME="Unittests for TestSimpleLossLayers.SoftmaxTestCase.test_batch Coverage Results" MODIFIED="1594157538968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/simple_layers" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestRegularization_BatchNormalizationTest_test_dropout_simple_input.coverage" NAME="Unittests for TestRegularization.BatchNormalizationTest.test_dropout_simple_input Coverage Results" MODIFIED="1590507321482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestMNist784_Mnist784DsTest_test_linear_training_tf.coverage" NAME="Unittests for TestMNist784.Mnist784DsTest.test_linear_training_tf Coverage Results" MODIFIED="1590267841391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestRnnCell_SimpleRnnCellTests_test_forward.coverage" NAME="Unittests for TestRnnCell.SimpleRnnCellTests.test_forward Coverage Results" MODIFIED="1594071218246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/rnn" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_download_mnist.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_download_mnist Coverage Results" MODIFIED="1588963403701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone_test_optimization.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone.test_optimization Coverage Results" MODIFIED="1588872309095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$LatexHelper.coverage" NAME="LatexHelper Coverage Results" MODIFIED="1589162161574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/docs/tex" />
@@ -806,12 +891,14 @@
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestUtils_TestUtilFunctions_test_to_one_hot.coverage" NAME="Unittests for TestUtils.TestUtilFunctions.test_to_one_hot Coverage Results" MODIFIED="1589757771418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestIrisDataset_IrisDsTest_test_linear_fit.coverage" NAME="Unittests for TestIrisDataset.IrisDsTest.test_linear_fit Coverage Results" MODIFIED="1589815952363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestDenseLayer_DenseLayerStandAlone.coverage" NAME="Unittests for np.TestDenseLayer.DenseLayerStandAlone Coverage Results" MODIFIED="1589212830441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestRnnCell_SimpleRnnCellTests.coverage" NAME="Unittests for TestRnnCell.SimpleRnnCellTests Coverage Results" MODIFIED="1594074689723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/rnn" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_tests_core_np_TestLosses_SimpleCrossEntryTestCase_test_cross_entropy.coverage" NAME="Unittests for tests.core.np.TestLosses.SimpleCrossEntryTestCase.test_cross_entropy Coverage Results" MODIFIED="1589383907626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestMNist784_Mnist784DsTest_test_load_one.coverage" NAME="Unittests for TestMNist784.Mnist784DsTest.test_load_one Coverage Results" MODIFIED="1589904610125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution2d.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d Coverage Results" MODIFIED="1588965433524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution_with_l2.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution_with_l2 Coverage Results" MODIFIED="1589064750443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_tests_core_np_TestActivations_SimpleActivationTests_test_sigmoid_grad.coverage" NAME="Unittests for tests.core.np.TestActivations.SimpleActivationTests.test_sigmoid_grad Coverage Results" MODIFIED="1589925925446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestMNist784_Mnist784DsTest_test_linear_training_tf_fast.coverage" NAME="Unittests for TestMNist784.Mnist784DsTest.test_linear_training_tf_fast Coverage Results" MODIFIED="1590512566482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestRnnCell_SimpleRnnCellTests_test_rnn_layer.coverage" NAME="Unittests for TestRnnCell.SimpleRnnCellTests.test_rnn_layer Coverage Results" MODIFIED="1594074641177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/rnn" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestActivations_SimpleActivationTests_test_relu.coverage" NAME="Unittests for np.TestActivations.SimpleActivationTests.test_relu Coverage Results" MODIFIED="1589925365503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestConvolutionStandalone_MyTestCase_test_convolution2d_plotting.coverage" NAME="Unittests for TestConvolutionStandalone.MyTestCase.test_convolution2d_plotting Coverage Results" MODIFIED="1589142712574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestMatrixReverseModeBackProp_BinaryOpBackProp.coverage" NAME="Unittests for np.TestMatrixReverseModeBackProp.BinaryOpBackProp Coverage Results" MODIFIED="1589212913060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
@@ -819,5 +906,6 @@
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_tests_core_np_TestActivations_SimpleActivationTests_test_sigmoid.coverage" NAME="Unittests for tests.core.np.TestActivations.SimpleActivationTests.test_sigmoid Coverage Results" MODIFIED="1589330561466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_np_TestMaxPool2D_MyTestCase_test_backprop.coverage" NAME="Unittests for np.TestMaxPool2D.MyTestCase.test_backprop Coverage Results" MODIFIED="1589219973120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core" />
     <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestMNist784_Mnist784DsTest_test_linear_training.coverage" NAME="Unittests for TestMNist784.Mnist784DsTest.test_linear_training Coverage Results" MODIFIED="1590273866945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/datasets" />
+    <SUITE FILE_PATH="coverage/autodiff_light$Unittests_for_TestSimpleLossLayers_SoftmaxTestCase_test_forward.coverage" NAME="Unittests for TestSimpleLossLayers.SoftmaxTestCase.test_forward Coverage Results" MODIFIED="1594156668383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/core/np/simple_layers" />
   </component>
 </project>
